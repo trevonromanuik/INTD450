@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using Hacker.Managers;
+using Hacker.Screens;
+
 namespace Hacker
 {
     /// <summary>
@@ -19,10 +22,14 @@ namespace Hacker
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        ScreenManager screenManager;
+
         public Hacker()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            screenManager = new ScreenManager();
         }
 
         /// <summary>
@@ -34,6 +41,7 @@ namespace Hacker
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            AssetManager.Initialize(Content);
 
             base.Initialize();
         }
@@ -48,6 +56,7 @@ namespace Hacker
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            screenManager.LoadNewScreen(new GameScreen(screenManager));
         }
 
         /// <summary>
@@ -71,6 +80,7 @@ namespace Hacker
                 this.Exit();
 
             // TODO: Add your update logic here
+            screenManager.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -84,6 +94,9 @@ namespace Hacker
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            screenManager.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
