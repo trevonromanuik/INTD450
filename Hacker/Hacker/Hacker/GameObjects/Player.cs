@@ -25,15 +25,11 @@ namespace Hacker.GameObjects
 
             AddComponent(new Position(80, 80));
 
-            AnimatedSprite sprite = new AnimatedSprite();
-            sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("link_up"), 12, 15, 0.2f, true));
-            sprite.AddAnimation("down", new Animation(AssetManager.LoadTexture("link_down"), 13, 16, 0.2f, true));
-            sprite.AddAnimation("left", new Animation(AssetManager.LoadTexture("link_left"), 14, 16, 0.2f, true));
-            sprite.AddAnimation("right", new Animation(AssetManager.LoadTexture("link_right"), 14, 16, 0.2f, true));
-            sprite.PlayAnimation("down");
+            Sprite sprite = new Sprite(AssetManager.LoadTexture("player"));
             AddComponent(sprite);
 
             AddComponent(new PlayerInput());
+            AddComponent(new Collision());
         }
 
         public override void Update(GameTime gameTime)

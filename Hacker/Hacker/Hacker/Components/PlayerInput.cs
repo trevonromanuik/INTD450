@@ -11,7 +11,7 @@ namespace Hacker.Components
 {
     class PlayerInput : Component
     {
-        private const float _speed = 1.5f;
+        private const float _speed = 2.0f;
 
         private KeyboardState _keyState;
         private KeyboardState _prevKeyState;
@@ -22,7 +22,7 @@ namespace Hacker.Components
             if (position == null)
                 return;
 
-            var sprite = GetComponent<AnimatedSprite>();
+            var sprite = GetComponent<Sprite>();
             if (sprite == null)
                 return;
 
@@ -42,23 +42,7 @@ namespace Hacker.Components
             if (isLeft ^ isRight)
                 x = isLeft ? -_speed : _speed;
 
-            if (x == 0 && y == 0)
-            {
-                sprite.Freeze();
-            }
-            else
-            {
-                sprite.Unfreeze();
-                if (x != 0 ^ y != 0)
-                {
-                    if (x > 0) sprite.PlayAnimation("right");
-                    else if (x < 0) sprite.PlayAnimation("left");
-                    else if (y > 0) sprite.PlayAnimation("down");
-                    else if (y < 0) sprite.PlayAnimation("up");
-                }
-
-                position.Move(x, y);
-            }
+            position.Move(x, y);
 
             _prevKeyState = _keyState;
         }

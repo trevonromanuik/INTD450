@@ -27,6 +27,9 @@ namespace Hacker
         public Hacker()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 320;
+            graphics.PreferredBackBufferHeight = 256;
+
             Content.RootDirectory = "Content";
 
             screenManager = new ScreenManager();

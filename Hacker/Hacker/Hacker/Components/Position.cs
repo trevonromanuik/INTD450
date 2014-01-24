@@ -44,9 +44,14 @@ namespace Hacker.Components
             x += _position.X;
             y += _position.Y;
 
-           // Do collision detection
-
-            _position = new Vector2(x, y);
+            // Do collision detection
+            var collision = GetComponent<Collision>();
+            var sprite = GetComponent<Sprite>();
+            _position = collision.CheckCollision(
+                new Vector2(x, y), 
+                sprite.Width, 
+                sprite.Height
+            );
         }
 
         public void Teleport(float x, float y)

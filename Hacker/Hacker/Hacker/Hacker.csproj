@@ -109,12 +109,17 @@
   <ItemGroup>
     <Compile Include="Components\AnimatedSprite.cs" />
     <Compile Include="Components\Animation.cs" />
+    <Compile Include="Components\Collision.cs" />
     <Compile Include="Components\Component.cs" />
     <Compile Include="Components\PlayerInput.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Sprite.cs" />
+    <Compile Include="Extensions\RectangleExtensions.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Player.cs" />
+    <Compile Include="Layers\Layer.cs" />
+    <Compile Include="Layers\MapLayer.cs" />
+    <Compile Include="Levels\Level.cs" />
     <Compile Include="Managers\AssetManager.cs" />
     <Compile Include="Managers\GameObjectManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
