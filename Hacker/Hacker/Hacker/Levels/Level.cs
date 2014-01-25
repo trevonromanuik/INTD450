@@ -19,6 +19,7 @@ namespace Hacker.Levels
         {
             layers = new Stack<Layer>();
             layers.Push(MapLayer.Instance);
+            //layers.Push(new ConsoleLayer());
         }
 
         public void LoadContent()

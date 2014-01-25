@@ -117,6 +117,7 @@
     <Compile Include="Extensions\RectangleExtensions.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Player.cs" />
+    <Compile Include="Layers\ConsoleLayer.cs" />
     <Compile Include="Layers\Layer.cs" />
     <Compile Include="Layers\MapLayer.cs" />
     <Compile Include="Levels\Level.cs" />
