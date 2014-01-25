@@ -18,8 +18,7 @@ namespace Hacker.Levels
         public Level()
         {
             layers = new Stack<Layer>();
-            layers.Push(MapLayer.Instance);
-            //layers.Push(new ConsoleLayer());
+            PushLayer(MapLayer.Instance);
         }
 
         public void LoadContent()
@@ -43,6 +42,18 @@ namespace Hacker.Levels
             {
                 layer.Draw(spriteBatch);
             }
+        }
+
+        public void PushLayer(Layer layer)
+        {
+            layer.Initialize(this);
+            layers.Push(layer);
+        }
+
+        public void PopLayer()
+        {
+            Layer layer = layers.Pop();
+            layer.UnloadContent();
         }
     }
 }

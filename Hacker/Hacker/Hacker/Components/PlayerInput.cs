@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using Hacker.Layers;
+
 namespace Hacker.Components
 {
     class PlayerInput : Component
@@ -43,6 +45,13 @@ namespace Hacker.Components
                 x = isLeft ? -_speed : _speed;
 
             position.Move(x, y);
+
+            // check for tilde
+            if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.OemTilde)
+                && _keyState.IsKeyDown(Keys.OemTilde))
+            {
+                MapLayer.Instance.Level.PushLayer(new ConsoleLayer());
+            }
 
             _prevKeyState = _keyState;
         }

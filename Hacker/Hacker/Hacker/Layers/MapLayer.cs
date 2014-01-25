@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Hacker.GameObjects;
+using Hacker.Levels;
 using Hacker.Managers;
 
 namespace Hacker.Layers
