@@ -6,11 +6,14 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker;
+
 namespace Hacker.Components
 {
     class Position : Component
     {
         private Vector2 _position;
+        public Direction Direction { get; set; }
 
         public float X
         {

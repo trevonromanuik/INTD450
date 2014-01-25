@@ -7,7 +7,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using Hacker;
 using Hacker.Conversations;
+using Hacker.GameObjects;
 using Hacker.Layers;
 
 namespace Hacker.Components
@@ -45,6 +47,14 @@ namespace Hacker.Components
             if (isLeft ^ isRight)
                 x = isLeft ? -_speed : _speed;
 
+            if (x != 0 ^ y != 0)
+            {
+                if (x > 0) position.Direction = Direction.Right;
+                else if (x < 0) position.Direction = Direction.Left;
+                else if (y > 0) position.Direction = Direction.Down;
+                else if (y < 0) position.Direction = Direction.Up;
+            }
+
             position.Move(x, y);
 
             // check for tilde
@@ -58,9 +68,28 @@ namespace Hacker.Components
             if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.Enter)
                 && _keyState.IsKeyDown(Keys.Enter))
             {
-                MapLayer.Instance.Level.PushLayer(
+                foreach (GameObject gameObject in MapLayer.Instance.GameObjectManager.GameObjects)
+                {
+                    if (gameObject.Id != this.OwnerId)
+                    {
+                        var _position = gameObject.GetComponent<Position>();
+                        if (_position != null)
+                        {
+                            float dx = position.X - _position.X;
+                            float dy = position.Y - _position.Y;
+                            double distance = Math.Sqrt(dx * dx + dy * dy);
+                            if (distance < 100.0)
+                            {
+                                double direction = Math.Tan(dy / dx);
+                                Console.WriteLine(direction);
+                            }
+                        }
+                    }
+                }
+
+                /*MapLayer.Instance.Level.PushLayer(
                     new ConversationLayer(new SpoofConversation())
-                );
+                );*/
             }
 
             _prevKeyState = _keyState;

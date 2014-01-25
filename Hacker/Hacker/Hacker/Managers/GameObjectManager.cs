@@ -12,21 +12,21 @@ namespace Hacker.Managers
 {
     class GameObjectManager
     {
-        private List<GameObject> _gameObjects;
+        public List<GameObject> GameObjects { get; private set; }
 
         public GameObjectManager()
         {
-            _gameObjects = new List<GameObject>();
+            GameObjects = new List<GameObject>();
         }
 
         public void AddGameObject(GameObject gameObject)
         {
-            _gameObjects.Add(gameObject);
+            GameObjects.Add(gameObject);
         }
 
         public void Update(GameTime gameTime)
         {
-            foreach (var gameObject in _gameObjects)
+            foreach (var gameObject in GameObjects)
             {
                 gameObject.Update(gameTime);
             }
@@ -34,7 +34,7 @@ namespace Hacker.Managers
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var gameObject in _gameObjects)
+            foreach (var gameObject in GameObjects)
             {
                 gameObject.Draw(spriteBatch);
             }

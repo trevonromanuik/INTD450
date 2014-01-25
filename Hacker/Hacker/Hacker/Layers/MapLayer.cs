@@ -37,13 +37,14 @@ namespace Hacker.Layers
         };
 
         Texture2D tileTexture;
-        GameObjectManager gameObjectManager;
+        public GameObjectManager GameObjectManager { get; private set; }
 
         public MapLayer()
         {
             tileTexture = AssetManager.LoadTexture("tile");
-            gameObjectManager = new GameObjectManager();
-            gameObjectManager.AddGameObject(Player.Instance);
+            GameObjectManager = new GameObjectManager();
+            GameObjectManager.AddGameObject(Player.Instance);
+            GameObjectManager.AddGameObject(new Spoofie());
         }
 
         public override void LoadContent()
@@ -58,7 +59,7 @@ namespace Hacker.Layers
 
         public override void Update(GameTime gameTime)
         {
-            gameObjectManager.Update(gameTime);   
+            GameObjectManager.Update(gameTime);   
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -78,7 +79,7 @@ namespace Hacker.Layers
                 }
             }
 
-            gameObjectManager.Draw(spriteBatch);
+            GameObjectManager.Draw(spriteBatch);
         }
     }
 }
