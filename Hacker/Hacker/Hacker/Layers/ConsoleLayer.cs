@@ -21,8 +21,6 @@ namespace Hacker.Layers
         const int maxOutputLength = 13;
 
         Texture2D consoleTexture;
-        Texture2D cursorTexture;
-
         SpriteFont consoleFont;
 
         double cursorTimer;
@@ -85,8 +83,6 @@ namespace Hacker.Layers
         public ConsoleLayer()
         {
             consoleTexture = AssetManager.LoadTexture("console");
-            cursorTexture = AssetManager.LoadTexture("cursor");
-
             consoleFont = AssetManager.LoadFont("Fonts/console_font");
 
             cursorTimer = 0.0;

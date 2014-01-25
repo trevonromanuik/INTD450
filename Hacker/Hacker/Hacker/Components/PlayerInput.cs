@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using Hacker.Conversations;
 using Hacker.Layers;
 
 namespace Hacker.Components
@@ -51,6 +52,15 @@ namespace Hacker.Components
                 && _keyState.IsKeyDown(Keys.OemTilde))
             {
                 MapLayer.Instance.Level.PushLayer(new ConsoleLayer());
+            }
+
+            // check for enter
+            if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.Enter)
+                && _keyState.IsKeyDown(Keys.Enter))
+            {
+                MapLayer.Instance.Level.PushLayer(
+                    new ConversationLayer(new SpoofConversation())
+                );
             }
 
             _prevKeyState = _keyState;

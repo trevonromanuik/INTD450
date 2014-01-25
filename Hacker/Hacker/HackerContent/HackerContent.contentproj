@@ -63,17 +63,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cursor.png">
-      <Name>cursor</Name>
+    <Compile Include="Fonts\console_font.bmp">
+      <Name>console_font</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="conversation.png">
+      <Name>conversation</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fonts\console_font.bmp">
-      <Name>console_font</Name>
+    <Compile Include="marker.png">
+      <Name>marker</Name>
       <Importer>TextureImporter</Importer>
-      <Processor>FontTextureProcessor</Processor>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

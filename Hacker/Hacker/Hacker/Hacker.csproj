@@ -114,10 +114,14 @@
     <Compile Include="Components\PlayerInput.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Sprite.cs" />
+    <Compile Include="Conversations\Conversation.cs" />
+    <Compile Include="Conversations\Message.cs" />
+    <Compile Include="Conversations\SpoofConversation.cs" />
     <Compile Include="Extensions\RectangleExtensions.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="Layers\ConsoleLayer.cs" />
+    <Compile Include="Layers\ConversationLayer.cs" />
     <Compile Include="Layers\Layer.cs" />
     <Compile Include="Layers\MapLayer.cs" />
     <Compile Include="Levels\Level.cs" />
