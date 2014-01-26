@@ -25,7 +25,12 @@ namespace Hacker.GameObjects
 
             AddComponent(new Position(80, 80));
 
-            Sprite sprite = new Sprite(AssetManager.LoadTexture("player"));
+            AnimatedSprite sprite = new AnimatedSprite();
+            sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("player_up"), 32, 32, 1, false));
+            sprite.AddAnimation("down", new Animation(AssetManager.LoadTexture("player_down"), 32, 32, 1, false));
+            sprite.AddAnimation("left", new Animation(AssetManager.LoadTexture("player_left"), 32, 32, 1, false));
+            sprite.AddAnimation("right", new Animation(AssetManager.LoadTexture("player_right"), 32, 32, 1, false));
+            sprite.PlayAnimation("down");
             AddComponent(sprite);
 
             AddComponent(new PlayerInput());

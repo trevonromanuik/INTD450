@@ -27,7 +27,7 @@ namespace Hacker.Components
             if (position == null)
                 return;
 
-            var sprite = GetComponent<Sprite>();
+            var sprite = GetComponent<AnimatedSprite>();
             if (sprite == null)
                 return;
 
@@ -57,6 +57,22 @@ namespace Hacker.Components
 
             position.Move(x, y);
 
+            switch (position.Direction)
+            {
+                case Direction.Up:
+                    sprite.PlayAnimation("up");
+                    break;
+                case Direction.Down:
+                    sprite.PlayAnimation("down");
+                    break;
+                case Direction.Left:
+                    sprite.PlayAnimation("left");
+                    break;
+                case Direction.Right:
+                    sprite.PlayAnimation("right");
+                    break;
+            }
+
             // check for tilde
             if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.OemTilde)
                 && _keyState.IsKeyDown(Keys.OemTilde))
@@ -73,23 +89,41 @@ namespace Hacker.Components
                     if (gameObject.Id != this.OwnerId)
                     {
                         var _position = gameObject.GetComponent<Position>();
-                        if (_position != null)
+                        var interaction = gameObject.GetComponent<PlayerInteraction>();
+                        if (_position != null && interaction != null)
                         {
-                            float dx = position.X - _position.X;
-                            float dy = position.Y - _position.Y;
+                            float dx = _position.X - position.X;
+                            float dy = -(_position.Y - position.Y);
                             double distance = Math.Sqrt(dx * dx + dy * dy);
-                            if (distance < 100.0)
+                            if (distance < 50.0)
                             {
-                                double direction = Math.Tan(dy / dx);
-                                Console.WriteLine(direction);
+                                bool b = false;
+                                double d;
+                                switch (position.Direction)
+                                {
+                                    case Direction.Up:
+                                        d = Math.Atan(dx / dy);
+                                        b = (dy > 0 && (-0.52 < d && d < 0.52));
+                                        break;
+                                    case Direction.Down:
+                                        d = Math.Atan(dx / dy);
+                                        b = (dy < 0 && (-0.52 < d && d < 0.52));
+                                        break;
+                                    case Direction.Right:
+                                        d = Math.Atan(dy / dx);
+                                        b = (dx > 0 && (-0.52 < d && d < 0.52));
+                                        break;
+                                    case Direction.Left:
+                                        d = Math.Atan(dy / dx);
+                                        b = (dx < 0 && (-0.52 < d && d < 0.52));
+                                        break;
+                                }
+
+                                if (b) interaction.Interact();
                             }
                         }
                     }
                 }
-
-                /*MapLayer.Instance.Level.PushLayer(
-                    new ConversationLayer(new SpoofConversation())
-                );*/
             }
 
             _prevKeyState = _keyState;

@@ -111,7 +111,9 @@
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\Collision.cs" />
     <Compile Include="Components\Component.cs" />
+    <Compile Include="Components\ConversationInteraction.cs" />
     <Compile Include="Components\PlayerInput.cs" />
+    <Compile Include="Components\PlayerInteraction.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Constants.cs" />

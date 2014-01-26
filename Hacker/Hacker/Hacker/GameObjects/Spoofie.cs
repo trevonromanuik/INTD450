@@ -21,6 +21,8 @@ namespace Hacker.GameObjects
 
             Sprite sprite = new Sprite(AssetManager.LoadTexture("spoofie"));
             AddComponent(sprite);
+
+            AddComponent(new ConversationInteraction());
         }
     }
 }
