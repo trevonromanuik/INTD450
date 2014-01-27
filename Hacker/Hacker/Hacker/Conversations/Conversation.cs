@@ -7,11 +7,20 @@ namespace Hacker.Conversations
 {
     class Conversation
     {
-        public List<Message> Messages { get; set; }
+        public List<Message> Messages { get; private set; }
+        public string Name { get; private set; }
+        public string IpAddress { get; private set; }
 
-        public Conversation()
+        public Conversation(string name, string ipAddress)
         {
             Messages = new List<Message>();
+            Name = name;
+            IpAddress = ipAddress;
+        }
+
+        public Message First()
+        {
+            return Messages.First(x => x.Func());
         }
     }
 }

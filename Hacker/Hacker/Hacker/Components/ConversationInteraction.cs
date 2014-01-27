@@ -16,10 +16,16 @@ namespace Hacker.Components
 {
     class ConversationInteraction : PlayerInteraction
     {
+        Conversation _conversation;
+        public ConversationInteraction(Conversation conversation)
+        {
+            _conversation = conversation;
+        }
+
         public override void Interact()
         {
             MapLayer.Instance.Level.PushLayer(
-                new ConversationLayer(new SpoofConversation())
+                new ConversationLayer(_conversation)
             );
         }
 

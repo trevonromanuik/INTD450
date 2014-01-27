@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using Hacker.Components;
 using Hacker.GameObjects;
 using Hacker.Levels;
 using Hacker.Managers;
@@ -75,7 +76,9 @@ namespace Hacker.Layers
             { Keys.D7, '7' },
             { Keys.D8, '8' },
             { Keys.D9, '9' },
-            { Keys.D0, '0' }
+            { Keys.D0, '0' },
+            { Keys.Space, ' '},
+            { Keys.OemPeriod, '.'}
         };
 
         #endregion
@@ -118,8 +121,7 @@ namespace Hacker.Layers
             }
 
             // handle tilde key
-            if (hasPrevKeyState && prevKeyState.IsKeyUp(Keys.OemTilde)
-                && keyState.IsKeyDown(Keys.OemTilde))
+            if (IsKeyPressed(Keys.OemTilde))
             {
                 Level.PopLayer();
             }
@@ -127,15 +129,13 @@ namespace Hacker.Layers
             // handle alphanumeric keys
             foreach (Keys key in keys.Keys)
             {
-                if (hasPrevKeyState && prevKeyState.IsKeyUp(key) 
-                    && keyState.IsKeyDown(key))
+                if (IsKeyPressed(key))
                 {
                     KeyPressed(key);
                 }
             }
 
             // handle backspace
-            // TODO: make holding backspace delete multiple characters
             if (keyState.IsKeyDown(Keys.Back))
             {
                 bool pressBack = false;
@@ -160,8 +160,7 @@ namespace Hacker.Layers
             }
 
             // handle enter key
-            if (hasPrevKeyState && prevKeyState.IsKeyUp(Keys.Enter) 
-                && keyState.IsKeyDown(Keys.Enter))
+            if (IsKeyPressed(Keys.Enter))
             {
                 if (input.Length > 0)
                 {
@@ -175,8 +174,42 @@ namespace Hacker.Layers
                     switch (token)
                     {
                         case "arp":
+                            if (Player.Instance.IpAddresses.Count == 0)
+                            {
+                                AddOutput("No recent IP Addresses to display");
+                            }
+                            else
+                            {
+                                AddOutput("Name : Internet Address");
+                                foreach (Tuple<string, string> ipAddress in Player.Instance.IpAddresses)
+                                {
+                                    AddOutput(ipAddress.Item1 + " : " + ipAddress.Item2);
+                                }
+                            }
                             break;
                         case "spoof":
+                            if (split.Length != 2)
+                            {
+                                AddOutput("Invalid number of parameters");
+                            }
+                            else if (split[1] == "reset")
+                            {
+                                Player.Instance.SpoofReset();
+                                AddOutput("Spoof reset successful");
+                            }
+                            else
+                            {
+                                Npc npc = MapLayer.Instance.GameObjectManager.GetNpcByIp(split[1]);
+                                if (npc == null)
+                                {
+                                    AddOutput("Unknown IP Address: " + split[1]);
+                                }
+                                else
+                                {
+                                    Player.Instance.Spoof(npc);
+                                    AddOutput("Spoof successful");
+                                }
+                            }
                             break;
                         default:
                             AddOutput("Unknown command: " + token);
@@ -219,6 +252,12 @@ namespace Hacker.Layers
                 new Vector2(20, 229), 
                 Color.White * 0.8f
             );
+        }
+
+        public bool IsKeyPressed(Keys key)
+        {
+            return hasPrevKeyState && prevKeyState.IsKeyUp(key)
+                && keyState.IsKeyDown(key);
         }
 
         public void KeyPressed(Keys key)

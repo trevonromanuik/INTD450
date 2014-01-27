@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 using Hacker.Conversations;
+using Hacker.GameObjects;
 using Hacker.Managers;
 
 namespace Hacker.Layers
@@ -18,7 +19,7 @@ namespace Hacker.Layers
         const double markerTime = 0.4;
 
         private Conversation _conversation;
-        private int messageIndex;
+        private Message currentMessage;
 
         Texture2D conversationTexture;
         Texture2D markerTexture;
@@ -37,7 +38,7 @@ namespace Hacker.Layers
         public ConversationLayer(Conversation conversation)
         {
             _conversation = conversation;
-            messageIndex = 0;
+            currentMessage = conversation.First();
 
             conversationTexture = AssetManager.LoadTexture("conversation");
             markerTexture = AssetManager.LoadTexture("marker");
@@ -72,7 +73,7 @@ namespace Hacker.Layers
                 textTimer -= textTime;
                 textIndex = Math.Min(
                     textIndex + 1,
-                    _conversation.Messages[messageIndex].Text.Length
+                    currentMessage.Text.Length
                 );
             }
 
@@ -87,9 +88,9 @@ namespace Hacker.Layers
             if (hasPrevKeyState && prevKeyState.IsKeyUp(Keys.Enter)
                 && keyState.IsKeyDown(Keys.Enter))
             {
-                if (textIndex < _conversation.Messages[messageIndex].Text.Length)
+                if (textIndex < currentMessage.Text.Length)
                 {
-                    textIndex = _conversation.Messages[messageIndex].Text.Length;
+                    textIndex = currentMessage.Text.Length;
                 }
                 else
                 {
@@ -99,9 +100,12 @@ namespace Hacker.Layers
                     markerTimer = 0.0;
                     showMarker = true;
 
-                    messageIndex++;
-                    if (messageIndex == _conversation.Messages.Count)
+                    currentMessage = currentMessage.Next();
+
+                    // check if conversation is over
+                    if (currentMessage == null)
                     {
+                        Player.Instance.AddRecentIpAddress(_conversation.Name, _conversation.IpAddress);
                         Level.PopLayer();
                     }
                 }
@@ -121,7 +125,7 @@ namespace Hacker.Layers
 
             spriteBatch.DrawString(
                 conversationFont,
-                _conversation.Messages[messageIndex].Text.Substring(0, textIndex),
+                currentMessage.Text.Substring(0, textIndex),
                 new Vector2(8, 165),
                 Color.White
             );
