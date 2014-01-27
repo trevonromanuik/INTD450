@@ -12,7 +12,7 @@ namespace Hacker.Components
     {
         public Animation Animation { get; set; }
 
-        private Dictionary<string, Animation> _animations;
+        public Dictionary<string, Animation> Animations { get; set; }
         private int _frameIndex;
         private double _time;
         private bool _frozen;
@@ -20,20 +20,20 @@ namespace Hacker.Components
         public AnimatedSprite()
             : base(null)
         {
-            _animations = new Dictionary<string, Animation>();
+            Animations = new Dictionary<string, Animation>();
         }
 
         public void AddAnimation(string name, Animation animation)
         {
-            _animations.Add(name, animation);
+            Animations.Add(name, animation);
         }
 
         public void PlayAnimation(string name)
         {
-            if (Animation == _animations[name])
+            if (Animation == Animations[name])
                 return;
 
-            Animation = _animations[name];
+            Animation = Animations[name];
             _frameIndex = 0;
             _time = 0.0f;
         }

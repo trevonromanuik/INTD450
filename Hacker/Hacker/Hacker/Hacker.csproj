@@ -112,6 +112,7 @@
     <Compile Include="Components\Collision.cs" />
     <Compile Include="Components\Component.cs" />
     <Compile Include="Components\ConversationInteraction.cs" />
+    <Compile Include="Components\PlayerCollision.cs" />
     <Compile Include="Components\PlayerInput.cs" />
     <Compile Include="Components\PlayerInteraction.cs" />
     <Compile Include="Components\Position.cs" />
@@ -121,8 +122,10 @@
     <Compile Include="Conversations\Message.cs" />
     <Compile Include="Conversations\SpoofConversation.cs" />
     <Compile Include="Extensions\FileWriterExtension.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\RectangleExtensions.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
+    <Compile Include="GameObjects\Npc.cs" />
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\Spoofie.cs" />
     <Compile Include="Layers\ConsoleLayer.cs" />

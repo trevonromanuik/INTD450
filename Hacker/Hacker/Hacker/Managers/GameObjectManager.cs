@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Extensions;
 using Hacker.GameObjects;
 
 namespace Hacker.Managers
@@ -38,6 +39,16 @@ namespace Hacker.Managers
             {
                 gameObject.Draw(spriteBatch);
             }
+        }
+
+        public GameObject GetGameObjectById(string id)
+        {
+            return GameObjects.Find(x => x.Id == id);
+        }
+
+        public Npc GetNpcByIp(string ip)
+        {
+            return (Npc)GameObjects.Find(x => x.IsInstanceOf(typeof(Npc)) && ((Npc)x).IpAddress == ip);
         }
     }
 }

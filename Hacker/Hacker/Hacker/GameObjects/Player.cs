@@ -19,9 +19,17 @@ namespace Hacker.GameObjects
             get { return _instance ?? (_instance = new Player()); }
         }
 
+        const int maxIpAddressCount = 5;
+        public List<Tuple<string, string>> IpAddresses { get; private set; }
+
+        private Dictionary<string, Animation> animations;
+
+        public string SpoofId { get; private set; }
+
         public Player()
         {
             Id = "player";
+            SpoofId = null;
 
             AddComponent(new Position(80, 80));
 
@@ -33,13 +41,51 @@ namespace Hacker.GameObjects
             sprite.PlayAnimation("down");
             AddComponent(sprite);
 
+            // save a reference to the original animations for spoofing
+            animations = sprite.Animations;
+
             AddComponent(new PlayerInput());
             AddComponent(new Collision());
+
+            IpAddresses = new List<Tuple<string, string>>();
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+        }
+
+        public void AddRecentIpAddress(string name, string ipAddress)
+        {
+            int index = IpAddresses.FindIndex(x => x.Item2 == ipAddress);
+            if (index != -1)
+            {
+                IpAddresses.RemoveAt(index);
+            }
+
+            if (IpAddresses.Count >= maxIpAddressCount)
+            {
+                IpAddresses.RemoveAt(0);
+            }
+
+            IpAddresses.Add(Tuple.Create(name, ipAddress));
+        }
+
+        public void Spoof(Npc npc)
+        {
+            SpoofId = npc.Id;
+
+            var sprite = GetComponent<AnimatedSprite>();
+            var npcSprite = npc.GetComponent<AnimatedSprite>();
+            sprite.Animations = npcSprite.Animations;
+        }
+
+        public void SpoofReset()
+        {
+            SpoofId = null;
+
+            var _sprite = GetComponent<AnimatedSprite>();
+            _sprite.Animations = animations;
         }
     }
 }
