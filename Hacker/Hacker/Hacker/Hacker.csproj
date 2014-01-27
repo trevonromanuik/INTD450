@@ -120,6 +120,7 @@
     <Compile Include="Conversations\Conversation.cs" />
     <Compile Include="Conversations\Message.cs" />
     <Compile Include="Conversations\SpoofConversation.cs" />
+    <Compile Include="Extensions\FileWriterExtension.cs" />
     <Compile Include="Extensions\RectangleExtensions.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Player.cs" />
