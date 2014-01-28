@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Hacker;
 using Hacker.GameObjects;
 using Hacker.Layers;
+using Hacker.Levels;
+using Hacker.Screens;
 
 namespace Hacker.Components
 {
@@ -49,7 +51,7 @@ namespace Hacker.Components
             _position.X += x;
             _position.Y += y;
 
-            // Do collision detection
+            // Do map collision detection
             var collision = GetComponent<Collision>();
             var sprite = GetComponent<Sprite>();
             _position = collision.CheckCollision(
@@ -58,16 +60,13 @@ namespace Hacker.Components
                 sprite.Height
             );
 
-            foreach (GameObject gameObject in MapLayer.Instance.GameObjectManager.GameObjects)
+            // Do gameobject collision detection
+            foreach (GameObject gameObject in GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GameObjects)
             {
                 var playerCollision = gameObject.GetComponent<PlayerCollision>();
                 if (playerCollision != null)
                 {
-                    _position = playerCollision.CheckCollision(
-                        _position,
-                        sprite.Width,
-                        sprite.Height
-                    );
+                    playerCollision.Collide();
                 }
             }
         }

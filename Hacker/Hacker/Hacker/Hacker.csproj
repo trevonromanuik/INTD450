@@ -112,6 +112,8 @@
     <Compile Include="Components\Collision.cs" />
     <Compile Include="Components\Component.cs" />
     <Compile Include="Components\ConversationInteraction.cs" />
+    <Compile Include="Components\LevelSwitchCollision.cs" />
+    <Compile Include="Components\MovementCollision.cs" />
     <Compile Include="Components\PlayerCollision.cs" />
     <Compile Include="Components\PlayerInput.cs" />
     <Compile Include="Components\PlayerInteraction.cs" />
@@ -123,15 +125,20 @@
     <Compile Include="Conversations\SpoofConversation.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\RectangleExtensions.cs" />
+    <Compile Include="GameObjects\Exit.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Npc.cs" />
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\Spoofie.cs" />
     <Compile Include="Layers\ConsoleLayer.cs" />
     <Compile Include="Layers\ConversationLayer.cs" />
+    <Compile Include="Layers\InsideMapLayer.cs" />
     <Compile Include="Layers\Layer.cs" />
     <Compile Include="Layers\MapLayer.cs" />
+    <Compile Include="Layers\OutsideMapLayer.cs" />
+    <Compile Include="Levels\InsideLevel.cs" />
     <Compile Include="Levels\Level.cs" />
+    <Compile Include="Levels\OutsideLevel.cs" />
     <Compile Include="Managers\AssetManager.cs" />
     <Compile Include="Managers\GameObjectManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
@@ -140,6 +147,8 @@
     <Compile Include="Hacker.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\Screen.cs" />
+    <Compile Include="Transitions\FadeTransition.cs" />
+    <Compile Include="Transitions\Transition.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

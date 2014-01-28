@@ -11,6 +11,8 @@ using Hacker;
 using Hacker.Conversations;
 using Hacker.GameObjects;
 using Hacker.Layers;
+using Hacker.Levels;
+using Hacker.Screens;
 
 namespace Hacker.Components
 {
@@ -77,16 +79,16 @@ namespace Hacker.Components
             if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.OemTilde)
                 && _keyState.IsKeyDown(Keys.OemTilde))
             {
-                MapLayer.Instance.Level.PushLayer(new ConsoleLayer());
+                GameScreen.Level.PushLayer(new ConsoleLayer());
             }
 
             // check for enter
             if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.Enter)
                 && _keyState.IsKeyDown(Keys.Enter))
             {
-                foreach (GameObject gameObject in MapLayer.Instance.GameObjectManager.GameObjects)
+                foreach (GameObject gameObject in GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GameObjects)
                 {
-                    if (gameObject.Id != this.OwnerId)
+                    if (gameObject.Id != this.Owner.Id)
                     {
                         var _position = gameObject.GetComponent<Position>();
                         var interaction = gameObject.GetComponent<PlayerInteraction>();

@@ -12,26 +12,21 @@ namespace Hacker.Components
 {
     abstract class Component
     {
-        private GameObject _gameObject;
+        public GameObject Owner { get; private set; }
 
         public void Initialize(GameObject gameObject)
         {
-            _gameObject = gameObject;
-        }
-
-        public string OwnerId
-        {
-            get { return _gameObject == null ? string.Empty : _gameObject.Id; }
+            Owner = gameObject;
         }
 
         public void Remove()
         {
-            _gameObject.RemoveComponent(this);
+            Owner.RemoveComponent(this);
         }
 
         public T GetComponent<T>() where T : Component
         {
-            return _gameObject == null ? null : _gameObject.GetComponent<T>();
+            return Owner == null ? null : Owner.GetComponent<T>();
         }
 
         public abstract void Update(GameTime gameTime);

@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Hacker.Extensions;
 using Hacker.Layers;
+using Hacker.Levels;
+using Hacker.Screens;
 
 namespace Hacker.Components
 {
@@ -15,11 +17,13 @@ namespace Hacker.Components
     {
         public Vector2 CheckCollision(Vector2 position, int width, int height)
         {
+            MapLayer mapLayer = GameScreen.Level.GetLayer<MapLayer>();
+
             int minI = Math.Max(0, (int)Math.Floor((position.Y - (height / 2)) / 32));
-            int maxI = Math.Min(MapLayer.Instance.Tiles.GetLength(0) - 1, (int)Math.Floor((position.Y + (height / 2)) / 32));
+            int maxI = Math.Min(mapLayer.Tiles.GetLength(0) - 1, (int)Math.Floor((position.Y + (height / 2)) / 32));
 
             int minJ = Math.Max(0, (int)Math.Floor((position.X - (width / 2)) / 32));
-            int maxJ = Math.Min(MapLayer.Instance.Tiles.GetLength(1) - 1, (int)Math.Floor((position.X + (width / 2)) / 32));
+            int maxJ = Math.Min(mapLayer.Tiles.GetLength(1) - 1, (int)Math.Floor((position.X + (width / 2)) / 32));
 
             Rectangle bounds = new Rectangle((int)position.X - (width / 2), (int)position.Y - (height / 2), width, height);
 
@@ -27,7 +31,7 @@ namespace Hacker.Components
             {
                 for (int j = minJ; j <= maxJ; j++)
                 {
-                    if (MapLayer.Instance.Tiles[i, j] == 0)
+                    if (mapLayer.Tiles[i, j] == 0)
                     {
                         Rectangle tileBounds = new Rectangle(j * 32, i * 32, 32, 32);
                         Vector2 depth = bounds.GetIntersectionDepth(tileBounds);

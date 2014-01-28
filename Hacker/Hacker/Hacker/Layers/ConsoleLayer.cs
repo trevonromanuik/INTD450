@@ -11,6 +11,7 @@ using Hacker.Components;
 using Hacker.GameObjects;
 using Hacker.Levels;
 using Hacker.Managers;
+using Hacker.Screens;
 
 namespace Hacker.Layers
 {
@@ -199,7 +200,7 @@ namespace Hacker.Layers
                             }
                             else
                             {
-                                Npc npc = MapLayer.Instance.GameObjectManager.GetNpcByIp(split[1]);
+                                Npc npc = GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(split[1]);
                                 if (npc == null)
                                 {
                                     AddOutput("Unknown IP Address: " + split[1]);

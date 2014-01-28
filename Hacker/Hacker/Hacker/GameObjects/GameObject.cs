@@ -8,17 +8,24 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 using Hacker.Components;
+using Hacker.Managers;
 
 namespace Hacker.GameObjects
 {
     class GameObject
     {
         public string Id { get; set; }
+        public GameObjectManager Manager { get; private set; }
         private readonly List<Component> _components;
 
         public GameObject()
         {
             _components = new List<Component>();
+        }
+
+        public void Initialize(GameObjectManager gameObjectManager)
+        {
+            Manager = gameObjectManager;
         }
 
         public T GetComponent<T>() where T : Component

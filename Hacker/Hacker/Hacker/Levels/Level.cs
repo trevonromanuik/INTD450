@@ -6,19 +6,20 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Extensions;
 using Hacker.Layers;
 using Hacker.Managers;
+using Hacker.Transitions;
 
 namespace Hacker.Levels
 {
-    class Level
+    abstract class Level
     {
         Stack<Layer> layers;
 
         public Level()
         {
             layers = new Stack<Layer>();
-            PushLayer(MapLayer.Instance);
         }
 
         public void LoadContent()
@@ -54,6 +55,11 @@ namespace Hacker.Levels
         {
             Layer layer = layers.Pop();
             layer.UnloadContent();
+        }
+
+        public T GetLayer<T>() where T : Layer
+        {
+            return (T)layers.FirstOrDefault(x => x.IsInstanceOf(typeof(T)));
         }
     }
 }

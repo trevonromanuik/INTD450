@@ -11,6 +11,8 @@ using Hacker;
 using Hacker.Conversations;
 using Hacker.GameObjects;
 using Hacker.Layers;
+using Hacker.Levels;
+using Hacker.Screens;
 
 namespace Hacker.Components
 {
@@ -24,7 +26,7 @@ namespace Hacker.Components
 
         public override void Interact()
         {
-            MapLayer.Instance.Level.PushLayer(
+            GameScreen.Level.PushLayer(
                 new ConversationLayer(_conversation)
             );
         }
