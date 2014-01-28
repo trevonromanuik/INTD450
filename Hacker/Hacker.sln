@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hacker", "Hacker\Hacker\Hacker.csproj", "{69FD95A0-107A-445D-9375-70CD6195F6FD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{35C3B264-0B6A-4541-A35E-BECFD8954154} = {35C3B264-0B6A-4541-A35E-BECFD8954154}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerContent", "Hacker\HackerContent\HackerContent.contentproj", "{B1211435-6022-46D5-BCF8-A44CCCC9259E}"
 EndProject

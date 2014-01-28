@@ -20,41 +20,76 @@ namespace Hacker.Components
         public Vector2 CheckCollision(Vector2 position, int width, int height)
         {
             MapLayer mapLayer = GameScreen.Level.GetLayer<MapLayer>();
-
+            var collisions = new List<Vector2>();
+            
+            // Determine which tiles the player currently occupies.
             int minI = Math.Max(0, (int)Math.Floor((position.Y - (height / 2)) / tileDimension));
             int maxI = Math.Min(mapLayer.Tiles.GetLength(0) - 1, (int)Math.Floor((position.Y + (height / 2)) / tileDimension));
+           
 
             int minJ = Math.Max(0, (int)Math.Floor((position.X - (width / 2)) / tileDimension));
             int maxJ = Math.Min(mapLayer.Tiles.GetLength(1) - 1, (int)Math.Floor((position.X + (width / 2)) / tileDimension));
 
+            // Get the player's bounding box.
             Rectangle bounds = new Rectangle((int)position.X - (width / 2), (int)position.Y - (height / 2), width, height);
 
+            // For each tile the player is currently on...
             for (int i = minI; i <= maxI; ++i)
             {
                 for (int j = minJ; j <= maxJ; j++)
                 {
+                    // Check to see if the tile is an area boundary
                     if (mapLayer.Tiles[i, j] == 0)
                     {
+                        // Get the tile boundaries
                         Rectangle tileBounds = new Rectangle(j * tileDimension, i * tileDimension, tileDimension, tileDimension);
                         Vector2 depth = bounds.GetIntersectionDepth(tileBounds);
                         if (depth != Vector2.Zero)
                         {
-                            float absDepthX = Math.Abs(depth.X);
-                            float absDepthY = Math.Abs(depth.Y);
-
-                            if (absDepthY < absDepthX)
-                            {
-                                bounds.Y += (int)depth.Y;
-                                position.Y += depth.Y;
-                            }
-                            else
-                            {
-                                bounds.X += (int)depth.X;
-                                position.X += depth.X;
-                            }
+                            collisions.Add(depth);
                         }
                     }
                 }
+            }
+
+            switch (collisions.Count)
+            {
+                case 3:
+                    foreach (var collision in collisions)
+                    {
+                        if (Math.Abs(collision.X) == Math.Abs(collision.Y))
+                        {
+                            bounds.Y += (int)collision.Y;
+                            position.Y += collision.Y;
+                            bounds.X += (int)collision.X;
+                            position.X += collision.X;
+                        }
+                    }
+                    break;
+                case 2:
+                    if (collisions[0].X == collisions[1].X)
+                    {
+                        bounds.X += (int)collisions[0].X;
+                        position.X += collisions[0].X;
+                    }
+                    else
+                    {
+                        bounds.Y += (int)collisions[0].Y;
+                        position.Y += collisions[0].Y;
+                    }
+                    break;
+                case 1:
+                    if (Math.Abs(collisions[0].X) < Math.Abs(collisions[0].Y))
+                    {
+                        bounds.X += (int)collisions[0].X;
+                        position.X += collisions[0].X;
+                    }
+                    else
+                    {
+                        bounds.Y += (int)collisions[0].Y;
+                        position.Y += collisions[0].Y;
+                    }
+                    break;
             }
 
             return position;
