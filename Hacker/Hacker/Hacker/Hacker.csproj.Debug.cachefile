@@ -11,10 +11,7 @@ Content\spoofie_down.xnb
 Content\spoofie_left.xnb
 Content\spoofie_right.xnb
 Content\spoofie_up.xnb
-<<<<<<< HEAD
 Content\exit.xnb
 Content\black.xnb
-=======
 Content\Messages\opening_message.xnb
 Content\Messages\opening_message.xml
->>>>>>> c8068a3a0384da76fedbb2509a1a5f27887a3ee9
