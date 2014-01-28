@@ -20,7 +20,7 @@ namespace Hacker.Layers
         const double cursorTime = 0.4;
         const double backspaceTime = 0.4;
 
-        const int maxOutputLength = 13;
+        const int maxOutputLength = 27;
 
         Texture2D consoleTexture;
         SpriteFont consoleFont;
@@ -232,7 +232,7 @@ namespace Hacker.Layers
                 spriteBatch.DrawString(
                     consoleFont,
                     ">",
-                    new Vector2(8, 229),
+                    new Vector2(16, 458),
                     Color.White * 0.8f
                 );
             }
@@ -242,7 +242,7 @@ namespace Hacker.Layers
                 spriteBatch.DrawString(
                     consoleFont,
                     output.ElementAt(i),
-                    new Vector2(8, (i * 16) + 4),
+                    new Vector2(16, (i * 16) + 8),
                     Color.White * 0.8f
                 );
             }
@@ -250,7 +250,7 @@ namespace Hacker.Layers
             spriteBatch.DrawString(
                 consoleFont, 
                 input.ToString(),
-                new Vector2(20, 229), 
+                new Vector2(28, 458), 
                 Color.White * 0.8f
             );
         }

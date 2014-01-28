@@ -50,7 +50,7 @@ namespace Hacker.Layers
                     {
                         spriteBatch.Draw(
                             tileTexture, 
-                            new Vector2(32 * j, 32 * i), 
+                            new Vector2(tileTexture.Width * j, tileTexture.Height * i), 
                             Color.White
                         );
                     }

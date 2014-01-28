@@ -19,14 +19,14 @@ namespace Hacker.GameObjects
         {
             Id = "spoofie";
 
-            AddComponent(new Position(140, 60));
+            AddComponent(new Position(280, 120));
             AddComponent(new MovementCollision());
 
             AnimatedSprite sprite = new AnimatedSprite();
-            sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("spoofie_up"), 32, 32, 1, false));
-            sprite.AddAnimation("down", new Animation(AssetManager.LoadTexture("spoofie_down"), 32, 32, 1, false));
-            sprite.AddAnimation("left", new Animation(AssetManager.LoadTexture("spoofie_left"), 32, 32, 1, false));
-            sprite.AddAnimation("right", new Animation(AssetManager.LoadTexture("spoofie_right"), 32, 32, 1, false));
+            sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("spoofie_up"), 64, 64, 1, false));
+            sprite.AddAnimation("down", new Animation(AssetManager.LoadTexture("spoofie_down"), 64, 64, 1, false));
+            sprite.AddAnimation("left", new Animation(AssetManager.LoadTexture("spoofie_left"), 64, 64, 1, false));
+            sprite.AddAnimation("right", new Animation(AssetManager.LoadTexture("spoofie_right"), 64, 64, 1, false));
             sprite.PlayAnimation("down");
             AddComponent(sprite);
 

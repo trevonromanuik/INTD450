@@ -35,7 +35,7 @@ namespace Hacker.Layers
         {
             GameObjectManager.AddGameObject(Player.Instance);
             GameObjectManager.AddGameObject(new Spoofie());
-            GameObjectManager.AddGameObject(new Exit<InsideLevel>(new Vector2(32 * 8, 32 * 6)));
+            GameObjectManager.AddGameObject(new Exit<InsideLevel>(new Vector2(64 * 8, 64 * 6)));
         }
     }
 }

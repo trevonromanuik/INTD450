@@ -34,7 +34,7 @@ namespace Hacker.Layers
             : base()
         {
             GameObjectManager.AddGameObject(Player.Instance);
-            GameObjectManager.AddGameObject(new Exit<OutsideLevel>(new Vector2(64, 64)));
+            GameObjectManager.AddGameObject(new Exit<OutsideLevel>(new Vector2(128, 128)));
         }
     }
 }

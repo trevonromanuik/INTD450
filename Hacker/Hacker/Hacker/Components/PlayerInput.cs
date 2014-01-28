@@ -97,7 +97,7 @@ namespace Hacker.Components
                             float dx = _position.X - position.X;
                             float dy = -(_position.Y - position.Y);
                             double distance = Math.Sqrt(dx * dx + dy * dy);
-                            if (distance < 50.0)
+                            if (distance < 100.0)
                             {
                                 bool b = false;
                                 double d;

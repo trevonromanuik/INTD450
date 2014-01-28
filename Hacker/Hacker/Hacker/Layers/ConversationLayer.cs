@@ -119,14 +119,14 @@ namespace Hacker.Layers
         {
             spriteBatch.Draw(
                 conversationTexture, 
-                new Vector2(0, 160), 
+                new Vector2(0, 320), 
                 Color.White
             );
 
             spriteBatch.DrawString(
                 conversationFont,
                 currentMessage.Text.Substring(0, textIndex),
-                new Vector2(8, 165),
+                new Vector2(16, 330),
                 Color.White
             );
 
@@ -134,7 +134,7 @@ namespace Hacker.Layers
             {
                 spriteBatch.Draw(
                     markerTexture,
-                    new Vector2(298, 242),
+                    new Vector2(596, 484),
                     Color.White
                 );
             }
