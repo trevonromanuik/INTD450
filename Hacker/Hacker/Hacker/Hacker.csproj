@@ -121,7 +121,7 @@
     <Compile Include="Conversations\Conversation.cs" />
     <Compile Include="Conversations\Message.cs" />
     <Compile Include="Conversations\SpoofConversation.cs" />
-    <Compile Include="Extensions\FileWriterExtension.cs" />
+    <Compile Include="Helpers\FileWriterHelper.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\RectangleExtensions.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
@@ -147,6 +147,10 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\HackerDataTypes\HackerDataTypes.csproj">
+      <Project>{35c3b264-0b6a-4541-a35e-becfd8954154}</Project>
+      <Name>HackerDataTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HackerContent\HackerContent.contentproj">
       <Name>HackerContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>

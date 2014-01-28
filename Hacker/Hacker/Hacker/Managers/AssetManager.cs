@@ -7,20 +7,22 @@ using System.Xml;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+using HackerDataTypes;
+
 namespace Hacker.Managers
 {
     public static class AssetManager
     {
         private static Dictionary<string, Texture2D> _textureList;
         private static Dictionary<string, SpriteFont> _fontList;
-        private static Dictionary<string, XmlDocument> _xmlList;
+        private static Dictionary<string, Message> _messageList;
         private static ContentManager _content;
 
         public static void Initialize(ContentManager content)
         {
             _textureList = new Dictionary<string, Texture2D>();
             _fontList = new Dictionary<string, SpriteFont>();
-            _xmlList = new Dictionary<string, XmlDocument>();
+            _messageList = new Dictionary<string, Message>();
             _content = content;
         }
 
@@ -42,13 +44,13 @@ namespace Hacker.Managers
             return _fontList[name];
         }
 
-        public static XmlDocument LoadXml(string name)
+        public static Message LoadMessage(string name)
         {
-            if (!_xmlList.ContainsKey(name))
+            if (!_messageList.ContainsKey(name))
             {
-                _xmlList.Add(name, _content.Load<XmlDocument>(name));
+                _messageList.Add(name, _content.Load<Message>(name));
             }
-            return _xmlList[name];
+            return _messageList[name];
         }
     }
 }

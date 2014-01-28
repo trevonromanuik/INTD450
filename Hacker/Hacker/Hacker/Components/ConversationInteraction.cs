@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 using Hacker;
-using Hacker.Extensions;
+using Hacker.Helpers;
 using Hacker.Conversations;
 using Hacker.GameObjects;
 using Hacker.Layers;
@@ -29,8 +29,7 @@ namespace Hacker.Components
                 new ConversationLayer(_conversation)
             );
 
-            var writer = new Extensions.FileWriterExtension();
-            writer.writeFile("Messages/openingMessage");
+            FileWriterHelper.writeFile("opening_message");
         }
 
         public override void Update(GameTime gameTime)
