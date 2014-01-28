@@ -54,6 +54,7 @@ namespace Hacker.Components
 
             switch (collisions.Count)
             {
+                // We're in a corner.
                 case 3:
                     foreach (var collision in collisions)
                     {
@@ -66,6 +67,7 @@ namespace Hacker.Components
                         }
                     }
                     break;
+                // We've hit a wall. Figure out which wall is adjacent to us and move away.
                 case 2:
                     if (collisions[0].X == collisions[1].X)
                     {
@@ -78,6 +80,7 @@ namespace Hacker.Components
                         position.Y += collisions[0].Y;
                     }
                     break;
+                // We've hit a single brick. Back up.
                 case 1:
                     if (Math.Abs(collisions[0].X) < Math.Abs(collisions[0].Y))
                     {
