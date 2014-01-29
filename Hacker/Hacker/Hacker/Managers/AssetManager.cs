@@ -6,6 +6,7 @@ using System.Xml;
 
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 using HackerDataTypes;
 
@@ -16,6 +17,7 @@ namespace Hacker.Managers
         private static Dictionary<string, Texture2D> _textureList;
         private static Dictionary<string, SpriteFont> _fontList;
         private static Dictionary<string, Message> _messageList;
+        private static Dictionary<string, Song> _soundEffectList;
         private static ContentManager _content;
 
         public static void Initialize(ContentManager content)
@@ -23,6 +25,7 @@ namespace Hacker.Managers
             _textureList = new Dictionary<string, Texture2D>();
             _fontList = new Dictionary<string, SpriteFont>();
             _messageList = new Dictionary<string, Message>();
+            _soundEffectList = new Dictionary<string, Song>();
             _content = content;
         }
 
@@ -51,6 +54,15 @@ namespace Hacker.Managers
                 _messageList.Add(name, _content.Load<Message>(name));
             }
             return _messageList[name];
+        }
+
+        public static Song LoadSong(string name)
+        {
+            if (!_soundEffectList.ContainsKey(name))
+            {
+                _soundEffectList.Add(name, _content.Load<Song>(name));
+            }
+            return _soundEffectList[name];
         }
     }
 }

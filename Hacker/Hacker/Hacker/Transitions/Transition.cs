@@ -25,6 +25,7 @@ namespace Hacker.Transitions
         protected void Done()
         {
             GameScreen.LoadLevel(_newLevel);
+            _newLevel.OnLoad();
         }
 
         public abstract void Update(GameTime gameTime);

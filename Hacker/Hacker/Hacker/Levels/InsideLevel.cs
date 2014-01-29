@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Hacker.Layers;
+using Hacker.Managers;
 
 namespace Hacker.Levels
 {
@@ -13,6 +14,11 @@ namespace Hacker.Levels
             : base()
         {
             PushLayer(new InsideMapLayer());
+        }
+
+        public override void OnLoad()
+        {
+            SoundManager.PlayMusic("dance");
         }
     }
 }

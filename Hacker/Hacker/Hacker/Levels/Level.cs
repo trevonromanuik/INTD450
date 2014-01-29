@@ -61,5 +61,7 @@ namespace Hacker.Levels
         {
             return (T)layers.FirstOrDefault(x => x.IsInstanceOf(typeof(T)));
         }
+
+        public virtual void OnLoad() { }
     }
 }
