@@ -51,7 +51,10 @@ namespace Hacker.Conversations
             message1.Messages.Add(message11);
             Messages.Add(message1);
 
-            Message message2 = new Message("I don't recognize you. Get out of here.");
+            Message message2 = new Message("I don't recognize you. Get out of here.", () => true, () => 
+            {
+                Helpers.EmailHelper.sendMessage("ching.jordan@gmail.com", "Jordan");
+            });
             Messages.Add(message2);
         }
     }
