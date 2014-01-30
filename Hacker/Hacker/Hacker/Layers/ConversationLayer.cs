@@ -18,11 +18,17 @@ namespace Hacker.Layers
         private Conversation _conversation;
         private Message currentMessage;
 
+        Texture2D nameTexture;
+        SpriteFont conversationFont;
+
         public ConversationLayer(Conversation conversation)
         {
             _conversation = conversation;
             currentMessage = conversation.First();
             currentMessage.Initialize();
+
+            nameTexture = AssetManager.LoadTexture("name");
+            conversationFont = AssetManager.LoadFont("Fonts/console_font");
         }
 
         public override void LoadContent()
@@ -44,7 +50,7 @@ namespace Hacker.Layers
                 // check if conversation is over
                 if (currentMessage == null)
                 {
-                    if (!string.IsNullOrEmpty(_conversation.Name))
+                    if (!string.IsNullOrEmpty(_conversation.IpAddress))
                     {
                         Player.Instance.AddRecentIpAddress(_conversation.Name, _conversation.IpAddress);
                     }
@@ -63,6 +69,8 @@ namespace Hacker.Layers
         public override void Draw(SpriteBatch spriteBatch)
         {
             currentMessage.Draw(spriteBatch);
+            spriteBatch.Draw(nameTexture, new Vector2(0, 374), Color.White);
+            spriteBatch.DrawString(conversationFont, _conversation.Name, new Vector2(16, 380), Color.White);
         } 
     }
 }

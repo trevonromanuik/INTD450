@@ -15,7 +15,7 @@ namespace Hacker.GameObjects
     class Spoofie : Npc
     {
         public Spoofie()
-            : base("Spoofie", "1.2.3.4")
+            : base("Ryan Blackmoore", "74.128.225.96")
         {
             Id = "spoofie";
 

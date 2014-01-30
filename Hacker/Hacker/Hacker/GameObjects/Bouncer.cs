@@ -24,7 +24,7 @@ namespace Hacker.GameObjects
             Sprite sprite = new Sprite(AssetManager.LoadTexture("bouncer"));
             AddComponent(sprite);
 
-            AddComponent(new ConversationInteraction(new BouncerConversation(string.Empty, string.Empty)));
+            AddComponent(new ConversationInteraction(new BouncerConversation("Bouncer", string.Empty)));
         }
     }
 }

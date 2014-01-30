@@ -134,14 +134,14 @@ namespace Hacker.Conversations
         {
             spriteBatch.Draw(
                 conversationTexture,
-                new Vector2(0, 320),
+                new Vector2(0, 404),
                 Color.White
             );
 
             spriteBatch.DrawString(
                 conversationFont,
                 Text.Substring(0, textIndex),
-                new Vector2(16, 326),
+                new Vector2(16, 410),
                 Color.White
             );
 

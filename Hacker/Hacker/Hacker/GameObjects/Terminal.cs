@@ -28,7 +28,7 @@ namespace Hacker.GameObjects
             Sprite sprite = new Sprite(AssetManager.LoadTexture("terminal"));
             AddComponent(sprite);
 
-            AddComponent(new ConversationInteraction(new TerminalConversation(string.Empty, string.Empty)));
+            AddComponent(new ConversationInteraction(new TerminalConversation("Terminal", string.Empty)));
         }
     }
 }

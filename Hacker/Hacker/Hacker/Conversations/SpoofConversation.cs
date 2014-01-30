@@ -18,7 +18,13 @@ namespace Hacker.Conversations
             Messages.Add(message1);
 
             Message message2 = new Message("Oh hello there.");
-            Message message21 = new Message("Nice weather we're having, isn't it?");
+            Message message21 = new Message("My name is Ryan Blackmoore.");
+            Message message211 = new Message("We should be Facebook friends.");
+            Message message2111 = new Message("My Facebook url is https://www.facebook.com/ryan.blackmoore.9.");
+            Message message21111 = new Message("Look me up sometime!");
+            message2111.Messages.Add(message21111);
+            message211.Messages.Add(message2111);
+            message21.Messages.Add(message211);
             message2.Messages.Add(message21);
             Messages.Add(message2);
         }

@@ -21,6 +21,7 @@ namespace Hacker.Layers
         const double backspaceTime = 0.4;
 
         const int maxInputLength = 56;
+        const int maxPrevInputLength = 5;
         const int maxOutputLength = 27;
 
         Texture2D consoleTexture;
@@ -36,6 +37,9 @@ namespace Hacker.Layers
         KeyboardState prevKeyState;
 
         StringBuilder input;
+        Queue<string> prevInput;
+        int prevInputIndex;
+
         Queue<string> output;
 
         public ConsoleLayer()
@@ -51,6 +55,9 @@ namespace Hacker.Layers
             hasPrevKeyState = false;
 
             input = new StringBuilder();
+            prevInput = new Queue<string>(maxPrevInputLength);
+            prevInputIndex = -1;
+
             output = new Queue<string>(maxOutputLength);
         }
 
@@ -73,6 +80,31 @@ namespace Hacker.Layers
             {
                 cursorTimer -= cursorTime;
                 showCursor = !showCursor;
+            }
+
+            // handle up key
+            if (IsKeyPressed(Keys.Up))
+            {
+                if (prevInputIndex < prevInput.Count - 1)
+                {
+                    input.Clear();
+                    input.Append(prevInput.Reverse().ElementAt(++prevInputIndex));
+                }
+
+            }
+
+            // handle down key
+            if (IsKeyPressed(Keys.Down))
+            {
+                if (prevInputIndex > -1)
+                {
+                    prevInputIndex--;
+                    input.Clear();
+                    if (prevInputIndex > -1)
+                    {
+                        input.Append(prevInput.Reverse().ElementAt(prevInputIndex));
+                    }
+                }
             }
 
             // handle tilde key
@@ -114,6 +146,9 @@ namespace Hacker.Layers
                 if (input.Length > 0)
                 {
                     string s = input.ToString();
+                    AddPrevInput(s);
+                    prevInputIndex = -1;
+
                     AddOutput('>' + s);
 
                     input.Clear();
@@ -219,6 +254,15 @@ namespace Hacker.Layers
                     input.Remove(maxInputLength - 1, input.Length - maxInputLength);
                 }
             }
+        }
+
+        public void AddPrevInput(string s)
+        {
+            if (prevInput.Count == maxPrevInputLength)
+            {
+                prevInput.Dequeue();
+            }
+            prevInput.Enqueue(s);
         }
 
         public void AddOutput(string s)
