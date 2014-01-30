@@ -56,10 +56,13 @@ namespace Hacker.Components
             {
                 // We're in a corner.
                 case 3:
+                    var found = false;
                     foreach (var collision in collisions)
                     {
-                        if (Math.Abs(collision.X) == Math.Abs(collision.Y))
+                        var diff = Math.Abs(collision.X) - Math.Abs(collision.Y);
+                        if (diff <= 2 && diff >= -2)
                         {
+                            found = true;
                             bounds.Y += (int)collision.Y;
                             position.Y += collision.Y;
                             bounds.X += (int)collision.X;
