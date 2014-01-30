@@ -17,11 +17,13 @@ namespace Hacker.Layers
         public abstract int[,] Tiles { get; }
 
         Texture2D tileTexture;
+        Texture2D wallTexture;
         public GameObjectManager GameObjectManager { get; private set; }
 
         public MapLayer()
         {
             tileTexture = AssetManager.LoadTexture("tile");
+            wallTexture = AssetManager.LoadTexture("wall");
             GameObjectManager = new GameObjectManager();
         }
 
@@ -46,11 +48,23 @@ namespace Hacker.Layers
             {
                 for (int j = 0, jLength = Tiles.GetLength(1); j < jLength; j++)
                 {
-                    if (Tiles[i,j] == 1)
+                    Texture2D texture = null;
+                    switch (Tiles[i, j])
+                    {
+                        case 1:
+                            texture = tileTexture;
+                            break;
+                        case 2:
+                            texture = wallTexture;
+                            break;
+
+                    }
+
+                    if (texture != null)
                     {
                         spriteBatch.Draw(
-                            tileTexture, 
-                            new Vector2(tileTexture.Width * j, tileTexture.Height * i), 
+                            texture,
+                            new Vector2(texture.Width * j, texture.Height * i), 
                             Color.White
                         );
                     }

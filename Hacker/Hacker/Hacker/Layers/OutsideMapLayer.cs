@@ -20,8 +20,8 @@ namespace Hacker.Layers
         }
 
         int[,] tiles = new int[,] {
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
+            { 0, 2, 2, 2, 2, 2, 2, 2, 2, 0 },
+            { 0, 2, 2, 2, 1, 1, 2, 2, 2, 0 },
             { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
             { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
             { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
@@ -35,7 +35,8 @@ namespace Hacker.Layers
         {
             GameObjectManager.AddGameObject(Player.Instance);
             GameObjectManager.AddGameObject(new Spoofie());
-            GameObjectManager.AddGameObject(new Exit<InsideLevel>(new Vector2(64 * 8, 64 * 6)));
+            GameObjectManager.AddGameObject(new Bouncer());
+            GameObjectManager.AddGameObject(new Exit<InsideLevel>(new Vector2(320, 96), new Vector2(320, 384)));
         }
     }
 }

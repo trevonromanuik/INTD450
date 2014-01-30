@@ -29,7 +29,6 @@ namespace Hacker.Screens
         {
             _transition = null;
             Level = level;
-            Level.OnLoad();
         }
 
         public static void LoadLevel<T>() where T : Level, new()

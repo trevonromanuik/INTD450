@@ -39,7 +39,7 @@ namespace Hacker.Components
                 for (int j = minJ; j <= maxJ; j++)
                 {
                     // Check to see if the tile is an area boundary
-                    if (mapLayer.Tiles[i, j] == 0)
+                    if (mapLayer.Tiles[i, j] != 1)
                     {
                         // Get the tile boundaries
                         Rectangle tileBounds = new Rectangle(j * tileDimension, i * tileDimension, tileDimension, tileDimension);

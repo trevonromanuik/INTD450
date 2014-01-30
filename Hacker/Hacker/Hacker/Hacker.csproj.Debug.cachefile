@@ -11,10 +11,14 @@ Content\spoofie_down.xnb
 Content\spoofie_left.xnb
 Content\spoofie_right.xnb
 Content\spoofie_up.xnb
-Content\Messages\opening_message.xnb
 Content\exit.xnb
 Content\black.xnb
+Content\Messages\opening_message.xnb
 Content\Music\dance.xnb
+Content\input.xnb
+Content\wall.xnb
+Content\bouncer.xnb
+Content\terminal.xnb
 Content\Music\dance.wma
 Content\Messages\opening_message.xml
 Content\Music\dance.mp3

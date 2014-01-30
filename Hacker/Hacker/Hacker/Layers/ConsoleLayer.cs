@@ -20,6 +20,7 @@ namespace Hacker.Layers
         const double cursorTime = 0.4;
         const double backspaceTime = 0.4;
 
+        const int maxInputLength = 56;
         const int maxOutputLength = 27;
 
         Texture2D consoleTexture;
@@ -36,53 +37,6 @@ namespace Hacker.Layers
 
         StringBuilder input;
         Queue<string> output;
-
-
-        #region alphanumeric key mappings
-
-        readonly Dictionary<Keys, char> keys = new Dictionary<Keys, char>
-        {
-            { Keys.A, 'a' },
-            { Keys.B, 'b' },
-            { Keys.C, 'c' },
-            { Keys.D, 'd' },
-            { Keys.E, 'e' },
-            { Keys.F, 'f' },
-            { Keys.G, 'g' },
-            { Keys.H, 'h' },
-            { Keys.I, 'i' },
-            { Keys.J, 'j' },
-            { Keys.K, 'k' },
-            { Keys.L, 'l' },
-            { Keys.M, 'm' },
-            { Keys.N, 'n' },
-            { Keys.O, 'o' },
-            { Keys.P, 'p' },
-            { Keys.Q, 'q' },
-            { Keys.R, 'r' },
-            { Keys.S, 's' },
-            { Keys.T, 't' },
-            { Keys.U, 'u' },
-            { Keys.V, 'v' },
-            { Keys.W, 'w' },
-            { Keys.X, 'x' },
-            { Keys.Y, 'y' },
-            { Keys.Z, 'z' },
-            { Keys.D1, '1' },
-            { Keys.D2, '2' },
-            { Keys.D3, '3' },
-            { Keys.D4, '4' },
-            { Keys.D5, '5' },
-            { Keys.D6, '6' },
-            { Keys.D7, '7' },
-            { Keys.D8, '8' },
-            { Keys.D9, '9' },
-            { Keys.D0, '0' },
-            { Keys.Space, ' '},
-            { Keys.OemPeriod, '.'}
-        };
-
-        #endregion
 
         public ConsoleLayer()
         {
@@ -128,13 +82,7 @@ namespace Hacker.Layers
             }
 
             // handle alphanumeric keys
-            foreach (Keys key in keys.Keys)
-            {
-                if (IsKeyPressed(key))
-                {
-                    KeyPressed(key);
-                }
-            }
+            AppendInput(TextInputManager.GetTextInput(prevKeyState, keyState));
 
             // handle backspace
             if (keyState.IsKeyDown(Keys.Back))
@@ -232,7 +180,7 @@ namespace Hacker.Layers
                 spriteBatch.DrawString(
                     consoleFont,
                     ">",
-                    new Vector2(16, 458),
+                    new Vector2(16, 470),
                     Color.White * 0.8f
                 );
             }
@@ -250,7 +198,7 @@ namespace Hacker.Layers
             spriteBatch.DrawString(
                 consoleFont, 
                 input.ToString(),
-                new Vector2(28, 458), 
+                new Vector2(28, 470), 
                 Color.White * 0.8f
             );
         }
@@ -261,11 +209,15 @@ namespace Hacker.Layers
                 && keyState.IsKeyDown(key);
         }
 
-        public void KeyPressed(Keys key)
+        public void AppendInput(string s)
         {
-            if (input.Length < 28)
+            if (input.Length < maxInputLength)
             {
-                input.Append(keys[key]);
+                input.Append(s);
+                if (input.Length > maxInputLength)
+                {
+                    input.Remove(maxInputLength - 1, input.Length - maxInputLength);
+                }
             }
         }
 

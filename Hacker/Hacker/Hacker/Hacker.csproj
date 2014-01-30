@@ -120,9 +120,14 @@
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Conversations\BouncerConversation.cs" />
     <Compile Include="Conversations\Conversation.cs" />
+    <Compile Include="Conversations\InputMessage.cs" />
     <Compile Include="Conversations\Message.cs" />
     <Compile Include="Conversations\SpoofConversation.cs" />
+    <Compile Include="Conversations\TerminalConversation.cs" />
+    <Compile Include="GameObjects\Bouncer.cs" />
+    <Compile Include="GameObjects\Terminal.cs" />
     <Compile Include="Helpers\FileWriterHelper.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\RectangleExtensions.cs" />
@@ -144,6 +149,7 @@
     <Compile Include="Managers\GameObjectManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
     <Compile Include="Managers\SoundManager.cs" />
+    <Compile Include="Managers\TextInputManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Hacker.cs" />

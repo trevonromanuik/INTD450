@@ -17,12 +17,8 @@ namespace Hacker.Conversations
             message1.Messages.Add(message11);
             Messages.Add(message1);
 
-            Message message2 = new Message("Hello Hacker.");
-            Message message21 = new Message("asdfdasfasdfdasfdasfdsafdfas\nasdfasdfasdfdasdfas\nasdfa.");
-            Message message211 = new Message("This is a conversation.");
-            Message message2111 = new Message("This is the last message.");
-            message211.Messages.Add(message2111);
-            message21.Messages.Add(message211);
+            Message message2 = new Message("Oh hello there.");
+            Message message21 = new Message("Nice weather we're having, isn't it?");
             message2.Messages.Add(message21);
             Messages.Add(message2);
         }

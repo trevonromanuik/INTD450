@@ -20,21 +20,21 @@ namespace Hacker.Layers
         }
 
         int[,] tiles = new int[,] {
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
-            { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
-            { 0, 1, 1, 0, 0, 0, 0, 1, 1, 0 },
-            { 0, 1, 1, 0, 0, 0, 0, 1, 1, 0 },
-            { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
-            { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+            { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }
         };
 
         public InsideMapLayer()
             : base()
         {
             GameObjectManager.AddGameObject(Player.Instance);
-            GameObjectManager.AddGameObject(new Exit<OutsideLevel>(new Vector2(128, 128)));
+            GameObjectManager.AddGameObject(new Terminal());
         }
     }
 }

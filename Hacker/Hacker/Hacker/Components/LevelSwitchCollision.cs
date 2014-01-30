@@ -17,6 +17,13 @@ namespace Hacker.Components
 {
     class LevelSwitchCollision<T> : PlayerCollision where T : Level, new()
     {
+        Vector2 _newPlayerPosition;
+
+        public LevelSwitchCollision(Vector2 newPlayerPosition)
+        {
+            _newPlayerPosition = newPlayerPosition;
+        }
+
         public override void Collide()
         {
             var position = GetComponent<Position>();
@@ -32,7 +39,7 @@ namespace Hacker.Components
             Vector2 depth = playerBounds.GetIntersectionDepth(bounds);
             if (depth != Vector2.Zero)
             {
-                GameScreen.LoadLevel<T>(new FadeTransition());
+                GameScreen.LoadLevel<T>(new FadeTransition(_newPlayerPosition));
             }
         }
 

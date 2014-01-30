@@ -20,7 +20,7 @@ namespace Hacker.Conversations
 
         public Message First()
         {
-            return Messages.First(x => x.Func());
+            return Messages.FirstOrDefault(x => x.Func());
         }
     }
 }

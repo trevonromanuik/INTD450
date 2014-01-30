@@ -6,6 +6,8 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Components;
+using Hacker.GameObjects;
 using Hacker.Levels;
 using Hacker.Managers;
 
@@ -21,7 +23,9 @@ namespace Hacker.Transitions
 
         Texture2D blackTexture;
 
-        public FadeTransition()
+        Vector2 _newPlayerPosition;
+
+        public FadeTransition(Vector2 newPlayerPosition)
         {
             fadeTimer = 0.0;
             fadeOut = true;
@@ -29,6 +33,8 @@ namespace Hacker.Transitions
             opacity = 0.0f;
 
             blackTexture = AssetManager.LoadTexture("black");
+
+            _newPlayerPosition = newPlayerPosition;
         }
 
         public override void Update(GameTime gameTime)
@@ -39,6 +45,7 @@ namespace Hacker.Transitions
                 opacity = (float)Math.Min(fadeTimer / fadeTime, 1.0);
                 if (opacity == 1.0)
                 {
+                    Player.Instance.GetComponent<Position>().Teleport(_newPlayerPosition.X, _newPlayerPosition.Y);
                     fadeOut = false;
                 }
             }

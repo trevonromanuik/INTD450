@@ -31,7 +31,7 @@ namespace Hacker.GameObjects
             Id = "player";
             SpoofId = null;
 
-            AddComponent(new Position(160, 160));
+            AddComponent(new Position(160, 352));
 
             AnimatedSprite sprite = new AnimatedSprite();
             sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("player_up"), 64, 64, 1, false));

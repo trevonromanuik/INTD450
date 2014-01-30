@@ -18,7 +18,7 @@ namespace Hacker.Components
 {
     class PlayerInput : Component
     {
-        private const float _speed = 2.0f;
+        private const float _speed = 3.0f;
 
         private KeyboardState _keyState;
         private KeyboardState _prevKeyState;

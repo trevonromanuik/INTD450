@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Hacker.Components;
+using Hacker.GameObjects;
 using Hacker.Layers;
 using Hacker.Managers;
 
@@ -18,7 +20,7 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
-            SoundManager.PlayMusic("dance");
+            //SoundManager.PlayMusic("dance");
         }
     }
 }
