@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="HackerDataTypes.Email">
+    <to>ching.jordan@gmail.com</to>
+    <from>contact@47DA7A8BC5B743FAB7AD6FF54C87F790.com</from>
+    <subject>Target</subject>
+    <message>
+      We recently confirmed that Ryan Blackmoore is involved in illicit activities, with plans to distribute some sort of mindshare device in the near future. He made the mistake of branding our little organization “internet nazis” after we publicized his secret money-laundering scheme in 2012. He's used other immature, overused insults to garner public sympathy, going so far as to label us “primitive technocrats” and claim that we are “armpit hair clogging the drain of progress.”
+      
+      We intend to end Blackmoore's shenanigans, which will be possible with solid evidence of his guilt.
+      
+      That's where you come in. We need you get into his personal terminal. They're not going to just let you walk right in, of course, which is why we've sought out someone with your particular skills.
+      
+      Doing so will give you basic privilages and allow you to access level 1 information in Blackmoore's system. From that point on, you'll need to do some investigative work to break his protection.
+    </message>
+  </Asset>
+</XnaContent>

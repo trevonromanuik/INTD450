@@ -21,7 +21,7 @@ namespace Hacker.Conversations
             Message message21 = new Message("My name is Ryan Blackmoore.");
             Message message211 = new Message("We should be Facebook friends.");
             Message message2111 = new Message("My Facebook url is https://www.facebook.com/ryan.blackmoore.9.");
-            Message message21111 = new Message("Look me up sometime!");
+            Message message21111 = new Message("Look me up sometime!", () => true, () => { Helpers.EmailHelper.sendMessage("opening_email"); });
             message2111.Messages.Add(message21111);
             message211.Messages.Add(message2111);
             message21.Messages.Add(message211);

@@ -7,20 +7,22 @@ using System.Net.Mail;
 using SendGridMail;
 using SendGridMail.Transport;
 
+using Hacker.Managers;
+
 namespace Hacker.Helpers
 {
     public static class EmailHelper
     {
         private static NetworkCredential credentials = new NetworkCredential("azure_07b430384d567c2b53e0bd0226b05bfc@azure.com", "zhzawmoz");
-        private static MailAddress from = new MailAddress("ching.jordan@gmail.com");
 
-        public static void sendMessage(string recipientAddress, string recipientName)
+        public static void sendMessage(string name)
         {
+            var email = AssetManager.LoadEmail("opening_email");
             var message = SendGrid.GetInstance();
-            message.AddTo(recipientAddress);
-            message.From = from;
-            message.Subject = "Welcome";
-            message.Text = "Testing";
+            message.AddTo(email.to);
+            message.From = new MailAddress(email.from);
+            message.Subject = email.subject;
+            message.Text = email.message;
             var transportRest = Web.GetInstance(credentials);
 
             transportRest.Deliver(message);
