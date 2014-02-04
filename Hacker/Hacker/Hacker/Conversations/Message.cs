@@ -19,7 +19,8 @@ namespace Hacker.Conversations
         protected const double textTime = 0.1;
         protected const double markerTime = 0.4;
 
-        protected Texture2D conversationTexture;
+        Textbox _textbox;
+
         protected Texture2D markerTexture;
         protected SpriteFont conversationFont;
 
@@ -33,7 +34,13 @@ namespace Hacker.Conversations
         protected KeyboardState keyState;
         protected KeyboardState prevKeyState;
 
-        public string Text { get; private set; }
+        public string Text 
+        {
+            get { return _text; }
+            private set { _text = FormatText(value); }
+        }
+        private string _text;
+
         public Func<bool> Func { get; private set; }
         public Action Action { get; private set; }
 
@@ -55,15 +62,16 @@ namespace Hacker.Conversations
 
         public Message(string text, Func<bool> func, Action action)
         {
+            markerTexture = AssetManager.LoadTexture("marker");
+            conversationFont = AssetManager.LoadFont("Fonts/console_font");
+
             Text = text;
             Func = func;
             Action = action;
 
             Messages = new List<Message>();
 
-            conversationTexture = AssetManager.LoadTexture("conversation");
-            markerTexture = AssetManager.LoadTexture("marker");
-            conversationFont = AssetManager.LoadFont("Fonts/console_font");
+            _textbox = new Textbox(0, 400, 640, 112);
         }
 
         public virtual void Initialize()
@@ -132,16 +140,12 @@ namespace Hacker.Conversations
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(
-                conversationTexture,
-                new Vector2(0, 404),
-                Color.White
-            );
+            _textbox.Draw(spriteBatch);
 
             spriteBatch.DrawString(
                 conversationFont,
                 Text.Substring(0, textIndex),
-                new Vector2(16, 410),
+                new Vector2(16, 414),
                 Color.White
             );
 
@@ -153,6 +157,44 @@ namespace Hacker.Conversations
                     Color.White
                 );
             }
+        }
+
+        private string FormatText(string text)
+        {
+            if (conversationFont.MeasureString(text).X <= 608)
+            {
+                return text;
+            }
+
+            int startIndex = 0;
+            int prevIndex = startIndex, index = -1;
+            while (conversationFont.MeasureString(text.Substring(startIndex)).X > 608)
+            {
+                index = text.IndexOf(' ', prevIndex + 1);
+                if (index == -1)
+                {
+                    if (prevIndex == startIndex)
+                    {
+                        throw new ArgumentException("text is too long to format", "text");
+                    }
+                    else
+                    {
+                        index = text.Length - 1;
+                    }
+                }
+
+                if (conversationFont.MeasureString(text.Substring(startIndex, index - startIndex)).X > 608)
+                {
+                    text = text.Remove(prevIndex, 1).Insert(prevIndex, "\n");
+                    startIndex = prevIndex;
+                }
+                else
+                {
+                    prevIndex = index;
+                }
+            }
+
+            return text;
         }
     }
 }

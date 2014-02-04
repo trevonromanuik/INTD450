@@ -12,7 +12,7 @@ using Hacker.Managers;
 
 namespace Hacker.GameObjects
 {
-    class GameObject
+    public class GameObject
     {
         public string Id { get; set; }
         public GameObjectManager Manager { get; private set; }

@@ -6,6 +6,8 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Managers;
+
 namespace Hacker.Components
 {
     class Sprite : Component
@@ -37,7 +39,11 @@ namespace Hacker.Components
             if (position == null)
                 return;
 
-            spriteBatch.Draw(_texture, new Vector2(position.X - Width / 2, position.Y - Height / 2), Color.White);
+            var screenPosition = CameraManager.GetScreenPosition(new Vector2(position.X, position.Y));
+            if (CameraManager.IsInCamera(screenPosition, Width, Height))
+            {
+                spriteBatch.Draw(_texture, new Vector2(screenPosition.X - Width / 2, screenPosition.Y - Height / 2), Color.White);
+            }
         }
     }
 }

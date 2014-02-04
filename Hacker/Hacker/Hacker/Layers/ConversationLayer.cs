@@ -21,6 +21,8 @@ namespace Hacker.Layers
         Texture2D nameTexture;
         SpriteFont conversationFont;
 
+        Textbox nameTextbox;
+
         public ConversationLayer(Conversation conversation)
         {
             _conversation = conversation;
@@ -29,6 +31,9 @@ namespace Hacker.Layers
 
             nameTexture = AssetManager.LoadTexture("name");
             conversationFont = AssetManager.LoadFont("Fonts/console_font");
+
+            int nameWidth = (int)conversationFont.MeasureString(_conversation.Name).X;
+            nameTextbox = new Textbox(0, 370, nameWidth + 32, 32);
         }
 
         public override void LoadContent()
@@ -69,8 +74,8 @@ namespace Hacker.Layers
         public override void Draw(SpriteBatch spriteBatch)
         {
             currentMessage.Draw(spriteBatch);
-            spriteBatch.Draw(nameTexture, new Vector2(0, 374), Color.White);
-            spriteBatch.DrawString(conversationFont, _conversation.Name, new Vector2(16, 380), Color.White);
+            nameTextbox.Draw(spriteBatch);
+            spriteBatch.DrawString(conversationFont, _conversation.Name, new Vector2(16, 376), Color.White);
         } 
     }
 }

@@ -62,11 +62,11 @@ namespace Hacker.Layers
 
                     if (texture != null)
                     {
-                        spriteBatch.Draw(
-                            texture,
-                            new Vector2(texture.Width * j, texture.Height * i), 
-                            Color.White
-                        );
+                        var screenPosition = CameraManager.GetScreenPosition(new Vector2(texture.Width * j, texture.Height * i));
+                        if (CameraManager.IsInCamera(new Vector2(screenPosition.X + 32, screenPosition.Y + 32), 64, 64))
+                        {
+                            spriteBatch.Draw(texture, screenPosition, Color.White);
+                        }
                     }
                 }
             }

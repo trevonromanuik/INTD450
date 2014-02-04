@@ -6,6 +6,8 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Managers;
+
 namespace Hacker.Components
 {
     class AnimatedSprite : Sprite
@@ -93,20 +95,24 @@ namespace Hacker.Components
 
             int frameIndex = _frozen ? 0 : _frameIndex;
 
-            // Calculate the source rectangle of the current frame.
-            Rectangle destination = new Rectangle(
-                (int)position.X - Animation.FrameWidth / 2, 
-                (int)position.Y - Animation.FrameHeight / 2, 
-                Animation.FrameWidth, 
-                Animation.FrameHeight);
-            
-            Rectangle source = new Rectangle(
-                frameIndex * Animation.FrameWidth, 
-                0, 
-                Animation.FrameWidth, 
-                Animation.FrameHeight);
-            
-            spriteBatch.Draw(Animation.Texture, destination, source, Color.White);
+            var screenPosition = CameraManager.GetScreenPosition(new Vector2(position.X, position.Y));
+            if (CameraManager.IsInCamera(screenPosition, Animation.FrameWidth, Animation.FrameHeight))
+            {
+                // Calculate the source rectangle of the current frame.
+                Rectangle destination = new Rectangle(
+                    (int)screenPosition.X - Animation.FrameWidth / 2,
+                    (int)screenPosition.Y - Animation.FrameHeight / 2,
+                    Animation.FrameWidth,
+                    Animation.FrameHeight);
+
+                Rectangle source = new Rectangle(
+                    frameIndex * Animation.FrameWidth,
+                    0,
+                    Animation.FrameWidth,
+                    Animation.FrameHeight);
+
+                spriteBatch.Draw(Animation.Texture, destination, source, Color.White);
+            }
         }
     }
 }

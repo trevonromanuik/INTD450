@@ -12,7 +12,7 @@ using Hacker.Managers;
 
 namespace Hacker.GameObjects
 {
-    class Npc : GameObject
+    public class Npc : GameObject
     {
         public string Name { get; private set; }
         public string IpAddress { get; private set; }

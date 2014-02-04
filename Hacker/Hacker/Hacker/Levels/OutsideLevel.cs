@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Hacker.GameObjects;
 using Hacker.Layers;
 using Hacker.Managers;
 
@@ -14,6 +15,7 @@ namespace Hacker.Levels
             : base()
         {
             PushLayer(new OutsideMapLayer());
+            CameraManager.CameraTarget = Player.Instance;
         }
 
         public override void OnLoad()

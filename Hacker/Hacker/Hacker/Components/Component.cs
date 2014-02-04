@@ -10,7 +10,7 @@ using Hacker.GameObjects;
 
 namespace Hacker.Components
 {
-    abstract class Component
+    public abstract class Component
     {
         public GameObject Owner { get; private set; }
 

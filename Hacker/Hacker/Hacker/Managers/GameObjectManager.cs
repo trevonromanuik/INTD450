@@ -11,7 +11,7 @@ using Hacker.GameObjects;
 
 namespace Hacker.Managers
 {
-    class GameObjectManager
+    public class GameObjectManager
     {
         public List<GameObject> GameObjects { get; private set; }
 
