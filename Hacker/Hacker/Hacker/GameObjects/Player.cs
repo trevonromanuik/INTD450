@@ -32,14 +32,13 @@ namespace Hacker.GameObjects
             SpoofId = null;
 
             AddComponent(new Position(160, 352));
-
             AddComponent(new Shadow());
 
             AnimatedSprite sprite = new AnimatedSprite();
-            sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("player_up"), 64, 64, 1, false));
-            sprite.AddAnimation("down", new Animation(AssetManager.LoadTexture("player_down"), 64, 64, 1, false));
-            sprite.AddAnimation("left", new Animation(AssetManager.LoadTexture("player_left"), 64, 64, 1, false));
-            sprite.AddAnimation("right", new Animation(AssetManager.LoadTexture("player_right"), 64, 64, 1, false));
+            sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("player_up"), 45, 59, 0.3f, true));
+            sprite.AddAnimation("down", new Animation(AssetManager.LoadTexture("player_down"), 45, 59, 0.3f, true));
+            sprite.AddAnimation("left", new Animation(AssetManager.LoadTexture("player_left"), 45, 59, 0.3f, true));
+            sprite.AddAnimation("right", new Animation(AssetManager.LoadTexture("player_right"), 45, 59, 0.3f, true));
             sprite.PlayAnimation("down");
             AddComponent(sprite);
 
