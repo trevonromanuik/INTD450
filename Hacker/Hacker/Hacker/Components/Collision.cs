@@ -26,7 +26,6 @@ namespace Hacker.Components
             int minI = Math.Max(0, (int)Math.Floor((position.Y - (height / 2)) / tileDimension));
             int maxI = Math.Min(mapLayer.Tiles.GetLength(0) - 1, (int)Math.Floor((position.Y + (height / 2)) / tileDimension));
            
-
             int minJ = Math.Max(0, (int)Math.Floor((position.X - (width / 2)) / tileDimension));
             int maxJ = Math.Min(mapLayer.Tiles.GetLength(1) - 1, (int)Math.Floor((position.X + (width / 2)) / tileDimension));
 

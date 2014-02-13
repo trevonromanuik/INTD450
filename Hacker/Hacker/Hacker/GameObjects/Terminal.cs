@@ -23,6 +23,7 @@ namespace Hacker.GameObjects
             Id = "terminal";
 
             AddComponent(new Position(320, 160));
+            AddComponent(new Shadow());
             AddComponent(new MovementCollision());
 
             Sprite sprite = new Sprite(AssetManager.LoadTexture("terminal"));

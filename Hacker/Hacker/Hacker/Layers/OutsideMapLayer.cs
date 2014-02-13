@@ -38,8 +38,8 @@ namespace Hacker.Layers
         {
             GameObjectManager.AddGameObject(Player.Instance);
             GameObjectManager.AddGameObject(new Spoofie());
-            GameObjectManager.AddGameObject(new Bouncer());
             GameObjectManager.AddGameObject(new Exit<InsideLevel>(new Vector2(320, 96), new Vector2(320, 384)));
+            GameObjectManager.AddGameObject(new Bouncer());
         }
     }
 }

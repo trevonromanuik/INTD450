@@ -33,6 +33,8 @@ namespace Hacker.GameObjects
 
             AddComponent(new Position(160, 352));
 
+            AddComponent(new Shadow());
+
             AnimatedSprite sprite = new AnimatedSprite();
             sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("player_up"), 64, 64, 1, false));
             sprite.AddAnimation("down", new Animation(AssetManager.LoadTexture("player_down"), 64, 64, 1, false));

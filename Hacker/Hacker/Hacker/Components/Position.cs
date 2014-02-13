@@ -54,11 +54,17 @@ namespace Hacker.Components
             // Do map collision detection
             var collision = GetComponent<Collision>();
             var sprite = GetComponent<Sprite>();
+            var shadow = GetComponent<Shadow>();
+
+            _position.Y = _position.Y + (sprite.Height / 2);
+
             _position = collision.CheckCollision(
                 _position, 
-                sprite.Width, 
-                sprite.Height
+                shadow.Width, 
+                shadow.Height
             );
+
+            _position.Y = _position.Y - (sprite.Height / 2);
 
             // Do gameobject collision detection
             foreach (GameObject gameObject in GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GameObjects)
