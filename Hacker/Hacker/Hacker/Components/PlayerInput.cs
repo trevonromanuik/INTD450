@@ -57,6 +57,9 @@ namespace Hacker.Components
                 else if (y < 0) position.Direction = Direction.Up;
             }
 
+            if (x == 0 && y == 0) sprite.Freeze();
+            else sprite.Unfreeze();
+
             position.Move(x, y);
 
             switch (position.Direction)
