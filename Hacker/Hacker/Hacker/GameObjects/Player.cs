@@ -94,18 +94,16 @@ namespace Hacker.GameObjects
             _sprite.Animations = animations;
         }
 
-<<<<<<< HEAD
         public void Keylog(Npc npc)
         {
             var keylogInfo = npc.GetComponent<Keyloggable>();
             if (keylogInfo != null)
-            {  
+            {
                 var path = keylogInfo.KeyLogPath;
                 FileWriterHelper.writeFile(path);
             }
+        }
 
-            
-=======
         public void DDOS(Npc npc)
         {
             int index = DDOSList.FindIndex(x => x.Id == npc.Id);
@@ -123,7 +121,6 @@ namespace Hacker.GameObjects
 
             npc.GetComponent<DDOSable>().DDOS();
             DDOSList.Add(npc);
->>>>>>> 4973a2eec8d6ed4725c1e3928ce821af0cd26c74
         }
     }
 }

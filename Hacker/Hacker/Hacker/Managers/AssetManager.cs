@@ -68,7 +68,7 @@ namespace Hacker.Managers
                 }
                 catch (InvalidOperationException ex)
                 {
-                    _songList.Add(name, new Song());
+                    _songList.Add(name, null);
                 }
             }
             return _songList[name];

@@ -195,11 +195,7 @@ namespace Hacker.Layers
                                 }
                             }
                             break;
-<<<<<<< HEAD
                         case "keylog":
-=======
-                        case "ddos":
->>>>>>> 4973a2eec8d6ed4725c1e3928ce821af0cd26c74
                             if (split.Length != 2)
                             {
                                 AddOutput("Invalid number of parameters");
@@ -211,12 +207,25 @@ namespace Hacker.Layers
                                 {
                                     AddOutput("Unknown IP Address: " + split[1]);
                                 }
-<<<<<<< HEAD
                                 else
                                 {
                                     Player.Instance.Keylog(npc);
                                     AddOutput("Keylog successful. Please wait for keylog output to your home directory.");
-=======
+                                }
+                            }
+                            break;
+                        case "ddos":
+                            if (split.Length != 2)
+                            {
+                                AddOutput("Invalid number of parameters");
+                            }
+                            else
+                            {
+                                Npc npc = GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(split[1]);
+                                if (npc == null)
+                                {
+                                    AddOutput("Unknown IP Address: " + split[1]);
+                                }
                                 else 
                                 {
                                     var ddosable = npc.GetComponent<DDOSable>();
@@ -229,7 +238,6 @@ namespace Hacker.Layers
                                         Player.Instance.DDOS(npc);
                                         AddOutput("DDOS successful");
                                     }
->>>>>>> 4973a2eec8d6ed4725c1e3928ce821af0cd26c74
                                 }
                             }
                             break;
