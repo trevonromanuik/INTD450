@@ -158,6 +158,7 @@
     <Compile Include="Components\Collision.cs" />
     <Compile Include="Components\Component.cs" />
     <Compile Include="Components\ConversationInteraction.cs" />
+    <Compile Include="Components\DDOSable.cs" />
     <Compile Include="Components\LevelSwitchCollision.cs" />
     <Compile Include="Components\MovementCollision.cs" />
     <Compile Include="Components\PlayerCollision.cs" />

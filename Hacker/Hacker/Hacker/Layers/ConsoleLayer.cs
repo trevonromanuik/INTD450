@@ -195,6 +195,33 @@ namespace Hacker.Layers
                                 }
                             }
                             break;
+                        case "ddos":
+                            if (split.Length != 2)
+                            {
+                                AddOutput("Invalid number of parameters");
+                            }
+                            else
+                            {
+                                Npc npc = GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(split[1]);
+                                if (npc == null)
+                                {
+                                    AddOutput("Unknown IP Address: " + split[1]);
+                                }
+                                else 
+                                {
+                                    var ddosable = npc.GetComponent<DDOSable>();
+                                    if (ddosable == null)
+                                    {
+                                        AddOutput("Invalid IP Address: " + split[1]);
+                                    }
+                                    else
+                                    {
+                                        Player.Instance.DDOS(npc);
+                                        AddOutput("DDOS successful");
+                                    }
+                                }
+                            }
+                            break;
                         default:
                             AddOutput("Unknown command: " + token);
                             break;

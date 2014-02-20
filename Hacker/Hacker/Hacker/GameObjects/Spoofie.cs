@@ -31,7 +31,8 @@ namespace Hacker.GameObjects
             sprite.PlayAnimation("down");
             AddComponent(sprite);
 
-            AddComponent(new ConversationInteraction(new SpoofConversation(Name, IpAddress)));
+            AddComponent(new DDOSable());
+            AddComponent(new ConversationInteraction(new SpoofConversation(this, Name, IpAddress)));
         }
     }
 }

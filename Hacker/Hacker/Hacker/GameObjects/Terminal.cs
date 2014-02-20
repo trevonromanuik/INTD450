@@ -29,7 +29,7 @@ namespace Hacker.GameObjects
             Sprite sprite = new Sprite(AssetManager.LoadTexture("terminal"));
             AddComponent(sprite);
 
-            AddComponent(new ConversationInteraction(new TerminalConversation("Terminal", string.Empty)));
+            AddComponent(new ConversationInteraction(new TerminalConversation(this, "Terminal", string.Empty)));
         }
     }
 }

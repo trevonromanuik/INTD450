@@ -18,8 +18,8 @@ namespace Hacker.Conversations
 
         bool doneFlag = false;
 
-        public BouncerConversation(string name, string ipAddress)
-            : base(name, ipAddress)
+        public BouncerConversation(GameObject owner, string name, string ipAddress)
+            : base(owner, name, ipAddress)
         {
             Message message0 = new Message("I hate my job...", () => doneFlag);
             Messages.Add(message0);

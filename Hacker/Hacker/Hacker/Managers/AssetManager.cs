@@ -62,7 +62,14 @@ namespace Hacker.Managers
         {
             if (!_songList.ContainsKey(name))
             {
-                _songList.Add(name, _content.Load<Song>(name));
+                try
+                {
+                    _songList.Add(name, _content.Load<Song>(name));
+                }
+                catch (InvalidOperationException ex)
+                {
+                    _songList.Add(name, new Song());
+                }
             }
             return _songList[name];
         }
