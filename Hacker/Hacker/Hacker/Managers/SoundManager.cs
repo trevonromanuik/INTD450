@@ -18,9 +18,12 @@ namespace Hacker.Managers
             }
 
             Song music = AssetManager.LoadSong("Music/" + name);
-            MediaPlayer.IsRepeating = true;
-            MediaPlayer.Play(music);
-            currentMusicName = name;
+            if (music != null)
+            {
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(music);
+                currentMusicName = name;
+            }
         }
 
         public static void StopAmbientMusic()
