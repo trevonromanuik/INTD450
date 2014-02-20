@@ -209,8 +209,16 @@ namespace Hacker.Layers
                                 }
                                 else
                                 {
-                                    Player.Instance.Keylog(npc);
-                                    AddOutput("Keylog successful. Please wait for keylog output to your home directory.");
+                                    var keyloggable = npc.GetComponent<Keyloggable>();
+                                    if (keyloggable == null)
+                                    {
+                                        AddOutput("Invalid IP Address: " + split[1]);
+                                    }
+                                    else
+                                    {
+                                        Player.Instance.Keylog(npc);
+                                        AddOutput("Keylog successful. Please wait for keylog output to your home directory.");
+                                    }
                                 }
                             }
                             break;
