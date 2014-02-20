@@ -31,8 +31,13 @@ namespace Hacker.GameObjects
             sprite.PlayAnimation("down");
             AddComponent(sprite);
 
+<<<<<<< HEAD
             AddComponent(new Keyloggable("guard_1"));
             AddComponent(new ConversationInteraction(new SpoofConversation(Name, IpAddress)));
+=======
+            AddComponent(new DDOSable());
+            AddComponent(new ConversationInteraction(new SpoofConversation(this, Name, IpAddress)));
+>>>>>>> 4973a2eec8d6ed4725c1e3928ce821af0cd26c74
         }
     }
 }

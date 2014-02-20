@@ -17,9 +17,9 @@ namespace Hacker.Managers
                 return;
             }
 
-            //Song music = AssetManager.LoadSong("Music/" + name);
+            Song music = AssetManager.LoadSong("Music/" + name);
             MediaPlayer.IsRepeating = true;
-            //MediaPlayer.Play(music);
+            MediaPlayer.Play(music);
             currentMusicName = name;
         }
 

@@ -25,7 +25,12 @@ Content\shadow.xnb
 Content\Messages\opening_message.xnb
 Content\Emails\opening_email.xnb
 Content\Music\dance.xnb
+<<<<<<< HEAD
 Content\Messages\guard_1.xnb
+=======
+Content\shadow.xnb
+Content\ddos.xnb
+>>>>>>> 4973a2eec8d6ed4725c1e3928ce821af0cd26c74
 Content\Music\dance.wma
 Content\Messages\opening_message.xml
 Content\Music\dance.mp3
