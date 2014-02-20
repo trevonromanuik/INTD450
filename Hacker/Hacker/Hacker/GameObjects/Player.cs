@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Hacker.Components;
 using Hacker.Managers;
+using Hacker.Helpers;
 
 namespace Hacker.GameObjects
 {
@@ -87,6 +88,18 @@ namespace Hacker.GameObjects
 
             var _sprite = GetComponent<AnimatedSprite>();
             _sprite.Animations = animations;
+        }
+
+        public void Keylog(Npc npc)
+        {
+            var keylogInfo = npc.GetComponent<Keyloggable>();
+            if (keylogInfo != null)
+            {  
+                var path = keylogInfo.KeyLogPath;
+                FileWriterHelper.writeFile(path);
+            }
+
+            
         }
     }
 }
