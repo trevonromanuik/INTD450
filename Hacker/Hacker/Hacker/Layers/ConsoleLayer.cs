@@ -313,11 +313,53 @@ namespace Hacker.Layers
 
         public void AddOutput(string s)
         {
-            if (output.Count == maxOutputLength)
+            string[] strings = SplitText(s);
+            while (output.Count + strings.Length > maxOutputLength)
             {
                 output.Dequeue();
             }
-            output.Enqueue(s);
+            foreach (string _s in strings)
+            {
+                output.Enqueue(_s);
+            }
+        }
+
+        private string[] SplitText(string text)
+        {
+            if (consoleFont.MeasureString(text).X <= 608)
+            {
+                return new string[] { text };
+            }
+
+            int startIndex = 0;
+            int prevIndex = startIndex, index = -1;
+            while (consoleFont.MeasureString(text.Substring(startIndex)).X > 608)
+            {
+                index = text.IndexOf(' ', prevIndex + 1);
+                if (index == -1)
+                {
+                    if (prevIndex == startIndex)
+                    {
+                        throw new ArgumentException("text is too long to format", "text");
+                    }
+                    else
+                    {
+                        index = text.Length - 1;
+                    }
+                }
+
+                if (consoleFont.MeasureString(text.Substring(startIndex, index - startIndex)).X > 608)
+                {
+                    text = text.Remove(prevIndex, 1).Insert(prevIndex, "\n");
+                    startIndex = prevIndex;
+                }
+                else
+                {
+                    prevIndex = index;
+                }
+            }
+
+            return text.Split('\n');
         }
     }
 }
