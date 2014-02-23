@@ -15,7 +15,7 @@ namespace Hacker.GameObjects
     class Spoofie : Npc
     {
         public Spoofie()
-            : base("Ryan Blackmoore", "74.128.225.96")
+            : base("Ryan Blackmoore", "1234")
         {
             Id = "spoofie";
 
@@ -31,7 +31,9 @@ namespace Hacker.GameObjects
             sprite.PlayAnimation("down");
             AddComponent(sprite);
 
-            AddComponent(new ConversationInteraction(new SpoofConversation(Name, IpAddress)));
+            AddComponent(new Keyloggable("guard_1"));
+            AddComponent(new DDOSable());
+            AddComponent(new ConversationInteraction(new SpoofConversation(this, Name, IpAddress)));
         }
     }
 }

@@ -62,7 +62,18 @@ namespace Hacker.Managers
         {
             if (!_songList.ContainsKey(name))
             {
-                _songList.Add(name, _content.Load<Song>(name));
+                try
+                {
+                    _songList.Add(name, _content.Load<Song>(name));
+                }
+                catch (InvalidOperationException ex)
+                {
+                    // there was an issue loading the song
+                    // assume it was becuase no audio device is plugged in
+                    // don't insert into the song list so that if an audio
+                    // device is plugged in later it will start working
+                    return null;
+                }
             }
             return _songList[name];
         }
