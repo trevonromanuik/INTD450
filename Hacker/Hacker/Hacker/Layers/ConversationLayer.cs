@@ -73,9 +73,11 @@ namespace Hacker.Layers
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();
             currentMessage.Draw(spriteBatch);
             nameTextbox.Draw(spriteBatch);
             spriteBatch.DrawString(conversationFont, _conversation.Name, new Vector2(16, 376), Color.White);
+            spriteBatch.End();
         } 
     }
 }

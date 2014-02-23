@@ -79,6 +79,8 @@ namespace Hacker.Components
             }
 
             // check for tilde
+            // apparently, this doesn't work properly on my macbook running bootcamp/win7
+            // other keys work fine
             if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.OemTilde)
                 && _keyState.IsKeyDown(Keys.OemTilde))
             {

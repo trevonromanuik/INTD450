@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Hacker.Managers;
+using Hacker.Extensions;
 
 namespace Hacker.Components
 {
@@ -111,7 +112,9 @@ namespace Hacker.Components
                     Animation.FrameWidth,
                     Animation.FrameHeight);
 
-                spriteBatch.Draw(Animation.Texture, destination, source, Color.White);
+                float depth = screenPosition.Y / 512;
+
+                spriteBatch.DrawZ(Animation.Texture, destination, source, Color.White, depth);
             }
         }
     }

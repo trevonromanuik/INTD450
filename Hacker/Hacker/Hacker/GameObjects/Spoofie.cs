@@ -19,7 +19,7 @@ namespace Hacker.GameObjects
         {
             Id = "spoofie";
 
-            AddComponent(new Position(480, 352));
+            AddComponent(new Position(480, 576));
             AddComponent(new Shadow());
             AddComponent(new MovementCollision());
 

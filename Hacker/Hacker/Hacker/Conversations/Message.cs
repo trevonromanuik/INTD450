@@ -142,7 +142,7 @@ namespace Hacker.Conversations
         {
             _textbox.Draw(spriteBatch);
 
-            spriteBatch.DrawString(
+            spriteBatch.DrawStringFront(
                 conversationFont,
                 Text.Substring(0, textIndex),
                 new Vector2(16, 414),
@@ -151,7 +151,7 @@ namespace Hacker.Conversations
 
             if (showMarker)
             {
-                spriteBatch.Draw(
+                spriteBatch.DrawFront(
                     markerTexture,
                     new Vector2(596, 484),
                     Color.White

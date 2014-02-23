@@ -97,9 +97,9 @@ namespace Hacker
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            //spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
             screenManager.Draw(spriteBatch);
-            spriteBatch.End();
+            //spriteBatch.End();
 
             base.Draw(gameTime);
         }

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Hacker.GameObjects;
 using Hacker.Levels;
 using Hacker.Managers;
+using Hacker.Extensions;
 
 namespace Hacker.Layers
 {
@@ -44,6 +45,8 @@ namespace Hacker.Layers
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+
             for (int i = 0, iLength = Tiles.GetLength(0); i < iLength; i++)
             {
                 for (int j = 0, jLength = Tiles.GetLength(1); j < jLength; j++)
@@ -65,13 +68,16 @@ namespace Hacker.Layers
                         var screenPosition = CameraManager.GetScreenPosition(new Vector2(texture.Width * j, texture.Height * i));
                         if (CameraManager.IsInCamera(new Vector2(screenPosition.X + 32, screenPosition.Y + 32), 64, 64))
                         {
-                            spriteBatch.Draw(texture, screenPosition, Color.White);
+                            // ?????????
+                            spriteBatch.DrawBack(texture, screenPosition, Color.White);
                         }
                     }
                 }
             }
 
             GameObjectManager.Draw(spriteBatch);
+
+            spriteBatch.End();
         }
     }
 }

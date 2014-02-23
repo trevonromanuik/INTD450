@@ -12,6 +12,7 @@ using Hacker.GameObjects;
 using Hacker.Levels;
 using Hacker.Managers;
 using Hacker.Screens;
+using Hacker.Extensions;
 
 namespace Hacker.Layers
 {
@@ -209,6 +210,7 @@ namespace Hacker.Layers
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();
             spriteBatch.Draw(consoleTexture, Vector2.Zero, Color.White * 0.8f);
             if (showCursor)
             {
@@ -236,6 +238,8 @@ namespace Hacker.Layers
                 new Vector2(28, 470), 
                 Color.White * 0.8f
             );
+
+            spriteBatch.End();
         }
 
         public bool IsKeyPressed(Keys key)
