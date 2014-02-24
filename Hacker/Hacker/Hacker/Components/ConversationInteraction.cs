@@ -14,6 +14,7 @@ using Hacker.GameObjects;
 using Hacker.Layers;
 using Hacker.Levels;
 using Hacker.Screens;
+using Hacker.Managers;
 
 namespace Hacker.Components
 {
@@ -32,6 +33,7 @@ namespace Hacker.Components
             );
 
             FileWriterHelper.writeFile("opening_message");
+            SoundManager.PlaySound("seal", true, false);
         }
 
         public override void Update(GameTime gameTime)

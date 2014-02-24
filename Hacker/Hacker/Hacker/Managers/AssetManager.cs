@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 
 using HackerDataTypes;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Hacker.Managers
 {
@@ -18,6 +19,7 @@ namespace Hacker.Managers
         private static Dictionary<string, SpriteFont> _fontList;
         private static Dictionary<string, Message> _messageList;
         private static Dictionary<string, Song> _songList;
+        private static Dictionary<string, SoundEffect> _soundEffectList;
         private static Dictionary<string, Email> _emailList;
         private static ContentManager _content;
 
@@ -28,6 +30,7 @@ namespace Hacker.Managers
             _messageList = new Dictionary<string, Message>();
             _songList = new Dictionary<string, Song>();
             _emailList = new Dictionary<string, Email>();
+            _soundEffectList = new Dictionary<string, SoundEffect>();
             _content = content;
         }
 
@@ -66,7 +69,7 @@ namespace Hacker.Managers
                 {
                     _songList.Add(name, _content.Load<Song>(name));
                 }
-                catch (InvalidOperationException ex)
+                catch (InvalidOperationException)
                 {
                     // there was an issue loading the song
                     // assume it was becuase no audio device is plugged in
@@ -85,6 +88,15 @@ namespace Hacker.Managers
                 _emailList.Add(name, _content.Load<Email>("Emails/"+name));
             }
             return _emailList[name];
+        }
+
+        public static SoundEffect LoadSoundEffect(string name)
+        {
+            if (!_soundEffectList.ContainsKey(name))
+            {
+                _soundEffectList.Add(name, _content.Load<SoundEffect>(name));
+            }
+            return _soundEffectList[name];
         }
     }
 }
