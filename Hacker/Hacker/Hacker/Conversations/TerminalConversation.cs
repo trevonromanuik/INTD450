@@ -12,8 +12,8 @@ namespace Hacker.Conversations
 {
     class TerminalConversation : Conversation
     {
-        public TerminalConversation(string name, string ipAddress)
-            : base(name, ipAddress)
+        public TerminalConversation(GameObject owner, string name, string ipAddress)
+            : base(owner, name, ipAddress)
         {
             Message message1 = new Message("Good job Hacker. You have beaten the prototype.\nPress ESC to exit the game.");
             Messages.Add(message1);

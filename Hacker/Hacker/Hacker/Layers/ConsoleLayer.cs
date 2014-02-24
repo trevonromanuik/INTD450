@@ -196,6 +196,60 @@ namespace Hacker.Layers
                                 }
                             }
                             break;
+                        case "keylog":
+                            if (split.Length != 2)
+                            {
+                                AddOutput("Invalid number of parameters");
+                            }
+                            else
+                            {
+                                Npc npc = GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(split[1]);
+                                if (npc == null)
+                                {
+                                    AddOutput("Unknown IP Address: " + split[1]);
+                                }
+                                else
+                                {
+                                    var keyloggable = npc.GetComponent<Keyloggable>();
+                                    if (keyloggable == null)
+                                    {
+                                        AddOutput("Invalid IP Address: " + split[1]);
+                                    }
+                                    else
+                                    {
+                                        Player.Instance.Keylog(npc);
+                                        AddOutput("Keylog successful. Please wait for keylog output to your home directory.");
+                                    }
+                                }
+                            }
+                            break;
+                        case "ddos":
+                            if (split.Length != 2)
+                            {
+                                AddOutput("Invalid number of parameters");
+                            }
+                            else
+                            {
+                                Npc npc = GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(split[1]);
+                                if (npc == null)
+                                {
+                                    AddOutput("Unknown IP Address: " + split[1]);
+                                }
+                                else 
+                                {
+                                    var ddosable = npc.GetComponent<DDOSable>();
+                                    if (ddosable == null)
+                                    {
+                                        AddOutput("Invalid IP Address: " + split[1]);
+                                    }
+                                    else
+                                    {
+                                        Player.Instance.DDOS(npc);
+                                        AddOutput("DDOS successful");
+                                    }
+                                }
+                            }
+                            break;
                         default:
                             AddOutput("Unknown command: " + token);
                             break;
@@ -271,11 +325,53 @@ namespace Hacker.Layers
 
         public void AddOutput(string s)
         {
-            if (output.Count == maxOutputLength)
+            string[] strings = SplitText(s);
+            while (output.Count + strings.Length > maxOutputLength)
             {
                 output.Dequeue();
             }
-            output.Enqueue(s);
+            foreach (string _s in strings)
+            {
+                output.Enqueue(_s);
+            }
+        }
+
+        private string[] SplitText(string text)
+        {
+            if (consoleFont.MeasureString(text).X <= 608)
+            {
+                return new string[] { text };
+            }
+
+            int startIndex = 0;
+            int prevIndex = startIndex, index = -1;
+            while (consoleFont.MeasureString(text.Substring(startIndex)).X > 608)
+            {
+                index = text.IndexOf(' ', prevIndex + 1);
+                if (index == -1)
+                {
+                    if (prevIndex == startIndex)
+                    {
+                        throw new ArgumentException("text is too long to format", "text");
+                    }
+                    else
+                    {
+                        index = text.Length - 1;
+                    }
+                }
+
+                if (consoleFont.MeasureString(text.Substring(startIndex, index - startIndex)).X > 608)
+                {
+                    text = text.Remove(prevIndex, 1).Insert(prevIndex, "\n");
+                    startIndex = prevIndex;
+                }
+                else
+                {
+                    prevIndex = index;
+                }
+            }
+
+            return text.Split('\n');
         }
     }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="HackerDataTypes.Message">
+    <body_text>Test message
+	There would be keylog stuff here</body_text>
+    <file_name>guard_1.txt</file_name>
+  </Asset>
+</XnaContent>

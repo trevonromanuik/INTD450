@@ -22,7 +22,7 @@ namespace Hacker.Conversations
         const double backspaceTime = 0.4;
 
         StringBuilder input;
-        Texture2D inputTexture;
+        Textbox _inputTextbox;
 
         double cursorTimer;
         bool showCursor;
@@ -47,7 +47,7 @@ namespace Hacker.Conversations
             : base(text, func)
         {
             input = new StringBuilder();
-            inputTexture = AssetManager.LoadTexture("input");
+            _inputTextbox = new Textbox(0, 464, 640, 48);
         }
 
         public override void Initialize()
@@ -151,7 +151,7 @@ namespace Hacker.Conversations
 
             if (textIndex == Text.Length)
             {
-                spriteBatch.Draw(inputTexture, new Vector2(0, 464), Color.White);
+                _inputTextbox.Draw(spriteBatch);
                 if (showCursor)
                 {
                     spriteBatch.DrawString(

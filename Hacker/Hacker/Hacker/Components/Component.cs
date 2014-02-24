@@ -29,7 +29,7 @@ namespace Hacker.Components
             return Owner == null ? null : Owner.GetComponent<T>();
         }
 
-        public abstract void Update(GameTime gameTime);
-        public abstract void Draw(SpriteBatch spriteBatch);
+        public virtual void Update(GameTime gameTime) { }
+        public virtual void Draw(SpriteBatch spriteBatch) { }
     }
 }
