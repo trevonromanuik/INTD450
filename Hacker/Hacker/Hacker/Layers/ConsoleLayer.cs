@@ -155,106 +155,7 @@ namespace Hacker.Layers
                     input.Clear();
 
                     string[] split = s.Split(' ');
-                    string token = split[0];
-                    switch (token)
-                    {
-                        case "arp":
-                            if (Player.Instance.IpAddresses.Count == 0)
-                            {
-                                AddOutput("No recent IP Addresses to display");
-                            }
-                            else
-                            {
-                                AddOutput("Name : Internet Address");
-                                foreach (Tuple<string, string> ipAddress in Player.Instance.IpAddresses)
-                                {
-                                    AddOutput(ipAddress.Item1 + " : " + ipAddress.Item2);
-                                }
-                            }
-                            break;
-                        case "spoof":
-                            if (split.Length != 2)
-                            {
-                                AddOutput("Invalid number of parameters");
-                            }
-                            else if (split[1] == "reset")
-                            {
-                                Player.Instance.SpoofReset();
-                                AddOutput("Spoof reset successful");
-                            }
-                            else
-                            {
-                                Npc npc = GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(split[1]);
-                                if (npc == null)
-                                {
-                                    AddOutput("Unknown IP Address: " + split[1]);
-                                }
-                                else
-                                {
-                                    Player.Instance.Spoof(npc);
-                                    AddOutput("Spoof successful");
-                                }
-                            }
-                            break;
-                        case "keylog":
-                            if (split.Length != 2)
-                            {
-                                AddOutput("Invalid number of parameters");
-                            }
-                            else
-                            {
-                                Npc npc = GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(split[1]);
-                                if (npc == null)
-                                {
-                                    AddOutput("Unknown IP Address: " + split[1]);
-                                }
-                                else
-                                {
-                                    var keyloggable = npc.GetComponent<Keyloggable>();
-                                    if (keyloggable == null)
-                                    {
-                                        AddOutput("Invalid IP Address: " + split[1]);
-                                    }
-                                    else
-                                    {
-                                        Player.Instance.Keylog(npc);
-                                        AddOutput("Keylog successful. Please wait for keylog output to your home directory.");
-                                    }
-                                }
-                            }
-                            break;
-                        case "ddos":
-                            if (split.Length != 2)
-                            {
-                                AddOutput("Invalid number of parameters");
-                            }
-                            else
-                            {
-                                Npc npc = GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(split[1]);
-                                if (npc == null)
-                                {
-                                    AddOutput("Unknown IP Address: " + split[1]);
-                                }
-                                else 
-                                {
-                                    var ddosable = npc.GetComponent<DDOSable>();
-                                    if (ddosable == null)
-                                    {
-                                        AddOutput("Invalid IP Address: " + split[1]);
-                                    }
-                                    else
-                                    {
-                                        Player.Instance.DDOS(npc);
-                                        AddOutput("DDOS successful");
-                                    }
-                                }
-                            }
-                            break;
-                        default:
-                            AddOutput("Unknown command: " + token);
-                            break;
-
-                    }
+                    AddOutput(Player.Instance.UseAbility(split));
                 }
             }
 
@@ -332,7 +233,10 @@ namespace Hacker.Layers
             }
             foreach (string _s in strings)
             {
-                output.Enqueue(_s);
+                if (!string.IsNullOrEmpty(_s))
+                {
+                    output.Enqueue(_s);
+                }
             }
         }
 
@@ -340,7 +244,7 @@ namespace Hacker.Layers
         {
             if (consoleFont.MeasureString(text).X <= 608)
             {
-                return new string[] { text };
+                return text.Split('\n');
             }
 
             int startIndex = 0;

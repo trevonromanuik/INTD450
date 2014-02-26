@@ -153,6 +153,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abilities\Ability.cs" />
+    <Compile Include="Abilities\ArpAbility.cs" />
+    <Compile Include="Abilities\DDOSAbility.cs" />
+    <Compile Include="Abilities\KeylogAbility.cs" />
+    <Compile Include="Abilities\SpoofAbility.cs" />
     <Compile Include="Components\AnimatedSprite.cs" />
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\Collision.cs" />

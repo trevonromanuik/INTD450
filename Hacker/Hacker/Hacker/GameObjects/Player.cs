@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Abilities;
 using Hacker.Components;
 using Hacker.Managers;
 using Hacker.Helpers;
@@ -27,6 +28,8 @@ namespace Hacker.GameObjects
         public List<Npc> DDOSList { get; private set; }
 
         private Dictionary<string, Animation> animations;
+
+        private Dictionary<string, Ability> abilities { get; set; }
 
         public string SpoofId { get; private set; }
 
@@ -54,6 +57,12 @@ namespace Hacker.GameObjects
 
             IpAddresses = new List<Tuple<string, string>>(maxIpAddressCount);
             DDOSList = new List<Npc>(maxDDOSCount);
+
+            abilities = new Dictionary<string, Ability>();
+            AddAbility(new ArpAbility());
+            AddAbility(new DDOSAbility());
+            AddAbility(new KeylogAbility());
+            AddAbility(new SpoofAbility());
         }
 
         public override void Update(GameTime gameTime)
@@ -121,6 +130,23 @@ namespace Hacker.GameObjects
 
             npc.GetComponent<DDOSable>().DDOS();
             DDOSList.Add(npc);
+        }
+
+        public string UseAbility(string[] args)
+        {
+            if (abilities.ContainsKey(args[0]))
+            {
+                return abilities[args[0]].Use(args);
+            }
+            else
+            {
+                return "Unknown command: " + args[0];
+            }
+        }
+
+        private void AddAbility(Ability ability)
+        {
+            abilities.Add(ability.Command, ability);
         }
     }
 }
