@@ -45,11 +45,12 @@ namespace Hacker.Managers
             if (!sounds.ContainsKey(name))
             {
                 var sound = AssetManager.LoadSoundEffect("SoundEffects/" + name);
-                sounds.Add(name,sound.CreateInstance());
+                var soundInstance = sound.CreateInstance();
+                soundInstance.IsLooped = looping;
+                sounds.Add(name,soundInstance);
             }
 
             var instance = sounds[name];
-            instance.IsLooped = looping;
             instance.Play();
             if (pauseMusic && MediaPlayer.State == MediaState.Playing)
             {
