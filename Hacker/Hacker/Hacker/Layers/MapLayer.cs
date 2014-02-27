@@ -9,42 +9,52 @@ using Microsoft.Xna.Framework.Graphics;
 using Hacker.GameObjects;
 using Hacker.Levels;
 using Hacker.Managers;
-using Hacker.Extensions;
 
 namespace Hacker.Layers
 {
-    abstract class MapLayer : Layer
+    class MapLayer : Layer
     {
-        public abstract int[,] Tiles { get; }
+        public int[,] Tiles { get; set; }
 
+        Texture2D tileSet; 
         Texture2D tileTexture;
         Texture2D wallTexture;
 
-        public MapLayer()
+        public MapLayer(string inputFile)
         {
             tileTexture = AssetManager.LoadTexture("tile");
             wallTexture = AssetManager.LoadTexture("wall");
+            loadLevelFile(inputFile);
         }
 
-        public override void LoadContent()
+        private void loadLevelFile(string filename)
         {
+            string textureFile;
+            string line;
             
-        }
-
-        public override void UnloadContent()
-        {
-            
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            
+            System.IO.StreamReader file = new System.IO.StreamReader(filename);
+            if ((textureFile = file.ReadLine()) != null)
+            {
+                List<int[]> textureArr = new List<int[]>();
+                while((line = file.ReadLine()) != null)
+                {
+                    textureArr.Add(line.Split(',').Select(c => Int32.Parse(c.ToString())).ToArray());
+                }
+                Tiles = new int[textureArr.Count, textureArr[0].Length];
+                for(int i = 0; i < textureArr.Count; i++)
+                {
+                    var array = textureArr[i];
+                    for(int j = 0; j < textureArr[0].Length; j++) 
+                    {
+                        Tiles[i,j] = array[j];
+                    }
+                }
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-
             for (int i = 0, iLength = Tiles.GetLength(0); i < iLength; i++)
             {
                 for (int j = 0, jLength = Tiles.GetLength(1); j < jLength; j++)
@@ -66,13 +76,11 @@ namespace Hacker.Layers
                         var screenPosition = CameraManager.GetScreenPosition(new Vector2(texture.Width * j, texture.Height * i));
                         if (CameraManager.IsInCamera(new Vector2(screenPosition.X + 32, screenPosition.Y + 32), 64, 64))
                         {
-                            // ?????????
-                            spriteBatch.DrawBack(texture, screenPosition, Color.White);
+                            spriteBatch.Draw(texture, screenPosition, Color.White);
                         }
                     }
                 }
             }
-
             spriteBatch.End();
         }
     }

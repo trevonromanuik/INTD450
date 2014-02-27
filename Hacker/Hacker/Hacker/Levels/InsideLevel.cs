@@ -15,7 +15,7 @@ namespace Hacker.Levels
         public InsideLevel()
             : base()
         {
-            PushLayer(new InsideMapLayer());
+            PushLayer(new MapLayer("Context/Levels/Level.txt"));
             PushLayer(new CollisionLayer(new int[,] {
                 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
                 { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },

@@ -35,7 +35,7 @@ namespace Hacker.Managers
             if (music != null)
             {
                 MediaPlayer.IsRepeating = true;
-                MediaPlayer.Play(music);
+                //MediaPlayer.Play(music);
                 currentMusicName = name;
             }
         }
