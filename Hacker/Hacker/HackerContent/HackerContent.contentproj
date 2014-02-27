@@ -57,6 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Levels\level1.txt">
+      <Name>level1</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Compile Include="tile.png">
       <Name>tile</Name>
       <Importer>TextureImporter</Importer>
