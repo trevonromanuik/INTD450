@@ -34,7 +34,7 @@ namespace Hacker.Conversations
             Message message11111111 = new Message("Perfect. Ok, go on in.", () => message1111111.Output == "caviar", () =>
             {
                 doneFlag = true;
-                GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetGameObjectById("bouncer").GetComponent<Position>().Teleport(448, 160);
+                GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("bouncer").GetComponent<Position>().Teleport(448, 160);
             });
 
             Message message111112 = new Message("I'm sorry but that's wrong. Guess I can't let you in. Company policy.");

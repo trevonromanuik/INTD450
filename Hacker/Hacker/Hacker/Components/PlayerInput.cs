@@ -91,7 +91,7 @@ namespace Hacker.Components
             if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.Enter)
                 && _keyState.IsKeyDown(Keys.Enter))
             {
-                foreach (GameObject gameObject in GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GameObjects)
+                foreach (GameObject gameObject in GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GameObjects)
                 {
                     if (gameObject.Id != this.Owner.Id)
                     {

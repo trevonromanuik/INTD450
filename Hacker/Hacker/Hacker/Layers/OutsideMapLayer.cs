@@ -32,14 +32,5 @@ namespace Hacker.Layers
             { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
         };
-
-        public OutsideMapLayer()
-            : base()
-        {
-            GameObjectManager.AddGameObject(Player.Instance);
-            GameObjectManager.AddGameObject(new Spoofie());
-            GameObjectManager.AddGameObject(new Exit<InsideLevel>(new Vector2(320, 96), new Vector2(320, 384)));
-            GameObjectManager.AddGameObject(new Bouncer());
-        }
     }
 }

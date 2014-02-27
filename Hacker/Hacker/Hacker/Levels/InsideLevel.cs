@@ -16,6 +16,21 @@ namespace Hacker.Levels
             : base()
         {
             PushLayer(new InsideMapLayer());
+            PushLayer(new CollisionLayer(new int[,] {
+                { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+            }));
+
+            ObjectLayer objectLayer = new ObjectLayer();
+            objectLayer.GameObjectManager.AddGameObject(Player.Instance);
+            objectLayer.GameObjectManager.AddGameObject(new Terminal());
+            PushLayer(objectLayer);
         }
 
         public override void OnLoad()

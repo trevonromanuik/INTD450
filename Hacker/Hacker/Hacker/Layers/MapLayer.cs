@@ -19,13 +19,11 @@ namespace Hacker.Layers
 
         Texture2D tileTexture;
         Texture2D wallTexture;
-        public GameObjectManager GameObjectManager { get; private set; }
 
         public MapLayer()
         {
             tileTexture = AssetManager.LoadTexture("tile");
             wallTexture = AssetManager.LoadTexture("wall");
-            GameObjectManager = new GameObjectManager();
         }
 
         public override void LoadContent()
@@ -40,12 +38,12 @@ namespace Hacker.Layers
 
         public override void Update(GameTime gameTime)
         {
-            GameObjectManager.Update(gameTime);   
+            
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+            spriteBatch.Begin();
 
             for (int i = 0, iLength = Tiles.GetLength(0); i < iLength; i++)
             {
@@ -74,8 +72,6 @@ namespace Hacker.Layers
                     }
                 }
             }
-
-            GameObjectManager.Draw(spriteBatch);
 
             spriteBatch.End();
         }

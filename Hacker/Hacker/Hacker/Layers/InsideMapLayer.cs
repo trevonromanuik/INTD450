@@ -29,12 +29,5 @@ namespace Hacker.Layers
             { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
             { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }
         };
-
-        public InsideMapLayer()
-            : base()
-        {
-            GameObjectManager.AddGameObject(Player.Instance);
-            GameObjectManager.AddGameObject(new Terminal());
-        }
     }
 }

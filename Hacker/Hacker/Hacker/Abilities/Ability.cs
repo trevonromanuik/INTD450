@@ -16,7 +16,7 @@ namespace Hacker.Abilities
 
         protected Npc GetNpcByIp(string ip)
         {
-            return GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GetNpcByIp(ip);
+            return GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetNpcByIp(ip);
         }
     }
 }

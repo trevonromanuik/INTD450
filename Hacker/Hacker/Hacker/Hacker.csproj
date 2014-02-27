@@ -193,11 +193,13 @@
     <Compile Include="GameObjects\Npc.cs" />
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\Spoofie.cs" />
+    <Compile Include="Layers\CollisionLayer.cs" />
     <Compile Include="Layers\ConsoleLayer.cs" />
     <Compile Include="Layers\ConversationLayer.cs" />
     <Compile Include="Layers\InsideMapLayer.cs" />
     <Compile Include="Layers\Layer.cs" />
     <Compile Include="Layers\MapLayer.cs" />
+    <Compile Include="Layers\ObjectLayer.cs" />
     <Compile Include="Layers\OutsideMapLayer.cs" />
     <Compile Include="Levels\InsideLevel.cs" />
     <Compile Include="Levels\Level.cs" />
