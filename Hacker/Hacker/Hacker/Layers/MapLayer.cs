@@ -17,14 +17,10 @@ namespace Hacker.Layers
     {
         public int[,] Tiles { get; set; }
 
-        Texture2D tileSet; 
-        Texture2D tileTexture;
-        Texture2D wallTexture;
+        Texture2D tileSet;
 
         public MapLayer(string inputFile)
         {
-            tileTexture = AssetManager.LoadTexture("tile");
-            wallTexture = AssetManager.LoadTexture("wall");
             loadLevelFile(inputFile);
         }
 

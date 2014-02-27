@@ -18,7 +18,6 @@ namespace Hacker.Layers
         private Conversation _conversation;
         private Message currentMessage;
 
-        Texture2D nameTexture;
         SpriteFont conversationFont;
 
         Textbox nameTextbox;
@@ -29,7 +28,6 @@ namespace Hacker.Layers
             currentMessage = conversation.First();
             currentMessage.Initialize();
 
-            nameTexture = AssetManager.LoadTexture("name");
             conversationFont = AssetManager.LoadFont("Fonts/console_font");
 
             int nameWidth = (int)conversationFont.MeasureString(_conversation.Name).X;
