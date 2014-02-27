@@ -94,7 +94,18 @@ namespace Hacker.Managers
         {
             if (!_soundEffectList.ContainsKey(name))
             {
-                _soundEffectList.Add(name, _content.Load<SoundEffect>(name));
+                try
+                {
+                    _soundEffectList.Add(name, _content.Load<SoundEffect>(name));
+                }
+                catch (InvalidOperationException)
+                {
+                    // there was an issue loading the sound effect
+                    // assume it was becuase no audio device is plugged in
+                    // don't insert into the song list so that if an audio
+                    // device is plugged in later it will start working
+                    return null;
+                }
             }
             return _soundEffectList[name];
         }
