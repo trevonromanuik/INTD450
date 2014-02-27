@@ -15,17 +15,8 @@ namespace Hacker.Levels
         public InsideLevel()
             : base()
         {
-            PushLayer(new MapLayer("Context/Levels/Level.txt"));
-            PushLayer(new CollisionLayer(new int[,] {
-                { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
-                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
-                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
-                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
-                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
-                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
-                { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
-            }));
+            PushLayer(new MapLayer("Level1"));
+            PushLayer(new CollisionLayer("coll_level1"));
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
