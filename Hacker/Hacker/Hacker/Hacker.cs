@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using Hacker.GameObjects;
 using Hacker.Managers;
 using Hacker.Screens;
 
@@ -45,6 +46,7 @@ namespace Hacker
         {
             // TODO: Add your initialization logic here
             AssetManager.Initialize(Content);
+            CameraManager.CameraTarget = Player.Instance;
 
             base.Initialize();
         }

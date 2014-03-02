@@ -18,9 +18,12 @@ namespace Hacker.GameObjects
         public GameObjectManager Manager { get; private set; }
         private readonly List<Component> _components;
 
+        public VariableSet VariableSet { get; private set; }
+
         public GameObject()
         {
             _components = new List<Component>();
+            VariableSet = new VariableSet();
         }
 
         public void Initialize(GameObjectManager gameObjectManager)

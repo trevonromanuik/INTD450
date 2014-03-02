@@ -17,7 +17,6 @@ namespace Hacker.Layers
 
         private void loadCollisionFile(string filename)
         {
-            string textureFile;
             string line;
 
             System.IO.StreamReader file = new System.IO.StreamReader(filename);

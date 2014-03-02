@@ -21,6 +21,7 @@ namespace Hacker.Layers
 
         public MapLayer(string inputFile)
         {
+            inputFile = "Content/Levels/" + inputFile + ".txt";
             loadLevelFile(inputFile);
         }
 

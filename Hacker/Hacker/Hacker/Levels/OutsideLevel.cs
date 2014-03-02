@@ -25,8 +25,6 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Exit<InsideLevel>(new Vector2(320, 96), new Vector2(320, 384)));
             objectLayer.GameObjectManager.AddGameObject(new Bouncer());
             PushLayer(objectLayer);
-
-            CameraManager.CameraTarget = Player.Instance;
         }
 
         public override void OnLoad()

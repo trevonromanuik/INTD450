@@ -184,6 +184,7 @@
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="GameObjects\Bouncer.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
+    <Compile Include="GameObjects\VariableSet.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\FileWriterHelper.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Layers\Layer.cs" />
     <Compile Include="Layers\MapLayer.cs" />
     <Compile Include="Layers\ObjectLayer.cs" />
+    <Compile Include="Levels\DataBankLevel.cs" />
     <Compile Include="Levels\InsideLevel.cs" />
     <Compile Include="Levels\Level.cs" />
     <Compile Include="Levels\OutsideLevel.cs" />
