@@ -12,16 +12,10 @@ namespace Hacker.Conversations
 {
     class BouncerConversation : Conversation
     {
-        bool firstFlag = false;
-        bool secondFlag = false;
-        bool thirdFlag = false;
-
-        bool doneFlag = false;
-
         public BouncerConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
-            Message message0 = new Message("I hate my job...", () => doneFlag);
+            Message message0 = new Message("I hate my job...", () => owner.GetBooleanVariable("done"));
             Messages.Add(message0);
 
             Message message1 = new Message("Oh hello Mr. Blackmoore.", () => Player.Instance.SpoofId == "spoofie");
@@ -33,7 +27,7 @@ namespace Hacker.Conversations
             InputMessage message1111111 = new InputMessage("Right. Ok, final question: what is your favorite food?", () => message111111.Output == "winston");
             Message message11111111 = new Message("Perfect. Ok, go on in.", () => message1111111.Output == "caviar", () =>
             {
-                doneFlag = true;
+                owner.SetBooleanVariable("done", true);
                 GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("bouncer").GetComponent<Position>().Teleport(448, 160);
             });
 
