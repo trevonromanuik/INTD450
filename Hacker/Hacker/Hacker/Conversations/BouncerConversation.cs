@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Microsoft.Xna.Framework;
+
+using Hacker.Actions;
 using Hacker.Components;
 using Hacker.GameObjects;
 using Hacker.Layers;
@@ -28,7 +31,7 @@ namespace Hacker.Conversations
             Message message11111111 = new Message("Perfect. Ok, go on in.", () => message1111111.Output == "caviar", () =>
             {
                 owner.SetBooleanVariable("done", true);
-                GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("bouncer").GetComponent<Position>().Teleport(448, 160);
+                GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("bouncer").AddAction(new MoveToAction(new Vector2(448, 128), 1.0));
             });
 
             Message message111112 = new Message("I'm sorry but that's wrong. Guess I can't let you in. Company policy.");

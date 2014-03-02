@@ -7,8 +7,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Actions;
 using Hacker.Components;
 using Hacker.Managers;
+
+using Action = Hacker.Actions.Action;
 
 namespace Hacker.GameObjects
 {
@@ -18,11 +21,13 @@ namespace Hacker.GameObjects
         public GameObjectManager Manager { get; private set; }
         private readonly List<Component> components;
         private readonly VariableSet variableSet;
+        private readonly Queue<Action> actionQueue;
 
         public GameObject()
         {
             components = new List<Component>();
             variableSet = new VariableSet();
+            actionQueue = new Queue<Action>();
         }
 
         public void Initialize(GameObjectManager gameObjectManager)
@@ -76,6 +81,15 @@ namespace Hacker.GameObjects
             foreach (var component in components)
             {
                 component.Update(gameTime);
+            }
+
+            if (actionQueue.Count > 0)
+            {
+                actionQueue.Peek().Update(gameTime);
+                if (actionQueue.Peek().Done)
+                {
+                    actionQueue.Dequeue();
+                }
             }
         }
 
@@ -136,6 +150,12 @@ namespace Hacker.GameObjects
         public void SetStringVariable(string name, string value)
         {
             variableSet.stringVariables[name] = value;
+        }
+
+        public void AddAction(Action action)
+        {
+            actionQueue.Enqueue(action);
+            action.Initialize(this);
         }
     }
 }

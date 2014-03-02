@@ -15,19 +15,21 @@ namespace Hacker.Components
     class Sprite : Component
     {
         private Texture2D _texture;
-        public virtual int Width 
-        {
-            get { return _texture.Width; }
-        }
-        
-        public virtual int Height 
-        {
-            get { return _texture.Height; }
-        }
+        public virtual int Width { get; private set; }
+        public virtual int Height { get; private set; }
 
         public Sprite(Texture2D texture)
         {
             _texture = texture;
+            Width = _texture.Width;
+            Height = _texture.Height;
+        }
+
+        public Sprite(Texture2D texture, int width, int height)
+        {
+            _texture = texture;
+            Width = width;
+            Height = height;
         }
 
         public override void Update(GameTime gameTime)
@@ -46,7 +48,11 @@ namespace Hacker.Components
             {
                 // Add to other draw functions
                 float depth = MathHelper.Clamp(screenPosition.Y / 512, 0.0001f, 0.9999f);
-                spriteBatch.DrawZ(_texture, new Vector2(screenPosition.X - Width / 2, screenPosition.Y - Height / 2), Color.White, depth);
+                Rectangle dest = new Rectangle(
+                    (int)(screenPosition.X - Width / 2),
+                    (int)(screenPosition.Y - Height / 2), 
+                    Width, Height);
+                spriteBatch.DrawZ(_texture, dest, null, Color.White, depth);
             }
         }
     }

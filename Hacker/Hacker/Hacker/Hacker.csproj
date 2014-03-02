@@ -158,6 +158,8 @@
     <Compile Include="Abilities\DDOSAbility.cs" />
     <Compile Include="Abilities\KeylogAbility.cs" />
     <Compile Include="Abilities\SpoofAbility.cs" />
+    <Compile Include="Actions\Action.cs" />
+    <Compile Include="Actions\MoveToAction.cs" />
     <Compile Include="Components\AnimatedSprite.cs" />
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\Collision.cs" />
@@ -173,6 +175,7 @@
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Shadow.cs" />
     <Compile Include="Components\Sprite.cs" />
+    <Compile Include="Components\TriggerCollision.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Conversations\BouncerConversation.cs" />
     <Compile Include="Conversations\Conversation.cs" />
@@ -184,6 +187,7 @@
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="GameObjects\Bouncer.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
+    <Compile Include="GameObjects\Trigger.cs" />
     <Compile Include="GameObjects\VariableSet.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\FileWriterHelper.cs" />

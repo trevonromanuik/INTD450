@@ -15,9 +15,9 @@ namespace Hacker.Extensions
             spriteBatch.Draw(texture, position, null, color, 0.0f, Vector2.Zero, Vector2.One, SpriteEffects.None, z);
         }
 
-        public static void DrawZ(this SpriteBatch spriteBatch, Texture2D texture, Rectangle r1, Rectangle? r2, Color color, float z)
+        public static void DrawZ(this SpriteBatch spriteBatch, Texture2D texture, Rectangle destinationRectangle, Rectangle? sourceRectangle, Color color, float z)
         {
-            spriteBatch.Draw(texture, r1, r2, color, 0.0f, Vector2.Zero, SpriteEffects.None, z);
+            spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, color, 0.0f, Vector2.Zero, SpriteEffects.None, z);
         }
 
         public static void DrawFront(this SpriteBatch spriteBatch, Texture2D texture, Vector2 position, Color color)
