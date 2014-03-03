@@ -162,6 +162,7 @@
     <Compile Include="Actions\MoveToAction.cs" />
     <Compile Include="Components\AnimatedSprite.cs" />
     <Compile Include="Components\Animation.cs" />
+    <Compile Include="Components\BoundedMovementCollision.cs" />
     <Compile Include="Components\Collision.cs" />
     <Compile Include="Components\Component.cs" />
     <Compile Include="Components\ConversationInteraction.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Components\PlayerInput.cs" />
     <Compile Include="Components\PlayerInteraction.cs" />
     <Compile Include="Components\Position.cs" />
+    <Compile Include="Components\RepeatingSprite.cs" />
     <Compile Include="Components\Shadow.cs" />
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Constants.cs" />
@@ -185,6 +187,8 @@
     <Compile Include="Conversations\Textbox.cs" />
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="GameObjects\Bouncer.cs" />
+    <Compile Include="GameObjects\Counter.cs" />
+    <Compile Include="GameObjects\CounterTop.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
     <Compile Include="GameObjects\VariableSet.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
