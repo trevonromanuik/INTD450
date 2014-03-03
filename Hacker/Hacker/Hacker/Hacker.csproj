@@ -175,7 +175,6 @@
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Shadow.cs" />
     <Compile Include="Components\Sprite.cs" />
-    <Compile Include="Components\TriggerCollision.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Conversations\BouncerConversation.cs" />
     <Compile Include="Conversations\Conversation.cs" />
@@ -187,7 +186,6 @@
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="GameObjects\Bouncer.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
-    <Compile Include="GameObjects\Trigger.cs" />
     <Compile Include="GameObjects\VariableSet.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\FileWriterHelper.cs" />
@@ -205,6 +203,7 @@
     <Compile Include="Layers\MapLayer.cs" />
     <Compile Include="Layers\ObjectLayer.cs" />
     <Compile Include="Levels\DataBankLevel.cs" />
+    <Compile Include="Levels\DeepWebLevel.cs" />
     <Compile Include="Levels\InsideLevel.cs" />
     <Compile Include="Levels\Level.cs" />
     <Compile Include="Levels\OutsideLevel.cs" />

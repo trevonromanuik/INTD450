@@ -22,8 +22,9 @@ namespace Hacker.Screens
         public GameScreen(ScreenManager screenManager)
             : base(screenManager)
         {
+            LoadLevel<DeepWebLevel>();
             //LoadLevel<DataBankLevel>();
-            LoadLevel<OutsideLevel>();
+            //LoadLevel<OutsideLevel>();
         }
 
         public static void LoadLevel(Level level)
