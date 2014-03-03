@@ -21,8 +21,12 @@ namespace Hacker.Components
         public Sprite(Texture2D texture)
         {
             _texture = texture;
-            Width = _texture.Width;
-            Height = _texture.Height;
+
+            if (texture != null)
+            {
+                Width = _texture.Width;
+                Height = _texture.Height;
+            }
         }
 
         public Sprite(Texture2D texture, int width, int height)
