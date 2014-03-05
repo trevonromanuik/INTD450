@@ -15,6 +15,7 @@ namespace Hacker.Conversations
     class LoginConversation : Conversation
     {
         private ScreenManager _screenManager;
+        private string username, email;
 
         public LoginConversation(ScreenManager screenManager)
             : base(null, "System Login", null)
@@ -25,19 +26,22 @@ namespace Hacker.Conversations
             var Message10 = new Message("Connection verified.", () => checkInterwebs());
             var Message11 = new Message("Sorry, we could not verify your internet connection.");
             var Message2 = new InputMessage("Please enter your username.");
-            string username = Message2.Output;
+            var Message20 = new Message("Thank you.", () => !String.IsNullOrWhiteSpace(Message2.Output), () => { username = Message2.Output; });
+            var Message21 = new Message("Sorry, you must enter a valid username.");
             var Message3 = new InputMessage("Please enter your email address.");
+            var Message30 = new Message("Thank you.", () => IsValidEmail(Message3.Output), () => { email = Message3.Output; });
             var Message4 = new Message("Thank you. Your session ID is "+ Guid.NewGuid().ToString());
             var Message5 = new Message("Enjoy your stay.", () => true);
-
-            string email = Message3.Output;
 
             Messages.Add(Message0);
             Message0.Messages.Add(Message1);
             Message1.Messages.Add(Message10);
             Message1.Messages.Add(Message11);
             Message10.Messages.Add(Message2);
-            Message2.Messages.Add(Message3);
+            Message2.Messages.Add(Message20);
+            Message2.Messages.Add(Message21);
+            Message20.Messages.Add(Message3);
+            Message21.Messages.Add(Message2);
             Message3.Messages.Add(Message4);
             Message4.Messages.Add(Message5);
         }
@@ -55,8 +59,23 @@ namespace Hacker.Conversations
             }
         }
 
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public override void Done()
         {
+            Player.Instance.SetStringVariable("Username", username);
+            Player.Instance.SetStringVariable("Email", email);
             _screenManager.LoadNewScreen(new GameScreen(_screenManager));
         }
     }

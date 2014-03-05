@@ -63,6 +63,52 @@ namespace Hacker.Managers
 
         #endregion
 
+        #region shift character mappings
+
+        static readonly Dictionary<Keys, char> shiftKeys = new Dictionary<Keys, char>
+        {
+            { Keys.A, 'a' },
+            { Keys.B, 'b' },
+            { Keys.C, 'c' },
+            { Keys.D, 'd' },
+            { Keys.E, 'e' },
+            { Keys.F, 'f' },
+            { Keys.G, 'g' },
+            { Keys.H, 'h' },
+            { Keys.I, 'i' },
+            { Keys.J, 'j' },
+            { Keys.K, 'k' },
+            { Keys.L, 'l' },
+            { Keys.M, 'm' },
+            { Keys.N, 'n' },
+            { Keys.O, 'o' },
+            { Keys.P, 'p' },
+            { Keys.Q, 'q' },
+            { Keys.R, 'r' },
+            { Keys.S, 's' },
+            { Keys.T, 't' },
+            { Keys.U, 'u' },
+            { Keys.V, 'v' },
+            { Keys.W, 'w' },
+            { Keys.X, 'x' },
+            { Keys.Y, 'y' },
+            { Keys.Z, 'z' },
+            { Keys.D1, '!' },
+            { Keys.D2, '@' },
+            { Keys.D3, '#' },
+            { Keys.D4, '$' },
+            { Keys.D5, '%' },
+            { Keys.D6, '^' },
+            { Keys.D7, '&' },
+            { Keys.D8, '*' },
+            { Keys.D9, '(' },
+            { Keys.D0, ')' },
+            { Keys.Space, ' '},
+            { Keys.OemPeriod, '.'}
+        };
+
+        #endregion
+
         static StringBuilder builder = new StringBuilder();
 
         public static string GetTextInput(KeyboardState prevKeyState, KeyboardState keyState)
@@ -74,7 +120,8 @@ namespace Hacker.Managers
             {
                 if (IsKeyPressed(key, prevKeyState, keyState))
                 {
-                    builder.Append(keys[key]);
+                    var c = keyState.IsKeyDown(Keys.LeftShift) || keyState.IsKeyDown(Keys.RightShift) ? shiftKeys[key] : keys[key];
+                    builder.Append(c);
                 }
             }
 
