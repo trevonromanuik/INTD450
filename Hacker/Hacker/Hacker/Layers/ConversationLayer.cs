@@ -57,7 +57,14 @@ namespace Hacker.Layers
                     {
                         Player.Instance.AddRecentIpAddress(_conversation.Name, _conversation.IpAddress);
                     }
-                    Level.PopLayer();
+
+                    if (Level != null)
+                    {
+                        Level.PopLayer();
+                    }
+
+                    _conversation.Done();
+
                     return;
                 }
                 else

@@ -181,6 +181,7 @@
     <Compile Include="Conversations\BouncerConversation.cs" />
     <Compile Include="Conversations\Conversation.cs" />
     <Compile Include="Conversations\InputMessage.cs" />
+    <Compile Include="Conversations\LoginConversation.cs" />
     <Compile Include="Conversations\Message.cs" />
     <Compile Include="Conversations\SpoofConversation.cs" />
     <Compile Include="Conversations\TerminalConversation.cs" />
@@ -221,6 +222,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Hacker.cs" />
     <Compile Include="Screens\GameScreen.cs" />
+    <Compile Include="Screens\LoginScreen.cs" />
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Transitions\FadeTransition.cs" />
     <Compile Include="Transitions\Transition.cs" />
