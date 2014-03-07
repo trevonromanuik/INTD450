@@ -20,7 +20,7 @@ namespace Hacker.GameObjects
 
             AddComponent(new Position(320, 128));
             AddComponent(new Shadow(128));
-            AddComponent(new MovementCollision());
+            AddComponent(new ShadowMovementCollision());
 
             Sprite sprite = new Sprite(AssetManager.LoadTexture("bouncer"));
             AddComponent(sprite);

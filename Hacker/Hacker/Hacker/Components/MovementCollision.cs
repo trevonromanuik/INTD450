@@ -16,18 +16,17 @@ namespace Hacker.Components
     {
         protected virtual Rectangle Bounds
         {
-            get 
+            get
             {
                 var position = GetComponent<Position>();
                 var sprite = GetComponent<Sprite>();
-                var shadow = GetComponent<Shadow>();
 
                 return new Rectangle(
-                    (int)position.X - (sprite.Width / 2), 
-                    (int)position.Y + (sprite.Height / 2) - (shadow.Height / 2), 
-                    shadow.Width, 
-                    shadow.Height
-                ); 
+                    (int)position.X - (sprite.Width / 2),
+                    (int)position.Y - (sprite.Height / 2),
+                    sprite.Width,
+                    sprite.Height
+                );
             }
         }
 
@@ -58,12 +57,12 @@ namespace Hacker.Components
 
         public override void Update(GameTime gameTime)
         {
-            
+
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            
+
         }
     }
 }

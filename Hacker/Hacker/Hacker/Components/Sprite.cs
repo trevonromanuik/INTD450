@@ -14,13 +14,13 @@ namespace Hacker.Components
 {
     class Sprite : Component
     {
-        protected Texture2D texture;
+        public Texture2D Texture { get; set; }
         public virtual int Width { get; private set; }
         public virtual int Height { get; private set; }
 
         public Sprite(Texture2D texture)
         {
-            this.texture = texture;
+            this.Texture = texture;
 
             if (texture != null)
             {
@@ -31,7 +31,7 @@ namespace Hacker.Components
 
         public Sprite(Texture2D texture, int width, int height)
         {
-            texture = texture;
+            this.Texture = texture;
             Width = width;
             Height = height;
         }
@@ -56,7 +56,7 @@ namespace Hacker.Components
                     (int)(screenPosition.X - Width / 2),
                     (int)(screenPosition.Y - Height / 2), 
                     Width, Height);
-                spriteBatch.DrawZ(texture, dest, null, Color.White, depth);
+                spriteBatch.DrawZ(Texture, dest, null, Color.White, depth);
             }
         }
     }
