@@ -34,9 +34,16 @@ namespace Hacker.Managers
             Song music = AssetManager.LoadSong("Music/" + name);
             if (music != null)
             {
-                MediaPlayer.IsRepeating = true;
-                //MediaPlayer.Play(music);
-                currentMusicName = name;
+                try
+                {
+                    MediaPlayer.IsRepeating = true;
+                    MediaPlayer.Play(music);
+                    currentMusicName = name;
+                }
+                catch (NoAudioHardwareException e)
+                {
+                    // Do something??????
+                }
             }
         }
 
@@ -51,17 +58,33 @@ namespace Hacker.Managers
             }
 
             var instance = sounds[name];
-            instance.Play();
+
+            try
+            {
+                instance.Play();
+            }
+            catch (NoAudioHardwareException e)
+            {
+                // Do something?????
+            }
+            
             if (pauseMusic && MediaPlayer.State == MediaState.Playing)
             {
-                MediaPlayer.Pause();
-                SpinWait sw = new SpinWait();
-                while(instance.State != SoundState.Stopped)
+                try
                 {
-                    sw.SpinOnce();
-                }
+                    MediaPlayer.Pause();
+                    SpinWait sw = new SpinWait();
+                    while (instance.State != SoundState.Stopped)
+                    {
+                        sw.SpinOnce();
+                    }
 
-                MediaPlayer.Resume();
+                    MediaPlayer.Resume();
+                }
+                catch (NoAudioHardwareException e)
+                {
+                    // Do something??????
+                }
             }
         }
 
