@@ -25,10 +25,11 @@ namespace Hacker.Helpers
                 Console.WriteLine(e.Message);
             }
 
-            if(message != null)
+            if (message != null)
             {
                 var fileLabel = CurrentDirectory + "/" + message.file_name;
-                File.WriteAllText(fileLabel, message.body_text);
+                string[] split = message.body_text.Split('\n');
+                File.WriteAllLines(fileLabel, split);
             }
         }
     }

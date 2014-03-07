@@ -25,6 +25,7 @@ namespace Hacker.GameObjects
             AddComponent(new Sprite(AssetManager.LoadTexture("briggs")));
 
             AddComponent(new ConversationInteraction(new BriggsConversation(this, this.Name, this.IpAddress)));
+            AddComponent(new Keyloggable("briggs"));
         }
     }
 }

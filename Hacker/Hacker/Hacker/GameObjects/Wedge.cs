@@ -25,6 +25,7 @@ namespace Hacker.GameObjects
             AddComponent(new Sprite(AssetManager.LoadTexture("wedge")));
 
             AddComponent(new ConversationInteraction(new WedgeConversation(this, this.Name, this.IpAddress)));
+            AddComponent(new Keyloggable("wedge"));
         }
     }
 }

@@ -25,6 +25,7 @@ namespace Hacker.GameObjects
             AddComponent(new Sprite(AssetManager.LoadTexture("hitchcock")));
 
             AddComponent(new ConversationInteraction(new HitchcockConversation(this, this.Name, this.IpAddress)));
+            AddComponent(new Keyloggable("hitchcock"));
         }
     }
 }
