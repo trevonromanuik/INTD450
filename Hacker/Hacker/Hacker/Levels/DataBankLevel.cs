@@ -47,6 +47,8 @@ namespace Hacker.Levels
 
             objectLayer.GameObjectManager.AddGameObject(new Teller());
             objectLayer.GameObjectManager.AddGameObject(new Wedge());
+            objectLayer.GameObjectManager.AddGameObject(new Hitchcock());
+            objectLayer.GameObjectManager.AddGameObject(new Briggs());
 
             PushLayer(objectLayer);
         }

@@ -196,10 +196,12 @@
     <Compile Include="GameObjects\Counter.cs" />
     <Compile Include="GameObjects\CounterTop.cs" />
     <Compile Include="GameObjects\GlassScreen.cs" />
+    <Compile Include="GameObjects\Briggs.cs" />
     <Compile Include="GameObjects\Placeable.cs" />
     <Compile Include="GameObjects\Teller.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
     <Compile Include="GameObjects\VariableSet.cs" />
+    <Compile Include="GameObjects\Hitchcock.cs" />
     <Compile Include="GameObjects\Wedge.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\FileWriterHelper.cs" />
