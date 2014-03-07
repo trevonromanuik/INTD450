@@ -34,16 +34,9 @@ namespace Hacker.Managers
             Song music = AssetManager.LoadSong("Music/" + name);
             if (music != null)
             {
-                try
-                {
-                    MediaPlayer.IsRepeating = true;
-                    MediaPlayer.Play(music);
-                    currentMusicName = name;
-                }
-                catch (NoAudioHardwareException e)
-                {
-                    // Do something??????
-                }
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(music);
+                currentMusicName = name;
             }
         }
 
@@ -52,39 +45,32 @@ namespace Hacker.Managers
             if (!sounds.ContainsKey(name))
             {
                 var sound = AssetManager.LoadSoundEffect("SoundEffects/" + name);
-                var soundInstance = sound.CreateInstance();
-                soundInstance.IsLooped = looping;
-                sounds.Add(name,soundInstance);
+                if(sound != null)
+                {
+                    var soundInstance = sound.CreateInstance();
+                    soundInstance.IsLooped = looping;
+                    sounds.Add(name, soundInstance);
+                }
+                else
+                {
+                    return;
+                }
             }
 
             var instance = sounds[name];
 
-            try
-            {
-                instance.Play();
-            }
-            catch (NoAudioHardwareException e)
-            {
-                // Do something?????
-            }
+            instance.Play();
             
             if (pauseMusic && MediaPlayer.State == MediaState.Playing)
             {
-                try
+                MediaPlayer.Pause();
+                SpinWait sw = new SpinWait();
+                while (instance.State != SoundState.Stopped)
                 {
-                    MediaPlayer.Pause();
-                    SpinWait sw = new SpinWait();
-                    while (instance.State != SoundState.Stopped)
-                    {
-                        sw.SpinOnce();
-                    }
+                    sw.SpinOnce();
+                }
 
-                    MediaPlayer.Resume();
-                }
-                catch (NoAudioHardwareException e)
-                {
-                    // Do something??????
-                }
+                MediaPlayer.Resume();
             }
         }
 

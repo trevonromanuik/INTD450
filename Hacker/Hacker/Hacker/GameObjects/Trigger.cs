@@ -17,7 +17,7 @@ namespace Hacker.GameObjects
         public Trigger(Rectangle rectangle, Action action)
         {
             AddComponent(new Position(rectangle.X + rectangle.Width / 2, rectangle.Y + rectangle.Height / 2));
-            AddComponent(new Sprite(AssetManager.LoadTexture("transparent"), rectangle.Width, rectangle.Height));
+            AddComponent(new Boundary(rectangle.Width, rectangle.Height));
 
             AddComponent(new TriggerCollision(action));
         }

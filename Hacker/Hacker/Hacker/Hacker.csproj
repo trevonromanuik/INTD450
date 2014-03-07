@@ -162,6 +162,7 @@
     <Compile Include="Actions\MoveToAction.cs" />
     <Compile Include="Components\AnimatedSprite.cs" />
     <Compile Include="Components\Animation.cs" />
+    <Compile Include="Components\Boundary.cs" />
     <Compile Include="Components\BoundedMovementCollision.cs" />
     <Compile Include="Components\Collision.cs" />
     <Compile Include="Components\Component.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Components\RepeatingSprite.cs" />
     <Compile Include="Components\Shadow.cs" />
     <Compile Include="Components\Sprite.cs" />
+    <Compile Include="Components\TriggerCollision.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Conversations\BouncerConversation.cs" />
     <Compile Include="Conversations\BriggsConversation.cs" />
@@ -199,6 +201,7 @@
     <Compile Include="GameObjects\Placeable.cs" />
     <Compile Include="GameObjects\Teller.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
+    <Compile Include="GameObjects\Trigger.cs" />
     <Compile Include="GameObjects\VariableSet.cs" />
     <Compile Include="GameObjects\Wedge.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />

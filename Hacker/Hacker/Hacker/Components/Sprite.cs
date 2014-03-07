@@ -15,8 +15,8 @@ namespace Hacker.Components
     class Sprite : Component
     {
         public Texture2D Texture { get; set; }
-        public virtual int Width { get; private set; }
-        public virtual int Height { get; private set; }
+        public virtual int Width { get; protected set; }
+        public virtual int Height { get; protected set; }
 
         public Sprite(Texture2D texture)
         {
