@@ -11,9 +11,10 @@ using Hacker.Managers;
 
 namespace Hacker.GameObjects
 {
-    class Wedge : GameObject
+    class Wedge : Npc
     {
         public Wedge()
+            : base("Wedge", "179.245.40.160")
         {
             Id = "wedge";
 
@@ -23,7 +24,8 @@ namespace Hacker.GameObjects
 
             AddComponent(new Sprite(AssetManager.LoadTexture("wedge")));
 
-            AddComponent(new ConversationInteraction(new WedgeConversation(this, "Wedge", string.Empty)));
+            AddComponent(new ConversationInteraction(new WedgeConversation(this, this.Name, this.IpAddress)));
+            AddComponent(new Keyloggable("wedge"));
         }
     }
 }
