@@ -47,7 +47,7 @@ namespace Hacker.Levels
 
             objectLayer.GameObjectManager.AddGameObject(new Teller());
             objectLayer.GameObjectManager.AddGameObject(new Wedge());
-            objectLayer.GameObjectManager.AddGameObject(new Trigger(new Microsoft.Xna.Framework.Rectangle(615, 499, 128, 64), () => {
+            objectLayer.GameObjectManager.AddGameObject(new Trigger(new Microsoft.Xna.Framework.Rectangle(480, 627, 64, 64), () => {
                 var door = objectLayer.GameObjectManager.GetGameObjectById("door");
                 door.GetComponent<Sprite>().Texture = AssetManager.LoadTexture("door_close");
                 door.AddComponent(new MovementCollision());
