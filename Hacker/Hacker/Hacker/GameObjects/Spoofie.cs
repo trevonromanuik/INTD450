@@ -21,7 +21,7 @@ namespace Hacker.GameObjects
 
             AddComponent(new Position(480, 576));
             AddComponent(new Shadow());
-            AddComponent(new MovementCollision());
+            AddComponent(new ShadowMovementCollision());
 
             AnimatedSprite sprite = new AnimatedSprite();
             sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("spoofie_up"), 45, 59, 0.3f, true));

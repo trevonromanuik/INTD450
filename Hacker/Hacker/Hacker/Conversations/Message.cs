@@ -41,7 +41,7 @@ namespace Hacker.Conversations
         }
         private string _text;
 
-        public Func<bool> Func { get; private set; }
+        public Func<bool> Condition { get; private set; }
         public Action Action { get; private set; }
 
         public List<Message> Messages { get; private set; }
@@ -54,8 +54,8 @@ namespace Hacker.Conversations
 
         }
 
-        public Message(string text, Func<bool> func)
-            : this(text, func, () => { })
+        public Message(string text, Func<bool> condition)
+            : this(text, condition, () => { })
         {
 
         }
@@ -66,7 +66,7 @@ namespace Hacker.Conversations
             conversationFont = AssetManager.LoadFont("Fonts/console_font");
 
             Text = text;
-            Func = func;
+            Condition = func;
             Action = action;
 
             Messages = new List<Message>();
@@ -89,7 +89,7 @@ namespace Hacker.Conversations
 
         public Message Next()
         {
-            return Messages.FirstOrDefault(x => x.Func());
+            return Messages.FirstOrDefault(x => x.Condition());
         }
 
         public virtual void Update(GameTime gameTime)

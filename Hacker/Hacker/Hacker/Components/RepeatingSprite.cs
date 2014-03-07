@@ -57,11 +57,11 @@ namespace Hacker.Components
                     for (var j = 0; j < rY; j++)
                     {
                         Rectangle dest = new Rectangle(
-                            left + i * texture.Width,
-                            top + j * texture.Height,
-                            texture.Width, 
-                            texture.Height);
-                        spriteBatch.DrawZ(texture, dest, null, Color.White, depth);
+                            left + i * Texture.Width,
+                            top + j * Texture.Height,
+                            Texture.Width, 
+                            Texture.Height);
+                        spriteBatch.DrawZ(Texture, dest, null, Color.White, depth);
                     }
                 }
             }

@@ -61,6 +61,7 @@ namespace Hacker.Components
             else sprite.Unfreeze();
 
             position.Move(x, y);
+            Console.WriteLine(position.X + ", " + position.Y);
 
             switch (position.Direction)
             {

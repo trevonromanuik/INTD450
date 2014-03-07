@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Hacker.Components
 {
-    class BoundedMovementCollision : MovementCollision
+    class BoundedMovementCollision : ShadowMovementCollision
     {
         private Rectangle bounds;
         protected override Rectangle Bounds

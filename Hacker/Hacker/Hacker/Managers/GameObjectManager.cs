@@ -22,6 +22,7 @@ namespace Hacker.Managers
 
         public void AddGameObject(GameObject gameObject)
         {
+            gameObject.Initialize(this);
             GameObjects.Add(gameObject);
         }
 

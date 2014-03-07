@@ -71,6 +71,11 @@ namespace Hacker.GameObjects
             }
         }
 
+        public void RemoveComponent<T>() where T : Component
+        {
+            RemoveComponent(GetComponent<T>());
+        }
+
         public void RemoveComponent(Component component)
         {
             components.Remove(component);
