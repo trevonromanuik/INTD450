@@ -23,7 +23,7 @@ namespace Hacker.Levels
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
             Player.Instance.GetComponent<Position>().Teleport(224,832);
-            objectLayer.GameObjectManager.AddGameObject(new Exit<CipherStoreLevel>(new Vector2(640, 164), new Vector2(224, 448), false));
+            objectLayer.GameObjectManager.AddGameObject(new Exit<CipherStoreLevel>(new Vector2(640, 164), new Vector2(256, 448), false));
 
             PushLayer(objectLayer);
         }
