@@ -10,7 +10,8 @@ namespace Hacker.Helpers
 {
     public static class FileWriterHelper
     {
-        private static string CurrentDirectory = Directory.GetCurrentDirectory();
+        //private static string dir = Directory.GetCurrentDirectory();
+        private static string dir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         public static void writeFile(string fileName)
         {
@@ -27,7 +28,10 @@ namespace Hacker.Helpers
 
             if (message != null)
             {
-                var fileLabel = CurrentDirectory + "/" + message.file_name;
+                if (!Directory.Exists(dir+"/GlobeComm Deliveries/"))
+                    Directory.CreateDirectory(dir + "/GlobeComm Deliveries/");
+
+                var fileLabel = dir + "/GlobeComm Deliveries/" + message.file_name;
                 string[] split = message.body_text.Split('\n');
                 File.WriteAllLines(fileLabel, split);
             }
