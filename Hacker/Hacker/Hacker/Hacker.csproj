@@ -183,6 +183,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Conversations\BouncerConversation.cs" />
     <Compile Include="Conversations\BriggsConversation.cs" />
+    <Compile Include="Conversations\CipherConversation.cs" />
     <Compile Include="Conversations\Conversation.cs" />
     <Compile Include="Conversations\HitchcockConversation.cs" />
     <Compile Include="Conversations\InputMessage.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Conversations\WedgeConversation.cs" />
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="GameObjects\Bouncer.cs" />
+    <Compile Include="GameObjects\Cipher.cs" />
     <Compile Include="GameObjects\Counter.cs" />
     <Compile Include="GameObjects\CounterTop.cs" />
     <Compile Include="GameObjects\GlassScreen.cs" />

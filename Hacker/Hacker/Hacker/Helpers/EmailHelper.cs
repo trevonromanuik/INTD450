@@ -17,7 +17,7 @@ namespace Hacker.Helpers
 
         public static void sendMessage(string name)
         {
-            var email = AssetManager.LoadEmail("opening_email");
+            var email = AssetManager.LoadEmail(name);
             var message = SendGrid.GetInstance();
             message.AddTo(email.to);
             message.From = new MailAddress(email.from);
