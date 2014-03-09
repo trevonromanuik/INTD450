@@ -12,18 +12,17 @@ using Hacker.Managers;
 
 namespace Hacker.Levels
 {
-    class DeepWebLevel : Level
+    class CipherStoreLevel : Level
     {
-        public DeepWebLevel()
+        public CipherStoreLevel()
             : base()
         {
-            PushLayer(new MapLayer("deep_web"));
-            PushLayer(new CollisionLayer("deep_web_collision"));
+            PushLayer(new MapLayer("cipher_store"));
+            PushLayer(new CollisionLayer("cipher_store_collision"));
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            Player.Instance.GetComponent<Position>().Teleport(160,832);
-            objectLayer.GameObjectManager.AddGameObject(new Exit<CipherStoreLevel>(new Vector2(640, 164), new Vector2(224, 416)));
+            objectLayer.GameObjectManager.AddGameObject(new Exit<DeepWebLevel>(new Vector2(224, 544), new Vector2(640, 228)));
             PushLayer(objectLayer);
         }
     }

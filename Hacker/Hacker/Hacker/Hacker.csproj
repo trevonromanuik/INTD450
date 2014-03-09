@@ -221,6 +221,7 @@
     <Compile Include="Layers\Layer.cs" />
     <Compile Include="Layers\MapLayer.cs" />
     <Compile Include="Layers\ObjectLayer.cs" />
+    <Compile Include="Levels\CipherStoreLevel.cs" />
     <Compile Include="Levels\DataBankLevel.cs" />
     <Compile Include="Levels\DeepWebLevel.cs" />
     <Compile Include="Levels\InsideLevel.cs" />
