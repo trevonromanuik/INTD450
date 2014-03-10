@@ -36,9 +36,13 @@ namespace Hacker.Components
             if (Animation == Animations[name])
                 return;
 
-            Animation = Animations[name];
-            _frameIndex = 0;
-            _time = 0.0f;
+            Animation test = Animations[name];
+            if (test != null)
+            {
+                Animation = test;
+                _frameIndex = 0;
+                _time = 0.0f;
+            }
         }
 
         public void Freeze()

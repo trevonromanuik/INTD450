@@ -32,6 +32,9 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Placeable(608, 416, AssetManager.LoadTexture("dumpster")));
             objectLayer.GameObjectManager.AddGameObject(new Placeable(672, 832, AssetManager.LoadTexture("trashcan")));
 
+            objectLayer.GameObjectManager.AddGameObject(new NPC_Cat());
+            objectLayer.GameObjectManager.AddGameObject(new NPC_SailorMoon());
+
             PushLayer(objectLayer);
         }
     }

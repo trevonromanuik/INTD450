@@ -32,8 +32,18 @@ namespace Hacker.Components
                 new ConversationLayer(_conversation)
             );
 
-            FileWriterHelper.writeFile("opening_message");
-            SoundManager.PlaySound("seal", true, false);
+            AnimatedSprite sprite = this.Owner.GetComponent<AnimatedSprite>();
+            if (sprite != null)
+            {
+                var playerPos = Player.Instance.GetComponent<Position>();
+                var thisPos = this.Owner.GetComponent<Position>();
+                if (playerPos.X < thisPos.X)
+                    sprite.PlayAnimation("left");
+                else
+                    sprite.PlayAnimation("right");
+            }
+            //FileWriterHelper.writeFile("opening_message");
+            //SoundManager.PlaySound("seal", true, false);
         }
 
         public override void Update(GameTime gameTime)

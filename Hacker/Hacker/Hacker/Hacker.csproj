@@ -189,6 +189,7 @@
     <Compile Include="Conversations\InputMessage.cs" />
     <Compile Include="Conversations\LoginConversation.cs" />
     <Compile Include="Conversations\Message.cs" />
+    <Compile Include="Conversations\SailorMoonConversation.cs" />
     <Compile Include="Conversations\SpoofConversation.cs" />
     <Compile Include="Conversations\TellerConversation.cs" />
     <Compile Include="Conversations\TerminalConversation.cs" />
@@ -201,6 +202,8 @@
     <Compile Include="GameObjects\CounterTop.cs" />
     <Compile Include="GameObjects\GlassScreen.cs" />
     <Compile Include="GameObjects\Briggs.cs" />
+    <Compile Include="GameObjects\NPC_Cat.cs" />
+    <Compile Include="GameObjects\NPC_SailorMoon.cs" />
     <Compile Include="GameObjects\Placeable.cs" />
     <Compile Include="GameObjects\Teller.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
@@ -282,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Compile Include="Conversations\CatConversation.cs" />
     <None Include="Hacker_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
