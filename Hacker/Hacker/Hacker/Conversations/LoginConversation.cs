@@ -30,7 +30,8 @@ namespace Hacker.Conversations
             var Message21 = new Message("Sorry, you must enter a valid username.");
             var Message3 = new InputMessage("Please enter your email address.");
             var Message30 = new Message("Thank you.", () => IsValidEmail(Message3.Output), () => { email = Message3.Output; });
-            var Message4 = new Message("Thank you. Your session ID is "+ Guid.NewGuid().ToString());
+            var Message31 = new Message("Sorry, you must enter a valid email address.");
+            var Message4 = new Message("Your session ID is "+ Guid.NewGuid().ToString());
             var Message5 = new Message("Enjoy your stay.", () => true);
 
             Messages.Add(Message0);
@@ -42,7 +43,10 @@ namespace Hacker.Conversations
             Message2.Messages.Add(Message21);
             Message20.Messages.Add(Message3);
             Message21.Messages.Add(Message2);
-            Message3.Messages.Add(Message4);
+            Message3.Messages.Add(Message30);
+            Message3.Messages.Add(Message31);
+            Message30.Messages.Add(Message4);
+            Message31.Messages.Add(Message3);
             Message4.Messages.Add(Message5);
         }
 
