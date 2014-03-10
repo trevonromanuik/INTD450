@@ -31,12 +31,24 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Placeable(352, 512, AssetManager.LoadTexture("lam1p")));
             objectLayer.GameObjectManager.AddGameObject(new Placeable(608, 416, AssetManager.LoadTexture("dumpster")));
             objectLayer.GameObjectManager.AddGameObject(new Placeable(672, 832, AssetManager.LoadTexture("trashcan")));
+            objectLayer.GameObjectManager.AddGameObject(new Placeable(145, 605, AssetManager.LoadTexture("trashcan")));
+            objectLayer.GameObjectManager.AddGameObject(new Placeable(110, 600, AssetManager.LoadTexture("crate")));
+            objectLayer.GameObjectManager.AddGameObject(new Placeable(128, 224, AssetManager.LoadTexture("crate")));
 
             objectLayer.GameObjectManager.AddGameObject(new NPC_Cat());
             objectLayer.GameObjectManager.AddGameObject(new NPC_SailorMoon());
             objectLayer.GameObjectManager.AddGameObject(new NPC_Mantis());
+            objectLayer.GameObjectManager.AddGameObject(new NPC_Artist());
 
             PushLayer(objectLayer);
+        }
+
+        public override void OnLoad()
+        {
+            // Which one do you like better?
+            // Syriana, "Gharib, Eccodek remix"
+            SoundManager.PlayMusic("deepweb_foreign");
+            //SoundManager.PlayMusic("deepweb_light");
         }
     }
 }

@@ -204,6 +204,7 @@
     <Compile Include="GameObjects\CounterTop.cs" />
     <Compile Include="GameObjects\GlassScreen.cs" />
     <Compile Include="GameObjects\Briggs.cs" />
+    <Compile Include="GameObjects\NPC_Artist.cs" />
     <Compile Include="GameObjects\NPC_Cat.cs" />
     <Compile Include="GameObjects\NPC_Mantis.cs" />
     <Compile Include="GameObjects\NPC_SailorMoon.cs" />

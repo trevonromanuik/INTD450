@@ -26,5 +26,6 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Cipher());
             PushLayer(objectLayer);
         }
+
     }
 }
