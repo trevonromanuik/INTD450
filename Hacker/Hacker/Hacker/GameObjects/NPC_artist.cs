@@ -14,7 +14,7 @@ namespace Hacker.GameObjects
     class NPC_Artist : Npc
     {
         public NPC_Artist()
-            : base("Deviant_Picasso", "124.32.447.36")
+            : base("Deviant_Picasso", string.Empty)
         {
             Id = "artist";
 

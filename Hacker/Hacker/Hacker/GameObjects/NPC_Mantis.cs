@@ -14,7 +14,7 @@ namespace Hacker.GameObjects
     class NPC_Mantis : Npc
     {
         public NPC_Mantis()
-            : base("LuckyGuy88", "204.93.123.77")
+            : base("LuckyGuy88", string.Empty)
         {
             Id = "manty";
 

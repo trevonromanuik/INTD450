@@ -46,6 +46,7 @@ namespace Hacker.Transitions
                 if (opacity == 1.0)
                 {
                     Player.Instance.GetComponent<Position>().Teleport(_newPlayerPosition.X, _newPlayerPosition.Y);
+                    SwitchLevel();
                     fadeOut = false;
                 }
             }

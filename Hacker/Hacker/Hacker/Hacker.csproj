@@ -196,6 +196,7 @@
     <Compile Include="Conversations\TellerConversation.cs" />
     <Compile Include="Conversations\TerminalConversation.cs" />
     <Compile Include="Conversations\Textbox.cs" />
+    <Compile Include="Conversations\WallTerminalConversation.cs" />
     <Compile Include="Conversations\WedgeConversation.cs" />
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="GameObjects\Bouncer.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="GameObjects\CounterTop.cs" />
     <Compile Include="GameObjects\GlassScreen.cs" />
     <Compile Include="GameObjects\Briggs.cs" />
+    <Compile Include="GameObjects\Lamp.cs" />
     <Compile Include="GameObjects\NPC_Artist.cs" />
     <Compile Include="GameObjects\NPC_Cat.cs" />
     <Compile Include="GameObjects\NPC_Mantis.cs" />
@@ -214,6 +216,7 @@
     <Compile Include="GameObjects\Trigger.cs" />
     <Compile Include="GameObjects\VariableSet.cs" />
     <Compile Include="GameObjects\Hitchcock.cs" />
+    <Compile Include="GameObjects\WallTerminal.cs" />
     <Compile Include="GameObjects\Wedge.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\FileWriterHelper.cs" />
@@ -236,6 +239,7 @@
     <Compile Include="Levels\InsideLevel.cs" />
     <Compile Include="Levels\Level.cs" />
     <Compile Include="Levels\OutsideLevel.cs" />
+    <Compile Include="Levels\VaultLevel.cs" />
     <Compile Include="Managers\AssetManager.cs" />
     <Compile Include="Managers\CameraManager.cs" />
     <Compile Include="Managers\GameObjectManager.cs" />

@@ -22,15 +22,15 @@ namespace Hacker.Screens
         public GameScreen(ScreenManager screenManager)
             : base(screenManager)
         {
-            LoadLevel<DeepWebLevel>();
-            //LoadLevel<DataBankLevel>();
+            //LoadLevel<DeepWebLevel>();
+            LoadLevel<DataBankLevel>();
             //LoadLevel<OutsideLevel>();
         }
 
         public static void LoadLevel(Level level)
         {
-            _transition = null;
             Level = level;
+            Level.OnLoad();
         }
 
         public static void LoadLevel<T>() where T : Level, new()
@@ -44,6 +44,11 @@ namespace Hacker.Screens
         {
             _transition = transition;
             _transition.Initialize(Level, new T());
+        }
+
+        public static void RemoveTransition()
+        {
+            _transition = null;
         }
 
         public override void LoadContent()

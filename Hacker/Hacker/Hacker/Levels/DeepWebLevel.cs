@@ -23,12 +23,12 @@ namespace Hacker.Levels
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
             Player.Instance.GetComponent<Position>().Teleport(224,832);
-            objectLayer.GameObjectManager.AddGameObject(new Exit<CipherStoreLevel>(new Vector2(640, 164), new Vector2(256, 448), false));
+            objectLayer.GameObjectManager.AddGameObject(new Exit<CipherStoreLevel>(new Rectangle(640, 164, 64, 64), new Vector2(256, 448)));
 
-            objectLayer.GameObjectManager.AddGameObject(new Placeable(96, 832, AssetManager.LoadTexture("lam1p")));
-            objectLayer.GameObjectManager.AddGameObject(new Placeable(352, 832, AssetManager.LoadTexture("lam1p")));
-            objectLayer.GameObjectManager.AddGameObject(new Placeable(96, 512, AssetManager.LoadTexture("lam1p")));
-            objectLayer.GameObjectManager.AddGameObject(new Placeable(352, 512, AssetManager.LoadTexture("lam1p")));
+            objectLayer.GameObjectManager.AddGameObject(new Lamp(96, 832));
+            objectLayer.GameObjectManager.AddGameObject(new Lamp(352, 832));
+            objectLayer.GameObjectManager.AddGameObject(new Lamp(96, 512));
+            objectLayer.GameObjectManager.AddGameObject(new Lamp(352, 512));
             objectLayer.GameObjectManager.AddGameObject(new Placeable(608, 416, AssetManager.LoadTexture("dumpster")));
             objectLayer.GameObjectManager.AddGameObject(new Placeable(672, 832, AssetManager.LoadTexture("trashcan")));
             objectLayer.GameObjectManager.AddGameObject(new Placeable(145, 605, AssetManager.LoadTexture("trashcan")));

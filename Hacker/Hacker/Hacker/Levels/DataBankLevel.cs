@@ -23,6 +23,7 @@ namespace Hacker.Levels
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
             Player.Instance.GetComponent<Position>().Teleport(512, 1024);
+            objectLayer.GameObjectManager.AddGameObject(new Exit<VaultLevel>(new Rectangle(128, 64, 384, 300), new Vector2(320, 448)));
 
             objectLayer.GameObjectManager.AddGameObject(new Counter(64, 576, 8));
             objectLayer.GameObjectManager.AddGameObject(new Counter(704, 576, 4));
@@ -51,9 +52,17 @@ namespace Hacker.Levels
             
             objectLayer.GameObjectManager.AddGameObject(new Trigger(new Microsoft.Xna.Framework.Rectangle(480, 627, 64, 64), () => {
                 var door = objectLayer.GameObjectManager.GetGameObjectById("door");
-                door.GetComponent<Sprite>().Texture = AssetManager.LoadTexture("door_close");
-                door.AddComponent(new MovementCollision());
+                if (door.GetBooleanVariable("open"))
+                {
+                    door.GetComponent<Sprite>().Texture = AssetManager.LoadTexture("door_close");
+                    door.AddComponent(new MovementCollision());
+                    door.SetBooleanVariable("open", false);
+                }
             }));
+
+            objectLayer.GameObjectManager.AddGameObject(new WallTerminal(545, 352));
+
+            objectLayer.GameObjectManager.AddGameObject(new Placeable("vault_door", 320, 224, AssetManager.LoadTexture("vault_door")));
 
             PushLayer(objectLayer);
         }

@@ -14,7 +14,7 @@ namespace Hacker.GameObjects
     class NPC_SailorMoon : Npc
     {
         public NPC_SailorMoon()
-            : base("Serena_MoonPrncss", "199.23.122.69")
+            : base("Serena_MoonPrncss", string.Empty)
         {
             Id = "moon";
 

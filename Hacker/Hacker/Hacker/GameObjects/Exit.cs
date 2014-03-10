@@ -17,14 +17,10 @@ namespace Hacker.GameObjects
 {
     class Exit<T> : GameObject where T : Level, new()
     {
-        public Exit(Vector2 position, Vector2 newPlayerPosition, bool visible = true)
+        public Exit(Rectangle position, Vector2 newPlayerPosition)
         {
-            AddComponent(new Position(position.X, position.Y));
-
-            if (visible)
-                AddComponent(new Sprite(AssetManager.LoadTexture("exit")));
-            else
-                AddComponent(new Sprite(AssetManager.LoadTexture("exit_clear")));
+            AddComponent(new Position(position.X + position.Width / 2, position.Y + position.Height / 2));
+            AddComponent(new Boundary(position.Width, position.Height));
             AddComponent(new LevelSwitchCollision<T>(newPlayerPosition));
 
 

@@ -14,7 +14,7 @@ namespace Hacker.GameObjects
     class NPC_Cat : Npc
     {
         public NPC_Cat()
-            : base("Meowsmith_2032", "199.23.122.69")
+            : base("Meowsmith_2032", string.Empty)
         {
             Id = "cat";
 
