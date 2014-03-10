@@ -109,7 +109,7 @@ namespace Hacker.GameObjects
             if (keylogInfo != null)
             {
                 var path = keylogInfo.KeyLogPath;
-                FileWriterHelper.writeFile(path);
+                FileWriterHelper.writeFile(path, "Keylogs/");
             }
         }
 

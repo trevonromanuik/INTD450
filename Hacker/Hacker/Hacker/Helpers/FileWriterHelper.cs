@@ -13,7 +13,7 @@ namespace Hacker.Helpers
         //private static string dir = Directory.GetCurrentDirectory();
         private static string dir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-        public static void writeFile(string fileName)
+        public static void writeFile(string fileName, string subDir = "")
         {
             Message message = null;
 
@@ -28,10 +28,10 @@ namespace Hacker.Helpers
 
             if (message != null)
             {
-                if (!Directory.Exists(dir+"/GlobeComm Deliveries/"))
-                    Directory.CreateDirectory(dir + "/GlobeComm Deliveries/");
+                if (!Directory.Exists(dir+"/GlobeComm Deliveries/" + subDir))
+                    Directory.CreateDirectory(dir + "/GlobeComm Deliveries/" + subDir);
 
-                var fileLabel = dir + "/GlobeComm Deliveries/" + message.file_name;
+                var fileLabel = dir + "/GlobeComm Deliveries/" + subDir + message.file_name;
                 string[] split = message.body_text.Split('\n');
                 File.WriteAllLines(fileLabel, split);
             }
