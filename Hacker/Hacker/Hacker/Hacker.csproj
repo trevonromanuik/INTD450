@@ -181,6 +181,7 @@
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Components\TriggerCollision.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Conversations\ArtistConversation.cs" />
     <Compile Include="Conversations\BouncerConversation.cs" />
     <Compile Include="Conversations\BriggsConversation.cs" />
     <Compile Include="Conversations\CipherConversation.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Conversations\HitchcockConversation.cs" />
     <Compile Include="Conversations\InputMessage.cs" />
     <Compile Include="Conversations\LoginConversation.cs" />
+    <Compile Include="Conversations\MantisConversation.cs" />
     <Compile Include="Conversations\Message.cs" />
     <Compile Include="Conversations\SailorMoonConversation.cs" />
     <Compile Include="Conversations\SpoofConversation.cs" />
@@ -203,6 +205,7 @@
     <Compile Include="GameObjects\GlassScreen.cs" />
     <Compile Include="GameObjects\Briggs.cs" />
     <Compile Include="GameObjects\NPC_Cat.cs" />
+    <Compile Include="GameObjects\NPC_Mantis.cs" />
     <Compile Include="GameObjects\NPC_SailorMoon.cs" />
     <Compile Include="GameObjects\Placeable.cs" />
     <Compile Include="GameObjects\Teller.cs" />

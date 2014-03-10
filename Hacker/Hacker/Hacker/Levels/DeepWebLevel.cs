@@ -34,6 +34,7 @@ namespace Hacker.Levels
 
             objectLayer.GameObjectManager.AddGameObject(new NPC_Cat());
             objectLayer.GameObjectManager.AddGameObject(new NPC_SailorMoon());
+            objectLayer.GameObjectManager.AddGameObject(new NPC_Mantis());
 
             PushLayer(objectLayer);
         }
