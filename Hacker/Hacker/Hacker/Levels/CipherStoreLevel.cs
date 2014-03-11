@@ -22,7 +22,7 @@ namespace Hacker.Levels
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            objectLayer.GameObjectManager.AddGameObject(new Exit<DeepWebLevel>(new Rectangle(224, 600, 128, 64), new Vector2(640, 228)));
+            objectLayer.GameObjectManager.AddGameObject(new Exit<DeepWebLevel>(new Rectangle(256, 480, 128, 64), new Vector2(640, 228)));
             objectLayer.GameObjectManager.AddGameObject(new Cipher());
             PushLayer(objectLayer);
         }
