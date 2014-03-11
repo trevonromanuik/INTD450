@@ -23,7 +23,8 @@ namespace Hacker.Screens
             : base(screenManager)
         {
             //LoadLevel<DeepWebLevel>();
-            LoadLevel<DataBankLevel>();
+            //LoadLevel<DataBankLevel>();
+            LoadLevel<VaultLevel>();
             //LoadLevel<OutsideLevel>();
         }
 
