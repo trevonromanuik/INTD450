@@ -79,7 +79,8 @@ namespace Hacker.Conversations
         public override void Done()
         {
             Player.Instance.SetStringVariable("Username", username);
-            Player.Instance.SetStringVariable("Email", email);
+            //Player.Instance.SetStringVariable("Email", email);
+            Player.Instance.SetStringVariable("Email", "teri@ualberta.ca");
             _screenManager.LoadNewScreen(new GameScreen(_screenManager));
         }
     }
