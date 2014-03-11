@@ -196,6 +196,7 @@
     <Compile Include="Conversations\TellerConversation.cs" />
     <Compile Include="Conversations\TerminalConversation.cs" />
     <Compile Include="Conversations\Textbox.cs" />
+    <Compile Include="Conversations\VaultTerminalConversation.cs" />
     <Compile Include="Conversations\WallTerminalConversation.cs" />
     <Compile Include="Conversations\WedgeConversation.cs" />
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="GameObjects\Trigger.cs" />
     <Compile Include="GameObjects\VariableSet.cs" />
     <Compile Include="GameObjects\Hitchcock.cs" />
+    <Compile Include="GameObjects\VaultTerminal.cs" />
     <Compile Include="GameObjects\WallTerminal.cs" />
     <Compile Include="GameObjects\Wedge.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
