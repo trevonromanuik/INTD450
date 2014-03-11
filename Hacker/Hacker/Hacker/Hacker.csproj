@@ -221,6 +221,7 @@
     <Compile Include="GameObjects\WallTerminal.cs" />
     <Compile Include="GameObjects\Wedge.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\FileCopyHelper.cs" />
     <Compile Include="Helpers\FileWriterHelper.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\RectangleExtensions.cs" />
