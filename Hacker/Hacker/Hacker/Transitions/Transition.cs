@@ -22,10 +22,14 @@ namespace Hacker.Transitions
             _newLevel = newLevel;
         }
 
-        protected void Done()
+        protected void SwitchLevel()
         {
             GameScreen.LoadLevel(_newLevel);
-            _newLevel.OnLoad();
+        }
+
+        protected void Done()
+        {
+            GameScreen.RemoveTransition();
         }
 
         public abstract void Update(GameTime gameTime);

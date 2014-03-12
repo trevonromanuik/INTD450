@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="HackerDataTypes.Message">
+    <body_text>
+- 2014-04-10/15:30/IntrusionDetectAutorespond: Bwahaha, it's not that easy to stick a keylogger on the great CIPHER [KeyName: Enter]\n
+[Error: keylog disconnected]
+    </body_text>
+    <file_name>keylog - cipher.txt</file_name>
+  </Asset>
+</XnaContent>

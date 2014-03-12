@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="HackerDataTypes.Message">
-    <body_text>Dossier
-	
-	Name: Unknown
-	IP: Unknown
-	Last Known Location: Lucky Shot Tavern, Sector 15-R</body_text>
-    <file_name>dossier_1.txt</file_name>
+    <body_text>This is a debug message, please ignore.</body_text>
+    <file_name>test-ignore.txt</file_name>
   </Asset>
 </XnaContent>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="HackerDataTypes.Message">
+    <body_text>
+- 2014-04-10/13:10|C:\WINDOWS\Explorer.EXE|327786|SoftwareInstall|Run|Commando in run window\n
+- 2014-04-10/13:10|C:\Program Files\SkypeMessenger\skype.exe|267819|\n
+- 2014-04-10/13:22/SkypeMessenger: Hey Chloe! [KeyName: Enter]\n
+- 2014-04-10/13:25/SkypeMessenger: Of course I'm still at work. What else would I be doing? Having a life?\n
+LOL. [KeyName: Enter]\n
+- 2014-04-10/13:26/SkypeMessenger: Anyway, Juliana says she's too busy to go drinking with us tonight. She\n
+had an argument with one of my co-workers the other day and I think she's still fill(← BS) ing papers to get him\n
+removed.[KeyName: Enter]\n
+- 2014-04-10/13:28/SkypeMessenger: No idea what that lady is up to. Talk about a busy body. Anyway, call me\n
+in five? They want to update the password again. [KeyName: Enter]\n
+- 2014-04-10/13:29/SkypeMessenger: Don't get me started. Blackmoore uses the dog's name in all his\n
+passwords. Maybe I'll change the vowels in the name to a 1 and a 0 to at least pretend it's more secure.\n
+[KeyName: Enter]\n
+- 2014-04-10/13:35/SkypeMessenger: Just a sec, let me disconnect from the network before updating the password [KeyName: Enter]\n
+[Error: keylog disconnected]
+    </body_text>
+    <file_name>keylog - briggs.txt</file_name>
+  </Asset>
+</XnaContent>

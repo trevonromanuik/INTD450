@@ -19,15 +19,15 @@ namespace Hacker.Components
 
         public Vector2 CheckCollision(Vector2 position, int width, int height)
         {
-            MapLayer mapLayer = GameScreen.Level.GetLayer<MapLayer>();
+            CollisionLayer collisionLayer = GameScreen.Level.GetLayer<CollisionLayer>();
             var collisions = new List<Vector2>();
             
             // Determine which tiles the player currently occupies.
             int minI = Math.Max(0, (int)Math.Floor((position.Y - (height / 2)) / tileDimension));
-            int maxI = Math.Min(mapLayer.Tiles.GetLength(0) - 1, (int)Math.Floor((position.Y + (height / 2)) / tileDimension));
+            int maxI = Math.Min(collisionLayer.Collisions.GetLength(0) - 1, (int)Math.Floor((position.Y + (height / 2)) / tileDimension));
            
             int minJ = Math.Max(0, (int)Math.Floor((position.X - (width / 2)) / tileDimension));
-            int maxJ = Math.Min(mapLayer.Tiles.GetLength(1) - 1, (int)Math.Floor((position.X + (width / 2)) / tileDimension));
+            int maxJ = Math.Min(collisionLayer.Collisions.GetLength(1) - 1, (int)Math.Floor((position.X + (width / 2)) / tileDimension));
 
             // Get the player's bounding box.
             Rectangle bounds = new Rectangle((int)position.X - (width / 2), (int)position.Y - (height / 2), width, height);
@@ -38,7 +38,7 @@ namespace Hacker.Components
                 for (int j = minJ; j <= maxJ; j++)
                 {
                     // Check to see if the tile is an area boundary
-                    if (mapLayer.Tiles[i, j] != 1)
+                    if (collisionLayer.Collisions[i, j] == 1)
                     {
                         // Get the tile boundaries
                         Rectangle tileBounds = new Rectangle(j * tileDimension, i * tileDimension, tileDimension, tileDimension);
@@ -55,13 +55,11 @@ namespace Hacker.Components
             {
                 // We're in a corner.
                 case 3:
-                    var found = false;
                     foreach (var collision in collisions)
                     {
                         var diff = Math.Abs(collision.X) - Math.Abs(collision.Y);
                         if (diff <= 2 && diff >= -2)
                         {
-                            found = true;
                             bounds.Y += (int)collision.Y;
                             position.Y += collision.Y;
                             bounds.X += (int)collision.X;

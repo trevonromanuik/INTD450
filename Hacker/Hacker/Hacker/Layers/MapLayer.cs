@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -12,66 +13,76 @@ using Hacker.Managers;
 
 namespace Hacker.Layers
 {
-    abstract class MapLayer : Layer
+    class MapLayer : Layer
     {
-        public abstract int[,] Tiles { get; }
+        public int[,] Tiles { get; set; }
 
-        Texture2D tileTexture;
-        Texture2D wallTexture;
-        public GameObjectManager GameObjectManager { get; private set; }
+        Texture2D tileSet;
 
-        public MapLayer()
+        public MapLayer(string inputFile)
         {
-            tileTexture = AssetManager.LoadTexture("tile");
-            wallTexture = AssetManager.LoadTexture("wall");
-            GameObjectManager = new GameObjectManager();
+            inputFile = "Content/Levels/" + inputFile + ".txt";
+            loadLevelFile(inputFile);
         }
 
-        public override void LoadContent()
+        private void loadLevelFile(string filename)
         {
-            
-        }
+            string textureFile;
+            string line;
 
-        public override void UnloadContent()
-        {
-            
-        }
+            List<int[]> textureArr = new List<int[]>();
+            using (StreamReader file = new StreamReader(filename))
+            {
+                if ((textureFile = file.ReadLine()) != null)
+                {
+                    tileSet = AssetManager.LoadTexture("Tilesets/" + textureFile);
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        textureArr.Add(line.Split(',').Select(c => Int32.Parse(c.ToString())).ToArray());
+                    }
+                }
+            }
 
-        public override void Update(GameTime gameTime)
-        {
-            GameObjectManager.Update(gameTime);   
+            Tiles = new int[textureArr.Count, textureArr[0].Length];
+            for (int i = 0; i < textureArr.Count; i++)
+            {
+                var array = textureArr[i];
+                for (int j = 0; j < textureArr[0].Length; j++)
+                {
+                    Tiles[i, j] = array[j];
+                }
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();
+
+            int tilesetX = tileSet.Width / 64;
             for (int i = 0, iLength = Tiles.GetLength(0); i < iLength; i++)
             {
                 for (int j = 0, jLength = Tiles.GetLength(1); j < jLength; j++)
                 {
-                    Texture2D texture = null;
-                    switch (Tiles[i, j])
+                    int tile = Tiles[i, j];
+                    if (tile != 0)
                     {
-                        case 1:
-                            texture = tileTexture;
-                            break;
-                        case 2:
-                            texture = wallTexture;
-                            break;
-
-                    }
-
-                    if (texture != null)
-                    {
-                        var screenPosition = CameraManager.GetScreenPosition(new Vector2(texture.Width * j, texture.Height * i));
+                        var screenPosition = CameraManager.GetScreenPosition(new Vector2(64 * j, 64 * i));
                         if (CameraManager.IsInCamera(new Vector2(screenPosition.X + 32, screenPosition.Y + 32), 64, 64))
                         {
-                            spriteBatch.Draw(texture, screenPosition, Color.White);
+                            --tile;
+                            int xIndex = tile % tilesetX;
+                            int yIndex = tile / tilesetX;
+
+                            Rectangle source = new Rectangle(xIndex * 64, yIndex * 64, 64, 64);
+                            Rectangle destination = new Rectangle((int)screenPosition.X, (int)screenPosition.Y, 64, 64);
+
+                            spriteBatch.Draw(tileSet, destination, source, Color.White);
                         }
                     }
                 }
             }
 
-            GameObjectManager.Draw(spriteBatch);
+            spriteBatch.End();
         }
     }
 }

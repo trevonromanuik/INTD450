@@ -24,7 +24,9 @@ namespace Hacker.Conversations
 
         public Message First()
         {
-            return Messages.FirstOrDefault(x => x.Func());
+            return Messages.FirstOrDefault(x => x.Condition());
         }
+
+        public virtual void Done() { }
     }
 }

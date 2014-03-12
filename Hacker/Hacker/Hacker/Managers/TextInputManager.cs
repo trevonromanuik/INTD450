@@ -57,8 +57,37 @@ namespace Hacker.Managers
             { Keys.D8, '8' },
             { Keys.D9, '9' },
             { Keys.D0, '0' },
+            { Keys.NumPad1, '1' },
+            { Keys.NumPad2, '2' },
+            { Keys.NumPad3, '3' },
+            { Keys.NumPad4, '4' },
+            { Keys.NumPad5, '5' },
+            { Keys.NumPad6, '6' },
+            { Keys.NumPad7, '7' },
+            { Keys.NumPad8, '8' },
+            { Keys.NumPad9, '9' },
+            { Keys.NumPad0, '0' },
             { Keys.Space, ' '},
-            { Keys.OemPeriod, '.'}
+            { Keys.OemPeriod, '.'},
+            { Keys.Decimal, '.'}
+        };
+
+        #endregion
+
+        #region shift character mappings
+
+        static readonly Dictionary<Keys, char> shiftKeys = new Dictionary<Keys, char>
+        {
+            { Keys.D1, '!' },
+            { Keys.D2, '@' },
+            { Keys.D3, '#' },
+            { Keys.D4, '$' },
+            { Keys.D5, '%' },
+            { Keys.D6, '^' },
+            { Keys.D7, '&' },
+            { Keys.D8, '*' },
+            { Keys.D9, '(' },
+            { Keys.D0, ')' },
         };
 
         #endregion
@@ -74,7 +103,8 @@ namespace Hacker.Managers
             {
                 if (IsKeyPressed(key, prevKeyState, keyState))
                 {
-                    builder.Append(keys[key]);
+                    var c = (keyState.IsKeyDown(Keys.LeftShift) || keyState.IsKeyDown(Keys.RightShift)) && shiftKeys.ContainsKey(key) ? shiftKeys[key] : keys[key];
+                    builder.Append(c);
                 }
             }
 

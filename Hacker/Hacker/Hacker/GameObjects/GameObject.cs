@@ -7,8 +7,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Actions;
 using Hacker.Components;
 using Hacker.Managers;
+
+using Action = Hacker.Actions.Action;
 
 namespace Hacker.GameObjects
 {
@@ -16,11 +19,15 @@ namespace Hacker.GameObjects
     {
         public string Id { get; set; }
         public GameObjectManager Manager { get; private set; }
-        private readonly List<Component> _components;
+        private readonly List<Component> components;
+        private readonly VariableSet variableSet;
+        private readonly Queue<Action> actionQueue;
 
         public GameObject()
         {
-            _components = new List<Component>();
+            components = new List<Component>();
+            variableSet = new VariableSet();
+            actionQueue = new Queue<Action>();
         }
 
         public void Initialize(GameObjectManager gameObjectManager)
@@ -30,7 +37,7 @@ namespace Hacker.GameObjects
 
         public T GetComponent<T>() where T : Component
         {
-            return (T)_components.Find(x => IsOfType<T>(x));
+            return (T)components.Find(x => IsOfType<T>(x));
         }
 
         private bool IsOfType<T>(Component component) where T : Component
@@ -51,38 +58,109 @@ namespace Hacker.GameObjects
 
         public void AddComponent(Component component)
         {
-            _components.Add(component);
+            components.Add(component);
             component.Initialize(this);
         }
 
         public void AddComponents(List<Component> components)
         {
-            _components.AddRange(components);
+            components.AddRange(components);
             foreach (var component in components)
             {
                 component.Initialize(this);
             }
         }
 
+        public void RemoveComponent<T>() where T : Component
+        {
+            RemoveComponent(GetComponent<T>());
+        }
+
         public void RemoveComponent(Component component)
         {
-            _components.Remove(component);
+            components.Remove(component);
         }
 
         public virtual void Update(GameTime gameTime)
         {
-            foreach (var component in _components)
+            foreach (var component in components)
             {
                 component.Update(gameTime);
+            }
+
+            if (actionQueue.Count > 0)
+            {
+                actionQueue.Peek().Update(gameTime);
+                if (actionQueue.Peek().Done)
+                {
+                    actionQueue.Dequeue();
+                }
             }
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var component in _components)
+            foreach (var component in components)
             {
                 component.Draw(spriteBatch);
             }
+        }
+
+        public bool GetBooleanVariable(string name)
+        {
+            return variableSet.booleanVariables.ContainsKey(name) ?
+                variableSet.booleanVariables[name] : false;
+        }
+
+        public void SetBooleanVariable(string name, bool value)
+        {
+            variableSet.booleanVariables[name] = value;
+        }
+
+        public int GetIntegerVariable(string name)
+        {
+            return variableSet.integerVariables.ContainsKey(name) ?
+                variableSet.integerVariables[name] : 0;
+        }
+
+        public int IncrementIntegerVariable(string name)
+        {
+            if (variableSet.integerVariables.ContainsKey(name))
+                variableSet.integerVariables[name]++;
+            else
+                variableSet.integerVariables[name] = 1;
+            return variableSet.integerVariables[name];
+        }
+
+        public int DecrementIntegerVariable(string name)
+        {
+            if (variableSet.integerVariables.ContainsKey(name))
+                variableSet.integerVariables[name]--;
+            else
+                variableSet.integerVariables[name] = -1;
+            return variableSet.integerVariables[name];
+        }
+
+        public void SetIntegerVariable(string name, int value)
+        {
+            variableSet.integerVariables[name] = value;
+        }
+
+        public string GetStringVariable(string name)
+        {
+            return variableSet.stringVariables.ContainsKey(name) ?
+                variableSet.stringVariables[name] : string.Empty;
+        }
+
+        public void SetStringVariable(string name, string value)
+        {
+            variableSet.stringVariables[name] = value;
+        }
+
+        public void AddAction(Action action)
+        {
+            actionQueue.Enqueue(action);
+            action.Initialize(this);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Hacker.GameObjects
 
             AddComponent(new Position(320, 160));
             AddComponent(new Shadow());
-            AddComponent(new MovementCollision());
+            AddComponent(new ShadowMovementCollision());
 
             Sprite sprite = new Sprite(AssetManager.LoadTexture("terminal"));
             AddComponent(sprite);

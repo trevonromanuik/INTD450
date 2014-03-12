@@ -46,6 +46,7 @@ namespace Hacker.Transitions
                 if (opacity == 1.0)
                 {
                     Player.Instance.GetComponent<Position>().Teleport(_newPlayerPosition.X, _newPlayerPosition.Y);
+                    SwitchLevel();
                     fadeOut = false;
                 }
             }
@@ -71,7 +72,9 @@ namespace Hacker.Transitions
                 _newLevel.Draw(spriteBatch);
             }
 
+            spriteBatch.Begin();
             spriteBatch.Draw(blackTexture, new Rectangle(0, 0, spriteBatch.GraphicsDevice.Viewport.Width, spriteBatch.GraphicsDevice.Viewport.Height), Color.White * opacity);
+            spriteBatch.End();
         }
     }
 }

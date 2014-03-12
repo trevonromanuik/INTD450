@@ -67,7 +67,7 @@ namespace Hacker.Components
             _position.Y = _position.Y - (sprite.Height / 2);
 
             // Do gameobject collision detection
-            foreach (GameObject gameObject in GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GameObjects)
+            foreach (GameObject gameObject in GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GameObjects)
             {
                 var playerCollision = gameObject.GetComponent<PlayerCollision>();
                 if (playerCollision != null)

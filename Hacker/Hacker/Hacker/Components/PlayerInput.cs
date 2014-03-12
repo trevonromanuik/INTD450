@@ -61,6 +61,7 @@ namespace Hacker.Components
             else sprite.Unfreeze();
 
             position.Move(x, y);
+            Console.WriteLine(position.X + ", " + position.Y);
 
             switch (position.Direction)
             {
@@ -79,6 +80,8 @@ namespace Hacker.Components
             }
 
             // check for tilde
+            // apparently, this doesn't work properly on my macbook running bootcamp/win7
+            // other keys work fine
             if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.OemTilde)
                 && _keyState.IsKeyDown(Keys.OemTilde))
             {
@@ -89,7 +92,7 @@ namespace Hacker.Components
             if (_prevKeyState != null && _prevKeyState.IsKeyUp(Keys.Enter)
                 && _keyState.IsKeyDown(Keys.Enter))
             {
-                foreach (GameObject gameObject in GameScreen.Level.GetLayer<MapLayer>().GameObjectManager.GameObjects)
+                foreach (GameObject gameObject in GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GameObjects)
                 {
                     if (gameObject.Id != this.Owner.Id)
                     {

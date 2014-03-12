@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using Hacker.GameObjects;
 using Hacker.Managers;
 using Hacker.Screens;
 
@@ -45,6 +46,7 @@ namespace Hacker
         {
             // TODO: Add your initialization logic here
             AssetManager.Initialize(Content);
+            CameraManager.CameraTarget = Player.Instance;
 
             base.Initialize();
         }
@@ -59,7 +61,8 @@ namespace Hacker
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            screenManager.LoadNewScreen(new GameScreen(screenManager));
+            screenManager.LoadNewScreen(new LoginScreen(screenManager));
+            //screenManager.LoadNewScreen(new GameScreen(screenManager));
         }
 
         /// <summary>
@@ -94,12 +97,12 @@ namespace Hacker
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            //spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
             screenManager.Draw(spriteBatch);
-            spriteBatch.End();
+            //spriteBatch.End();
 
             base.Draw(gameTime);
         }

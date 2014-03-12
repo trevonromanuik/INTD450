@@ -15,7 +15,13 @@ namespace Hacker.Levels
         public InsideLevel()
             : base()
         {
-            PushLayer(new InsideMapLayer());
+            PushLayer(new MapLayer("Level1"));
+            PushLayer(new CollisionLayer("coll_level1"));
+
+            ObjectLayer objectLayer = new ObjectLayer();
+            objectLayer.GameObjectManager.AddGameObject(Player.Instance);
+            objectLayer.GameObjectManager.AddGameObject(new Terminal());
+            PushLayer(objectLayer);
         }
 
         public override void OnLoad()

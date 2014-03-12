@@ -19,12 +19,12 @@ namespace Hacker.Layers
             Level = level;
         }
 
-        public abstract void LoadContent();
+        public virtual void LoadContent() { }
 
-        public abstract void UnloadContent();
+        public virtual void UnloadContent() { }
 
-        public abstract void Update(GameTime gameTime);
+        public virtual void Update(GameTime gameTime) { }
 
-        public abstract void Draw(SpriteBatch spriteBatch);
+        public virtual void Draw(SpriteBatch spriteBatch) { }
     }
 }

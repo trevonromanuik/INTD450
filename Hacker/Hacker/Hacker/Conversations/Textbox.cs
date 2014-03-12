@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hacker.Extensions;
 using Hacker.Managers;
 
 namespace Hacker.Conversations

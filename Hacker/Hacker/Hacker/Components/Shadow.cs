@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Hacker.Managers;
+using Hacker.Extensions;
 
 namespace Hacker.Components
 {
@@ -51,7 +52,8 @@ namespace Hacker.Components
             var screenPosition = CameraManager.GetScreenPosition(_position);
             if (CameraManager.IsInCamera(screenPosition, Width, Height))
             {
-                spriteBatch.Draw(shadowTexture, new Rectangle((int)(screenPosition.X - Width / 2), (int)(screenPosition.Y - Height / 2), Width, Height), Color.White);
+                float depth = (screenPosition.Y / 512) - 0.11f;
+                spriteBatch.DrawZ(shadowTexture, new Rectangle((int)(screenPosition.X - Width / 2), (int)(screenPosition.Y - Height / 2), Width, Height), null, Color.White, depth);
             }
         }
     }
