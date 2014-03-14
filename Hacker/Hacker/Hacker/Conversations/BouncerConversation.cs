@@ -18,10 +18,10 @@ namespace Hacker.Conversations
         public BouncerConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
-            Message message0 = new Message("Have a wonderful day, Ms. Smith.", () => Player.Instance.SpoofId == "julianna" && owner.GetBooleanVariable("done"));
+            Message message0 = new Message("Have a wonderful day, Ms. Smith.", () => Player.Instance.SpoofId == "juliana" && owner.GetBooleanVariable("done"));
             Messages.Add(message0);
 
-            Message message1 = new Message("Good evening Ms. Smith. Always a pleasure. Ready to answer the security questions?", () => Player.Instance.SpoofId == "julianna");
+            Message message1 = new Message("Good evening Ms. Smith. Always a pleasure. Ready to answer the security questions?", () => Player.Instance.SpoofId == "juliana");
             InputMessage message11111 = new InputMessage("First question: what is Blackmoore's favorite food?");
             InputMessage message111111 = new InputMessage("Right. Ok, second question: what is Blackmoore's first dog's name?", () => message11111.Output == "caviar");
             InputMessage message1111111 = new InputMessage("Right. Ok, final question: what is Blackmoore's mother's maiden name?", () => message111111.Output == "winston");

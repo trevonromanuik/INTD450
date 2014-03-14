@@ -630,8 +630,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="julianna.png">
-      <Name>julianna</Name>
+    <Compile Include="juliana.png">
+      <Name>juliana</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -24,7 +24,7 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
             Player.Instance.GetComponent<Position>().Teleport(832, 320);
             
-            objectLayer.GameObjectManager.AddGameObject(new Julianna());
+            objectLayer.GameObjectManager.AddGameObject(new Juliana());
             objectLayer.GameObjectManager.AddGameObject(new Bouncer());
 
             PushLayer(objectLayer);

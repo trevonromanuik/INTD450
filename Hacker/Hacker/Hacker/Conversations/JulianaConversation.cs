@@ -8,9 +8,9 @@ using Hacker.Components;
 
 namespace Hacker.Conversations
 {
-    class JuliannaConversation : Conversation
+    class JulianaConversation : Conversation
     {
-        public JuliannaConversation(GameObject owner, string name, string ipAddress)
+        public JulianaConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
             Message message1 = new Message("Wow! I adore your Jimmy-Choos! They look just like- Wait a minute...", () => Player.Instance.SpoofId == owner.Id);
