@@ -21,7 +21,12 @@ namespace Hacker.GameObjects
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
 
-            Sprite sprite = new Sprite(AssetManager.LoadTexture("anon"));
+            AnimatedSprite sprite = new AnimatedSprite();
+            sprite.AddAnimation("up", new Animation(AssetManager.LoadTexture("anon_up"), 45, 53, 0.3f, true));
+            sprite.AddAnimation("down", new Animation(AssetManager.LoadTexture("anon_down"), 45, 53, 0.3f, true));
+            sprite.AddAnimation("left", new Animation(AssetManager.LoadTexture("anon_left"), 45, 53, 0.3f, true));
+            sprite.AddAnimation("right", new Animation(AssetManager.LoadTexture("anon_right"), 45, 53, 0.3f, true));
+            sprite.PlayAnimation("down");
             AddComponent(sprite);
 
             AddComponent(new ConversationInteraction(new AnonConversation(this, "Anon", string.Empty)));
