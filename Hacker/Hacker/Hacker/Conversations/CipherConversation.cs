@@ -51,7 +51,7 @@ namespace Hacker.Conversations
             Message message2111 = new Message("Okay, I sent something to your e-mail. Solve the riddle and I'll decrypt the files.", () => true, () =>
             {
                 owner.SetBooleanVariable("puzzle_given", true);
-                Helpers.EmailHelper.sendMessage("cipher_puzzle_email"); 
+                Helpers.EmailHelper.SendMessage("cipher_puzzle_email"); 
             });
             message211.Messages.Add(message2111);
             message21.Messages.Add(message211);

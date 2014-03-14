@@ -18,7 +18,7 @@ namespace Hacker.Helpers
         private static string playerEmail = null;
         private static NetworkCredential credentials = new NetworkCredential("azure_07b430384d567c2b53e0bd0226b05bfc@azure.com", "zhzawmoz");
 
-        public static void sendMessage(string name)
+        public static void SendMessage(string name)
         {
             if (playerEmail == null)
             {

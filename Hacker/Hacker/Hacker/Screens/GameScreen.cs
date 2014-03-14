@@ -16,6 +16,11 @@ namespace Hacker.Screens
 {
     class GameScreen : Screen
     {
+        public static Dictionary<string, Type> Levels = new Dictionary<string, Type>()
+        {
+            { "987", typeof(ClubExteriorLevel) }
+        };
+
         private static Dictionary<Type, Level> levels = new Dictionary<Type, Level>();
         public static Level Level { get; private set; }
         static Transition _transition;
@@ -23,10 +28,12 @@ namespace Hacker.Screens
         public GameScreen(ScreenManager screenManager)
             : base(screenManager)
         {
-            LoadLevel<DeepWebLevel>();
+            //LoadLevel<DeepWebLevel>();
             //LoadLevel<DataBankLevel>();
             //LoadLevel<VaultLevel>();
             //LoadLevel<OutsideLevel>();
+            //LoadLevel<ClubExteriorLevel>();
+            LoadLevel<HubLevel>();
         }
 
         public static void LoadLevel(Level level)

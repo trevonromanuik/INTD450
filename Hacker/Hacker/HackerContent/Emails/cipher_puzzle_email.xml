@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="HackerDataTypes.Email">
-    <to>teri@ualberta.ca</to>
     <from>cipher@47DA7A8BC5B743FAB7AD6FF54C87F790.com</from>
-    <subject>Target</subject>
+    <subject>Puzzle</subject>
     <message>
 Blackmoore has been working with a particular company to produce parts for his quantum mindshare device. I won’t tell you which company it is – that’s part of the game! Their products are being used at Blackmoore Industries in order to advance quantum science for the mindshare device. A paper was recently published about this work. Fascinating read! Take a look at it here: http://arxiv.org/pdf/1402.4848v1
 
