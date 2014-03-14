@@ -16,11 +16,6 @@ namespace Hacker.Screens
 {
     class GameScreen : Screen
     {
-        public static Dictionary<string, Type> Levels = new Dictionary<string, Type>()
-        {
-            { "987", typeof(ClubExteriorLevel) }
-        };
-
         private static Dictionary<Type, Level> levels = new Dictionary<Type, Level>();
         public static Level Level { get; private set; }
         static Transition _transition;
