@@ -1,0 +1,55 @@
+<How to Read Keylogger Output>                                               
+                                  . . ,,...                                     
+                                  :=+7$$$7I,.                                   
+                              ...:=7.  .. O$I..                                 
+                              . ~=7..     .$$=.                                 
+                           .... :7..       .ZI                                  
+                         .  8NMMMMMM.      .$7.                                 
+                         .8I  .~7.        .II7...                               
+ It looks like you're    ...,:::=7.        .MMMMNN..                             
+  trying to read a      , . ....:?..      =+....M~.                            
+      keylog!          :..DO8NMN.:?.  ..,,.,:==. ?..                           
+                        ~..NDDMMM.:+.  ,....= ..~=...                           
+   Do you need help    .,~,,MMMM.:+7. :,..D8DMM:.=:.                            
+     with that?        ..7===~=+?, . .:..NMMMMO,=?.                            
+                         .....8D...   .,~:,.$+.,=?                              
+                             .ZO. .     .=?+=++??.                              
+                             .ZZ...       8D.... .                              
+                             .OZ.OO,.     88. ..Z7.                             
+                             .Z$ Z$ .    .8Z ..$8.                              
+                             .Z7 Z$      .8$..Z$8.                              
+                             .Z7 Z$.      87..7$.                               
+                             .OI.7$,     .87 .I$                                
+                             .8I=~I=.    .87..I7                                
+                             .87?.7?.    .Z7..$I                                
+                             .I$=.Z+..   .$I..OI.                               
+                              .Z~.OI+.  ..+I..8I=.                              
+                              .8~..8?? ..~++..87$                               
+                              .8?+..ZZ?+IZ....8Z$.                              
+                              ..Z=.........  .8Z7.                              
+                              ..D=..         .ZZ7 .                             
+                                ,7~.         .?$:                               
+                                 D=+.        .?I.                               
+                                 .8++ .   ...~I,.                               
+                                  .NO=~~.:=~=I                                  
+                                   ..DO$77$$..                                  
+                                        ...                 
+										
+Reading a keylog isn't so hard, though it looks tricky at first.
+Each line of a keylog looks something like this:
+
+- 2014-04-10/13:21/GoogleSearch: dinosaurs [KeyName: Enter]
+[date/time of typing][program typed into][text that was typed]
+In this case, at 13:21 on 2014-04-10, the person typed "dinosuars" into google search and hit enter to search.
+
+- 2014-04-10/13:26/SkypeMessenger: LOL yeah, you said it! [KeyName: Enter]
+[date/time of typing][program typed into][text that was typed]
+In this case, at 13:26 on 2014-04-10, the person typed "LOL yeah, you said it!" into skype, and then hit "enter" to send.
+
+- 2014-04-10/13:28/SkypeMessenger: i love you(←BS)(←BS)(←BS) hanging out with you [KeyName: Enter]
+[date/time of typing][program typed into][text that was typed]
+The symbol (←BS) means backspace key was pressed. In this case, this person was going to type "i love you" into skype, but reconsidered, backed up, and instead typed "i love hanging out with you". Aw!
+
+Special keys are represented as following:
+(←BS) backspace key was pressed
+[KeyName: Enter] enter key was pressed

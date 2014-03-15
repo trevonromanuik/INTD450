@@ -119,6 +119,7 @@ namespace Hacker.GameObjects
             var keylogInfo = npc.GetComponent<Keyloggable>();
             if (keylogInfo != null)
             {
+                FileCopyHelper.copyFile("How to Read Keylogger Output.txt", "Keylogs/");
                 var path = keylogInfo.KeyLogPath;
                 FileWriterHelper.writeFile(path, "Keylogs/");
             }
