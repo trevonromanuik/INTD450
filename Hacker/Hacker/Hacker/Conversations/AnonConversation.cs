@@ -60,7 +60,7 @@ namespace Hacker.Conversations
             Message message3a = new Message("I disconnected you from Blackmoore's yacht server as soon as you found what we needed. Didn't want you in the wolves' den any longer than necessary.");
             Message message3b = new Message("It's been smooth sailing through the circutry so far, but we still need hard-evidence on Blackmoore's plans. Luckily, all his confidential files are stored in one data bank...");
             Message message3c = new Message("...In the vault that you just found the number for. Good work! I'm sure that Blackmoore's been keeping sensitive files secure there.");
-            Message message3d = new Message("Inside that vault, there should be some files that outline testing that was done on the Mindshare device. I suspect that we'll find evidence of its unpredictability signs that it's caused brain damage.");
+            Message message3d = new Message("Inside that vault, there should be some files that outline testing that was done on the Mindshare device. I suspect that we'll find evidence of its unpredictability and signs that it's caused brain damage.");
             Message message3e = new Message("I'll connect you to the data bank now. I've also sent you an email that outlines your objective. Read it.", () => true, () =>
             {
                 EmailHelper.SendMessage("databank_email");
@@ -77,6 +77,25 @@ namespace Hacker.Conversations
             message3a.Messages.Add(message3b);
             message3.Messages.Add(message3a);
             Messages.Add(message3);
+
+            // Data bank complete convo (DataBankComplete)
+            Message message4 = new Message("You're back! I traced you and saw you download those files. I knew I hired you for the right reasons.", () => Player.Instance.GameCompleteState == GameCompleteState.DataBankComplete);
+            Message message4a = new Message("Looks live you've picked up files called Tech_Analysis, Resources_Request, and Experimental_Error. That's great. Let me just take a look... wait a minute...");
+            Message message4b = new Message("Arg! Those files have been encrypted. I should have expected this. Take a look at them, there's no way to read them. ");
+            Message message4c = new Message("Hmmm... decryption programs are illegal, so we'll have to take a dip in the deep web to find someone tech-savvy enough to help us out.");
+            Message message4d = new Message("I was hoping to avoid any sketchy servers. It's bad luck to take a wrong turn on the web. But I know of a decryption specialist named Cipher, and I know the server she hangs out on.");
+            Message message4e = new Message("I'll link you to part of the deep web. Find Cipher, and get her help decrypting these files.", () => true, () =>
+            {
+                GameScreen.LoadLevel<DeepWebLevel>(new FadeTransition(new Vector2(224, 832)));
+            });
+
+            message4d.Messages.Add(message4e);
+            message4c.Messages.Add(message4d);
+            message4b.Messages.Add(message4c);
+            message4a.Messages.Add(message4b);
+            message4.Messages.Add(message4a);
+            Messages.Add(message4);
+
         }
     }
 }
