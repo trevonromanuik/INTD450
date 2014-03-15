@@ -29,5 +29,10 @@ namespace Hacker.Levels
 
             PushLayer(objectLayer);
         }
+
+        public override void OnLoad()
+        {
+            SoundManager.PlayMusic("club_outside");
+        }
     }
 }

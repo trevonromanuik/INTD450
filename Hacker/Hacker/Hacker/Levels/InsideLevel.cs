@@ -26,7 +26,7 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
-            SoundManager.PlayMusic("dance");
+            SoundManager.PlayMusic("club_inside");
         }
     }
 }

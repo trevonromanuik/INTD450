@@ -27,5 +27,22 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Anon());
             PushLayer(objectLayer);
         }
+
+        public override void OnLoad()
+        {
+            GameCompleteState state = Player.Instance.GameCompleteState;
+            if (state == GameCompleteState.GameStart)
+            {
+                SoundManager.PlayMusic("intro");
+            }
+            else if (state == GameCompleteState.ClubComplete | state == GameCompleteState.DataBankComplete)
+            {
+                SoundManager.PlayMusic("hub");
+            }
+            else if (state == GameCompleteState.DeepWebComplete)
+            {
+                SoundManager.StopMusic();
+            }
+        }
     }
 }

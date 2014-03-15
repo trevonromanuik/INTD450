@@ -13,6 +13,14 @@ using Hacker.Helpers;
 
 namespace Hacker.GameObjects
 {
+    enum GameCompleteState
+    {
+        GameStart,
+        ClubComplete,
+        DataBankComplete,
+        DeepWebComplete
+    };
+
     class Player : GameObject
     {
         private static Player _instance;
@@ -33,10 +41,13 @@ namespace Hacker.GameObjects
 
         public string SpoofId { get; private set; }
 
+        public GameCompleteState GameCompleteState { get; set; }
+
         public Player()
         {
             Id = "player";
             SpoofId = null;
+            GameCompleteState = GameCompleteState.GameStart;
 
             AddComponent(new Position(160, 352));
             AddComponent(new Shadow());
