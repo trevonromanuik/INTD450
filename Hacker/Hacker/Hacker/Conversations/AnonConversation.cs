@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Hacker.Actions;
 using Hacker.Components;
 using Hacker.GameObjects;
+using Hacker.Helpers;
 using Hacker.Layers;
 using Hacker.Levels;
 using Hacker.Screens;
@@ -20,7 +21,11 @@ namespace Hacker.Conversations
         public AnonConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
-            Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done"));
+            //hardcode this variable to launch the game at a specific story point
+            Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
+
+            // Post-terminal convo
+            Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart);
             Message message21 = new Message("I'll connect you now to the virtual dock that acts as the point of entry to Blackmoore's private publicity event.");
             Message message211 = new Message("Keep your eye on your inbox. You might find yourself receiving further correspondence from me. Good luck now, friend.", () => true,
                 () => GameScreen.LoadLevel<ClubExteriorLevel>(new FadeTransition(new Vector2(832, 320))));
@@ -29,9 +34,10 @@ namespace Hacker.Conversations
             message2.Messages.Add(message21);
             Messages.Add(message2);
 
-            Messages.Add(new Message("Don't forget to check your e-mail when you finish", () => owner.GetBooleanVariable("done")));
+            Messages.Add(new Message("Don't forget to check your e-mail.", () => owner.GetBooleanVariable("done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart));
 
-            Message message1 = new Message("Ahh, the illustrious 'hacker' finally arrives. Welcome to GlobeComm, " + Player.Instance.GetStringVariable("Username") + ". 'Where communication's gone global!' ...Heh, or so the fancy logo says.");
+            // Game intro convo (GameStart)
+            Message message1 = new Message("Ahh, the illustrious 'hacker' finally arrives. Welcome to GlobeComm, " + Player.Instance.GetStringVariable("Username") + ". 'Where communication's gone global!' ...Heh, or so the fancy logo says.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart);
             Message message1a = new Message("Normally when you join this service you'd get dropped into a public park, or a place where you could chat with your friends, but I intercepted your connection and brought you here.");
             Message message1b = new Message("Since this software's so new I'll give you a quick 411. Elite capitalists and tech tychoons are all over this social networking service. Using it to impress investors, share data, or store money...");
             Message message1c = new Message("Regular joes hang out here too of course, only they're not so much allowed in the elitists' locales. You can buy most anything from the criminals and weirdos who hang out in the underbellies of some servers.");
@@ -48,6 +54,29 @@ namespace Hacker.Conversations
             message1a.Messages.Add(message1b);
             message1.Messages.Add(message1a);
             Messages.Add(message1);
+
+            // Club complete convo (ClubComplete)
+            Message message3 = new Message("Hey, good work. ", () => Player.Instance.GameCompleteState == GameCompleteState.ClubComplete);
+            Message message3a = new Message("I disconnected you from Blackmoore's yacht server as soon as you found what we needed. Didn't want you in the wolves' den any longer than necessary.");
+            Message message3b = new Message("It's been smooth sailing through the circutry so far, but we still need hard-evidence on Blackmoore's plans. Luckily, all his confidential files are stored in one data bank...");
+            Message message3c = new Message("...In the vault that you just found the number for. Good work! I'm sure that Blackmoore's been keeping sensitive files secure there.");
+            Message message3d = new Message("Inside that vault, there should be some files that outline testing that was done on the Mindshare device. I suspect that we'll find evidence of its unpredictability signs that it's caused brain damage.");
+            Message message3e = new Message("I'll connect you to the data bank now. I've also sent you an email that outlines your objective. Read it.", () => true, () =>
+            {
+                EmailHelper.SendMessage("databank_email");
+            });
+            Message message3f = new Message("We're hazarding security central now, so tread carefully. I'm counting on you.", () => true, () =>
+            {
+                GameScreen.LoadLevel<DataBankLevel>(new FadeTransition(new Vector2(512, 1024)));
+            });
+
+            message3e.Messages.Add(message3f);
+            message3d.Messages.Add(message3e);
+            message3c.Messages.Add(message3d);
+            message3b.Messages.Add(message3c);
+            message3a.Messages.Add(message3b);
+            message3.Messages.Add(message3a);
+            Messages.Add(message3);
         }
     }
 }

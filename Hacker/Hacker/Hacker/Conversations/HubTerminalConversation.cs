@@ -26,7 +26,7 @@ namespace Hacker.Conversations
                 EmailHelper.SendMessage("opening_email"); 
                 owner.Manager.GetGameObjectById("anon").SetBooleanVariable("terminal_done", true); 
             });
-            var Message111 = new Message("Message sent. Please check your email to receive private message.");
+            var Message111 = new Message("Message sent - may take a minute to arrive. Please check your email to receive private message.");
 
             Messages.Add(Message1);
             Message1.Messages.Add(Message11);

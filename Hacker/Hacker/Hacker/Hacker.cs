@@ -61,8 +61,8 @@ namespace Hacker
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            screenManager.LoadNewScreen(new LoginScreen(screenManager));
-            //screenManager.LoadNewScreen(new GameScreen(screenManager));
+            //screenManager.LoadNewScreen(new LoginScreen(screenManager));
+            screenManager.LoadNewScreen(new GameScreen(screenManager));
         }
 
         /// <summary>
