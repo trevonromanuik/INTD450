@@ -24,10 +24,10 @@ namespace Hacker.Screens
             : base(screenManager)
         {
             //LoadLevel<DeepWebLevel>();
-            LoadLevel<DataBankLevel>();
+            //LoadLevel<DataBankLevel>();
             //LoadLevel<VaultLevel>();
             //LoadLevel<ClubExteriorLevel>();
-            //LoadLevel<HubLevel>();
+            LoadLevel<HubLevel>();
         }
 
         public static void LoadLevel(Level level)

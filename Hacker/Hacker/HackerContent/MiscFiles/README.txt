@@ -66,6 +66,8 @@
     
       Bitchin', right?
 	  
+	  If you want to be your old self again, just type "spoof reset".
+	  
 	*****************************************************************************
     (c)  Keylog => you type "keylog <IP>"
     *****************************************************************************

@@ -6,9 +6,11 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 using Hacker.Components;
+using Hacker.Conversations;
 using Hacker.GameObjects;
 using Hacker.Layers;
 using Hacker.Managers;
+using Hacker.Screens;
 
 namespace Hacker.Levels
 {
@@ -22,9 +24,28 @@ namespace Hacker.Levels
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            Player.Instance.GetComponent<Position>().Teleport(128, 320);
+            Player.Instance.GetComponent<Position>().Teleport(448, 1088);
+
+            Blackmoore blackmoore = new Blackmoore();
+            objectLayer.GameObjectManager.AddGameObject(blackmoore);
+            objectLayer.GameObjectManager.AddGameObject(new Wedge());
+
+            bool triggered = false;
+            objectLayer.GameObjectManager.AddGameObject(new Trigger(new Rectangle(320,448,384,192),() =>
+                {
+                    if (!triggered)
+                    {
+                        GameScreen.Level.PushLayer(new ConversationLayer(new BlackmooreConversation(blackmoore, blackmoore.Name, blackmoore.IpAddress)));
+                        triggered = true;
+                    }
+                }));
 
             PushLayer(objectLayer);
+        }
+
+        public override void OnLoad()
+        {
+            SoundManager.PlayMusic("club_inside");
         }
     }
 }

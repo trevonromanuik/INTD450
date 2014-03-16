@@ -22,7 +22,7 @@ namespace Hacker.Conversations
             : base(owner, name, ipAddress)
         {
             //hardcode this variable to launch the game at a specific story point
-            Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
+            //Player.Instance.GameCompleteState = GameCompleteState.GameStart;
 
             // Post-terminal convo
             Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart);
@@ -37,7 +37,7 @@ namespace Hacker.Conversations
             Messages.Add(new Message("Don't forget to check your e-mail.", () => owner.GetBooleanVariable("done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart));
 
             // Game intro convo (GameStart)
-            Message message1 = new Message("Ahh, the illustrious 'hacker' finally arrives. Welcome to GlobeComm, " + Player.Instance.GetStringVariable("Username") + ". 'Where communication's gone global!' ...Heh, or so the fancy logo says.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart);
+            Message message1 = new Message("Ahh, the illustrious 'hacker' finally arrives. Welcome to GlobeComm, " + Player.Instance.GetStringVariable("Username") + ". 'Where virtual communication's gone global!' ...Heh, or so the fancy logo says.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart);
             Message message1a = new Message("Normally when you join this service you'd get dropped into a public park, or a place where you could chat with your friends, but I intercepted your connection and brought you here.");
             Message message1b = new Message("Since this software's so new I'll give you a quick 411. Elite capitalists and tech tychoons are all over this social networking service. Using it to impress investors, share data, or store money...");
             Message message1c = new Message("Regular joes hang out here too of course, only they're not so much allowed in the elitists' locales. You can buy most anything from the criminals and weirdos who hang out in the underbellies of some servers.");
@@ -58,7 +58,7 @@ namespace Hacker.Conversations
             // Club complete convo (ClubComplete)
             Message message3 = new Message("Hey, good work. ", () => Player.Instance.GameCompleteState == GameCompleteState.ClubComplete);
             Message message3a = new Message("I disconnected you from Blackmoore's yacht server as soon as you found what we needed. Didn't want you in the wolves' den any longer than necessary.");
-            Message message3b = new Message("It's been smooth sailing through the circutry so far, but we still need hard-evidence on Blackmoore's plans. Luckily, all his confidential files are stored in one data bank...");
+            Message message3b = new Message("Now, we need to gather hard evidence on Blackmoore's plans. Luckily, all his confidential files are stored in one data bank...");
             Message message3c = new Message("...In the vault that you just found the number for. Good work! I'm sure that Blackmoore's been keeping sensitive files secure there.");
             Message message3d = new Message("Inside that vault, there should be some files that outline testing that was done on the Mindshare device. I suspect that we'll find evidence of its unpredictability and signs that it's caused brain damage.");
             Message message3e = new Message("I'll connect you to the data bank now. I've also sent you an email that outlines your objective. Read it.", () => true, () =>
@@ -81,7 +81,7 @@ namespace Hacker.Conversations
             // Data bank complete convo (DataBankComplete)
             Message message4 = new Message("You're back! I traced you and saw you download those files. I knew I hired you for the right reasons.", () => Player.Instance.GameCompleteState == GameCompleteState.DataBankComplete);
             Message message4a = new Message("Looks live you've picked up files called Tech_Analysis, Resources_Request, and Experimental_Error. That's great. Let me just take a look... wait a minute...");
-            Message message4b = new Message("Arg! Those files have been encrypted. I should have expected this. Take a look at them, there's no way to read them. ");
+            Message message4b = new Message("Cat's pajamas! Those files have been encrypted. I should have expected this. Take a look at them, there's no way to read them. ");
             Message message4c = new Message("Hmmm... decryption programs are illegal, so we'll have to take a dip in the deep web to find someone tech-savvy enough to help us out.");
             Message message4d = new Message("I was hoping to avoid any sketchy servers. It's bad luck to take a wrong turn on the web. But I know of a decryption specialist named Cipher, and I know the server she hangs out on.");
             Message message4e = new Message("I'll link you to part of the deep web. Find Cipher, and get her help decrypting these files.", () => true, () =>

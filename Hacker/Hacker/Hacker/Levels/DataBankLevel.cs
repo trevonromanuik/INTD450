@@ -47,7 +47,8 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Placeable("door", 640, 608, AssetManager.LoadTexture("door_close")));
 
             objectLayer.GameObjectManager.AddGameObject(new Teller());
-            objectLayer.GameObjectManager.AddGameObject(new Wedge());objectLayer.GameObjectManager.AddGameObject(new Hitchcock());
+            objectLayer.GameObjectManager.AddGameObject(new Wedge());
+            objectLayer.GameObjectManager.AddGameObject(new Hitchcock());
             objectLayer.GameObjectManager.AddGameObject(new Briggs());
             
             objectLayer.GameObjectManager.AddGameObject(new Trigger(new Microsoft.Xna.Framework.Rectangle(480, 627, 64, 64), () => {

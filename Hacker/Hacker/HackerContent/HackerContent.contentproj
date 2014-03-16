@@ -737,12 +737,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tilesets\club_interior.png">
+    <Compile Include="Tilesets\club_interior.png">
       <Name>club_interior</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Levels\club_interior.txt">

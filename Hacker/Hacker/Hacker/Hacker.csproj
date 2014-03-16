@@ -205,6 +205,7 @@
     <Compile Include="Conversations\WedgeConversation.cs" />
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="GameObjects\Anon.cs" />
+    <Compile Include="GameObjects\Blackmoore.cs" />
     <Compile Include="GameObjects\Bouncer.cs" />
     <Compile Include="GameObjects\Cipher.cs" />
     <Compile Include="GameObjects\Counter.cs" />

@@ -27,6 +27,8 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Juliana());
             objectLayer.GameObjectManager.AddGameObject(new Bouncer());
 
+            objectLayer.GameObjectManager.AddGameObject(new Exit<ClubInteriorLevel>(new Rectangle(512, 128, 128, 100), new Vector2(448, 1088)));
+
             PushLayer(objectLayer);
         }
 
