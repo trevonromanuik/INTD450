@@ -245,6 +245,7 @@
     <Compile Include="Layers\ObjectLayer.cs" />
     <Compile Include="Levels\CipherStoreLevel.cs" />
     <Compile Include="Levels\ClubExteriorLevel.cs" />
+    <Compile Include="Levels\ClubInteriorLevel.cs" />
     <Compile Include="Levels\DataBankLevel.cs" />
     <Compile Include="Levels\DeepWebLevel.cs" />
     <Compile Include="Levels\HubLevel.cs" />
