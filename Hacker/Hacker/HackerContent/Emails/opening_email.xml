@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="HackerDataTypes.Email">
-    <to>teri@ualberta.ca</to>
-    <from>contact@47DA7A8BC5B743FAB7AD6FF54C87F790.com</from>
-    <subject>Target</subject>
+    <from>ANON@47DA7A8BC5B743FAB7AD6FF54C87F790.com</from>
+    <subject>You scratch my back, I'll scratch yours.</subject>
     <message>
-      We recently confirmed that Ryan Blackmoore is involved in illicit activities, with plans to distribute some sort of mindshare device in the near future. He made the mistake of branding our little organization “internet nazis” after we publicized his secret money-laundering scheme in 2012. He's used other immature, overused insults to garner public sympathy, going so far as to label us “primitive technocrats” and claim that we are “armpit hair clogging the drain of progress.”
-      
-      We intend to end Blackmoore's shenanigans, which will be possible with solid evidence of his guilt.
-      
-      That's where you come in. We need you get into his personal terminal. They're not going to just let you walk right in, of course, which is why we've sought out someone with your particular skills.
-      
-      Doing so will give you basic privilages and allow you to access level 1 information in Blackmoore's system. From that point on, you'll need to do some investigative work to break his protection.
+Among the tech tychoons frequently using GlobeComm is an individual named Ryan Blackmoore. Blackmoore's company, Blackmoore Industries, is currently developing, testing, and distributing a device the allows the permanent transfer of mental data from one person to another, over the internet. He calls it his "Mindshare" device.
+
+I've seen traces that suggest Blackmoore is involved in suspicious activities involving the use of this device. He's been hostile to hacktivists who have poked around, branding us “internet nazis” after we publicized his secret money-laundering scheme in 2013. He's used other immature, overused insults to garner public sympathy, going so far as to label us “primitive technocrats” and claim that we are “armpit hair clogging the drain of progress.”
+
+For the good of online society, and the sanctity of the human mind, we intend to air all of Blackmoore's dirty laundry. Of course, this will only be possible with solid evidence of his guilt. That's where you come in. 
+
+Blackmoore is currently hosting a Mindshare publicity event on his exclusive, private GlobeComm server, made out to look like a party yacht - the SS Touch Tonic. Your goal is to find a way on board and investigate the interior. If Blackmoore's there, he'll probably be overseeing the event from a secured backstage room. Talk to him and get as much information as you can without being discovered.
     </message>
   </Asset>
 </XnaContent>

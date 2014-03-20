@@ -38,7 +38,7 @@ namespace Hacker.Abilities
                     else
                     {
                         Player.Instance.Keylog(npc);
-                        return "Keylog successful. Please wait for keylog output to your home directory.";
+                        return "Keylog successful. Please wait for keylog output to 'GlobeComm Deliveries/Keylogs'.";
                     }
                 }
             }

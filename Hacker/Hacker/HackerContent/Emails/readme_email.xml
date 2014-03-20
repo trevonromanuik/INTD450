@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="HackerDataTypes.Email">
+    <from>ANON@47DA7A8BC5B743FAB7AD6FF54C87F790.com</from>
+    <subject>Getting inside that yacht...</subject>
+    <message>
+That bouncer keeping the yacht secure is going to be a tough nut to crack. But you've got some hacking tools up your sleeve, don't you?
+
+I sent you a README file as a reminder of the tools you have at your disposal. Find it in a folder on your desktop called Globecomm Deliveries, and give it a read.
+
+You're a smart cookie, put on your thinking cap. If that Bouncer is expecting to let in employees of Blackmoore Industries, how can you trick him into thinking you are one? And if you get asked any security questions, I bet you could figure out the answers by finding a way to get to know more about Blackmoore himself.
+    </message>
+  </Asset>
+</XnaContent>

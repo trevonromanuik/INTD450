@@ -22,6 +22,7 @@ namespace Hacker.Screens
         public LoginScreen(ScreenManager screenManager)
             : base(screenManager)
         {
+            SoundManager.PlayMusic("intro");
             Console = new ConversationLayer(new LoginConversation(screenManager));
         }
 

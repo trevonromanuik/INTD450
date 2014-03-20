@@ -19,17 +19,17 @@ namespace Hacker.Conversations
         public MantisConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
-            Messages.Add(new Message("hey m8 it's ur lucky day, i got just what you need", () => owner.GetIntegerVariable("count") % 3 == 0, () =>
+            Messages.Add(new Message("hey m8 it's ur LUCKY day, i got just what you need!  i move in bulk, best deal, 8 $ for 2 7oz bags!", () => owner.GetIntegerVariable("count") % 3 == 0, () =>
             {
                 owner.IncrementIntegerVariable("count");
             }));
 
-            Messages.Add(new Message("srsly bruv i move in bulk, best deal, 8 $ for 2 7oz bags, you gonna get lucky", () => owner.GetIntegerVariable("count") % 3 == 1, () =>
+            Messages.Add(new Message("yeah i knew youd be into it, check out my online shop @ http://goo.gl/zBkmsH", () => owner.GetIntegerVariable("count") % 3 == 1, () =>
             {
                 owner.IncrementIntegerVariable("count");
             }));
 
-            Messages.Add(new Message("yeah i knew youd be into it, check out my online shop @ http://goo.gl/zBkmsH", () => owner.GetIntegerVariable("count") % 3 == 2, () =>
+            Messages.Add(new Message("srsly, with a deal like this, you're gonna feel so LUCKYYYYYY", () => owner.GetIntegerVariable("count") % 3 == 2, () =>
             {
                 owner.IncrementIntegerVariable("count");
             }));

@@ -21,18 +21,18 @@ namespace Hacker.Conversations
             : base(null, "System Login", null)
         {
             _screenManager = screenManager;
-            var Message0  = new Message("Welcome to GlobeCom.");
+            var Message0 = new Message("Welcome to GlobeComm, the newest and most exciting virtual reality world-simulation and social networking software!");
             var Message1 = new Message("Verifying your connection...");
             var Message10 = new Message("Connection verified.", () => checkInterwebs());
-            var Message11 = new Message("Sorry, we could not verify your internet connection.");
+            var Message11 = new Message("Sorry, we could not verify your internet connection. Please connect to the internet and launch GlobeComm again.");
             var Message2 = new InputMessage("Please enter your username.");
             var Message20 = new Message("Thank you.", () => !String.IsNullOrWhiteSpace(Message2.Output), () => { username = Message2.Output; });
-            var Message21 = new Message("Sorry, you must enter a valid username.");
+            var Message21 = new Message("That is not a valid username, please try again.");
             var Message3 = new InputMessage("Please enter your email address.");
             var Message30 = new Message("Thank you.", () => IsValidEmail(Message3.Output), () => { email = Message3.Output; });
-            var Message31 = new Message("Sorry, you must enter a valid email address.");
+            var Message31 = new Message("That is not a valid email address. Please try again.");
             var Message4 = new Message("Your session ID is "+ Guid.NewGuid().ToString());
-            var Message5 = new Message("Enjoy your stay.", () => true);
+            var Message5 = new Message("Enjoy your stay at GlobeComm ~ where virtual communication's gone global!", () => true);
 
             Messages.Add(Message0);
             Message0.Messages.Add(Message1);

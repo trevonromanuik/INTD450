@@ -16,6 +16,7 @@ namespace Hacker.Screens
 {
     class GameScreen : Screen
     {
+        private static Dictionary<Type, Level> levels = new Dictionary<Type, Level>();
         public static Level Level { get; private set; }
         static Transition _transition;
 
@@ -24,8 +25,9 @@ namespace Hacker.Screens
         {
             //LoadLevel<DeepWebLevel>();
             //LoadLevel<DataBankLevel>();
-            LoadLevel<VaultLevel>();
-            //LoadLevel<OutsideLevel>();
+            //LoadLevel<VaultLevel>();
+            //LoadLevel<ClubExteriorLevel>();
+            LoadLevel<HubLevel>();
         }
 
         public static void LoadLevel(Level level)
@@ -36,7 +38,11 @@ namespace Hacker.Screens
 
         public static void LoadLevel<T>() where T : Level, new()
         {
-            Level = new T();
+            if (!levels.ContainsKey(typeof(T)))
+            {
+                levels[typeof(T)] = new T();
+            }
+            Level = levels[typeof(T)];
             Level.OnLoad();
         }
 
@@ -44,7 +50,11 @@ namespace Hacker.Screens
             where T : Level, new()
         {
             _transition = transition;
-            _transition.Initialize(Level, new T());
+            if (!levels.ContainsKey(typeof(T)))
+            {
+                levels[typeof(T)] = new T();
+            }
+            _transition.Initialize(Level, levels[typeof(T)]);
         }
 
         public static void RemoveTransition()

@@ -18,8 +18,8 @@ namespace Hacker.GameObjects
         {
             Id = "bouncer";
 
-            AddComponent(new Position(320, 128));
-            AddComponent(new Shadow(128));
+            AddComponent(new Position(576, 244));
+            AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
 
             Sprite sprite = new Sprite(AssetManager.LoadTexture("bouncer"));

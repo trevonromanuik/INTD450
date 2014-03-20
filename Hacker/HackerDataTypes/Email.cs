@@ -7,7 +7,6 @@ namespace HackerDataTypes
 {
     public class Email
     {
-        public string to;
         public string from;
         public string subject;
         public string message;

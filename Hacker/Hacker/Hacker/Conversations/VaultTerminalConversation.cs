@@ -27,17 +27,16 @@ namespace Hacker.Conversations
                 Helpers.FileWriterHelper.writeFile("resources_request", "Downloads/");
                 return true;
             });
-            Message message111 = new Message("Download complete. Encrypted files now available in your home directory.");
-            Message message1111 = new Message("You've completed the Data Bank level. You will now be teleported to the Deep Web level, where you must try to find Cipher, who will decrypt these files.");
-            Message message11111 = new Message(" ", () =>
+            Message message111 = new Message("Download complete. Encrypted files now available in your 'GlobeComm Deliveries/Downloads' directory.");
+            Message message1111 = new Message(" ", () =>
             {
-                GameScreen.LoadLevel<DeepWebLevel>(new FadeTransition(new Vector2(224, 832)));
+                Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
+                GameScreen.LoadLevel<HubLevel>(new FadeTransition(new Vector2(320, 384)));
                 return true;
             });
             message1.Messages.Add(message11);
             message11.Messages.Add(message111);
             message111.Messages.Add(message1111);
-            message1111.Messages.Add(message11111);
             Messages.Add(message1);
         }
     }

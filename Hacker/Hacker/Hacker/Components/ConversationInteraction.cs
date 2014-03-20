@@ -36,11 +36,34 @@ namespace Hacker.Components
             if (sprite != null)
             {
                 var playerPos = Player.Instance.GetComponent<Position>();
-                var thisPos = this.Owner.GetComponent<Position>();
-                if (playerPos.X < thisPos.X)
-                    sprite.PlayAnimation("left");
+                if (sprite.Animations.ContainsKey("up"))
+                {
+                    switch (playerPos.Direction)
+                    {
+                        case Direction.Up:
+                            sprite.PlayAnimation("down");
+                            break;
+                        case Direction.Down:
+                            sprite.PlayAnimation("up");
+                            break;
+                        case Direction.Left:
+                            sprite.PlayAnimation("right");
+                            break;
+                        case Direction.Right:
+                            sprite.PlayAnimation("left");
+                            break;
+                    }
+                }
                 else
-                    sprite.PlayAnimation("right");
+                {
+                    var thisPos = this.Owner.GetComponent<Position>();
+                    var dx = playerPos.X - thisPos.X;
+                    var dy = playerPos.Y - thisPos.Y;
+                    if (playerPos.X < thisPos.X)
+                        sprite.PlayAnimation("left");
+                    else
+                        sprite.PlayAnimation("right");
+                }
             }
             //FileWriterHelper.writeFile("opening_message");
             //SoundManager.PlaySound("seal", true, false);

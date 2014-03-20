@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Hacker.Actions;
 using Hacker.Components;
 using Hacker.GameObjects;
+using Hacker.Helpers;
 using Hacker.Layers;
 using Hacker.Screens;
 
@@ -18,20 +19,17 @@ namespace Hacker.Conversations
         public BouncerConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
-            Message message0 = new Message("I hate my job...", () => owner.GetBooleanVariable("done"));
+            Message message0 = new Message("Have a wonderful day, Ms. Smith.", () => Player.Instance.SpoofId == "juliana" && owner.GetBooleanVariable("done"));
             Messages.Add(message0);
 
-            Message message1 = new Message("Oh hello Mr. Blackmoore.", () => Player.Instance.SpoofId == "spoofie");
-            Message message11 = new Message("Don't tell me. You forgot your password again.");
-            Message message111 = new Message("You know I can't let you in without your password.");
-            Message message1111 = new Message("Ok well you know the drill: answer the security questions and I'll let you in.");
-            InputMessage message11111 = new InputMessage("First question: what's your mother's maiden name?");
-            InputMessage message111111 = new InputMessage("Right. Ok, second question: what is your first dog's name?", () => message11111.Output == "rockefeller");
-            InputMessage message1111111 = new InputMessage("Right. Ok, final question: what is your favorite food?", () => message111111.Output == "winston");
-            Message message11111111 = new Message("Perfect. Ok, go on in.", () => message1111111.Output == "caviar", () =>
+            Message message1 = new Message("Good evening Ms. Smith. Always a pleasure. Ready to answer the employee security questions?", () => Player.Instance.SpoofId == "juliana");
+            InputMessage message11111 = new InputMessage("First question: what is Blackmoore's favorite food?");
+            InputMessage message111111 = new InputMessage("Right. Ok, second question: what is Blackmoore's first dog's name?", () => message11111.Output == "caviar");
+            InputMessage message1111111 = new InputMessage("Right. Ok, final question: what is Blackmoore's mother's maiden name?", () => message111111.Output == "winston");
+            Message message11111111 = new Message("Perfect. Ok, go on in.", () => message1111111.Output == "rockefeller", () =>
             {
                 owner.SetBooleanVariable("done", true);
-                GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("bouncer").AddAction(new MoveToAction(new Vector2(448, 128), 1.0));
+                owner.AddAction(new MoveToAction(new Vector2(640, 244), 0.5));
             });
 
             Message message111112 = new Message("I'm sorry but that's wrong. Guess I can't let you in. Company policy.");
@@ -42,17 +40,25 @@ namespace Hacker.Conversations
             message111111.Messages.Add(message111112);
             message11111.Messages.Add(message111111);
             message11111.Messages.Add(message111112);
-            message1111.Messages.Add(message11111);
-            message111.Messages.Add(message1111);
-            message11.Messages.Add(message111);
-            message1.Messages.Add(message11);
+            message1.Messages.Add(message11111);
             Messages.Add(message1);
 
-            Message m = new Message("She sells sea shells by the sea shore. She sells sea shells by the sea shore. She sells sea shells by the sea shore. She sells sea shells by the sea shore. She sells sea shells by the sea shore.");
-            Messages.Add(m);
-
-            Message message2 = new Message("I don't recognize you. Get out of here.", () => true);
-            Messages.Add(message2);
+            Messages.Add(new Message("You're interested in the mindshare device, I assume? Mr. Blackmoore invited a few investors to discuss stocks and shares, but if  you don't have an invitation then you're not getting inside.", () => owner.GetIntegerVariable("count") % 3 == 0, () =>
+                {
+                    owner.IncrementIntegerVariable("count");
+                    EmailHelper.SendMessage("readme_email");
+                    Helpers.FileCopyHelper.copyFile("README.txt");
+                }));
+            Messages.Add(new Message("Investors and employees only.", () => owner.GetIntegerVariable("count") % 3 == 1, () => owner.IncrementIntegerVariable("count")));
+            Messages.Add(new Message("You'd better extract yourself before I activate the security system.", () => owner.GetIntegerVariable("count") % 3 == 2, () => owner.IncrementIntegerVariable("count")));
+            
+            //For quick run-throughs
+            //Messages.Add(new Message("Perfect. Ok, go on in.", () => true, ()=>
+            //{
+            //    owner.SetBooleanVariable("done", true);
+            //    owner.AddAction(new MoveToAction(new Vector2(640, 244), 0.5));
+            //}));
+            
         }
     }
 }
