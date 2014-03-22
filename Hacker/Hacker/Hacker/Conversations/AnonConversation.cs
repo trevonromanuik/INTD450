@@ -22,7 +22,7 @@ namespace Hacker.Conversations
             : base(owner, name, ipAddress)
         {
             //hardcode this variable to launch the game at a specific story point
-            //Player.Instance.GameCompleteState = GameCompleteState.GameStart;
+            Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
 
             // Post-terminal convo
             Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart);
@@ -95,6 +95,11 @@ namespace Hacker.Conversations
             message4a.Messages.Add(message4b);
             message4.Messages.Add(message4a);
             Messages.Add(message4);
+
+            // End game convo (DeepWebComplete)
+            Message message5 = new Message("This is the end of the game!",  () => Player.Instance.GameCompleteState == GameCompleteState.DeepWebComplete);
+
+            Messages.Add(message5);
         }
     }
 }
