@@ -9,8 +9,10 @@ using Hacker.Actions;
 using Hacker.Components;
 using Hacker.GameObjects;
 using Hacker.Layers;
+using Hacker.Levels;
 using Hacker.Managers;
 using Hacker.Screens;
+using Hacker.Transitions;
 
 namespace Hacker.Conversations
 {
@@ -27,12 +29,14 @@ namespace Hacker.Conversations
                 return true;
             });
             Message message3111 = new Message("Well, it's been a pleasure, but I best grab a new IP and disappear before MI5 comes for me. See you!");
-            Message message31111 = new Message("*poof*", () =>
+            Message message31111 = new Message("*poof*", () => true, () =>
             {
                 AnimatedSprite sprite = GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("cipher").GetComponent<AnimatedSprite>();
                 GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("cipher").AddComponent(new Sprite(AssetManager.LoadTexture("invisible")));
                 sprite.Remove();
-                return true;
+                
+                Player.Instance.GameCompleteState = GameCompleteState.DeepWebComplete;
+                GameScreen.LoadLevel<HubLevel>(new FadeTransition(new Vector2(320, 384)));
             });
             
             Message message32 = new Message("Nope. Take another look and try harder this time.");
