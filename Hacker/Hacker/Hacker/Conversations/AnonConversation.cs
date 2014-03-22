@@ -81,7 +81,7 @@ namespace Hacker.Conversations
             // Data bank complete convo (DataBankComplete)
             Message message4 = new Message("You're back! I traced you and saw you download those files. I knew I hired you for the right reasons.", () => Player.Instance.GameCompleteState == GameCompleteState.DataBankComplete);
             Message message4a = new Message("Looks live you've picked up files called Tech_Analysis, Resources_Request, and Experimental_Error. That's great. Let me just take a look... wait a minute...");
-            Message message4b = new Message("Cat's pajamas! Those files have been encrypted. I should have expected this. Take a look at them, there's no way to read them. ");
+            Message message4b = new Message("Motherboards! Those files have been encrypted. I should have expected this. Take a look at them, there's no way to read them. ");
             Message message4c = new Message("Hmmm... decryption programs are illegal, so we'll have to take a dip in the deep web to find someone tech-savvy enough to help us out.");
             Message message4d = new Message("I was hoping to avoid any sketchy servers. It's bad luck to take a wrong turn on the web. But I know of a decryption specialist named Cipher, and I know the server she hangs out on.");
             Message message4e = new Message("I'll link you to part of the deep web. Find Cipher, and get her help decrypting these files.", () => true, () =>
@@ -95,7 +95,6 @@ namespace Hacker.Conversations
             message4a.Messages.Add(message4b);
             message4.Messages.Add(message4a);
             Messages.Add(message4);
-
         }
     }
 }
