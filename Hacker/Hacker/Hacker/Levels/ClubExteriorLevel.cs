@@ -29,6 +29,11 @@ namespace Hacker.Levels
 
             objectLayer.GameObjectManager.AddGameObject(new Exit<ClubInteriorLevel>(new Rectangle(512, 128, 128, 100), new Vector2(448, 1088)));
 
+            var blackmoore = new Blackmoore();
+            blackmoore.RemoveComponent<Collision>();
+            blackmoore.GetComponent<Position>().Teleport(1000, 1000);
+            objectLayer.GameObjectManager.AddGameObject(blackmoore);
+
             PushLayer(objectLayer);
         }
 

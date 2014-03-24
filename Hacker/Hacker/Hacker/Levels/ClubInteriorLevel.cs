@@ -40,6 +40,11 @@ namespace Hacker.Levels
                     }
                 }));
 
+            var juliana = new Juliana();
+            juliana.RemoveComponent<Collision>();
+            juliana.GetComponent<Position>().Teleport(1000, 1000);
+            objectLayer.GameObjectManager.AddGameObject(juliana);
+
             PushLayer(objectLayer);
         }
 

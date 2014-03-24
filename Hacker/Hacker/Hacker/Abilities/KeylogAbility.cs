@@ -33,7 +33,7 @@ namespace Hacker.Abilities
                     var keyloggable = npc.GetComponent<Keyloggable>();
                     if (keyloggable == null)
                     {
-                        return "Invalid IP Address: " + args[1];
+                        return "Unable to keylog IP address: " + args[1];
                     }
                     else
                     {

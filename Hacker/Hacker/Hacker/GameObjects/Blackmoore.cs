@@ -31,6 +31,7 @@ namespace Hacker.GameObjects
             sprite.PlayAnimation("down");
             AddComponent(sprite);
 
+            AddComponent(new Spoofable());
             AddComponent(new ConversationInteraction(new BlackmooreConversation(this, Name, IpAddress)));
         }
     }

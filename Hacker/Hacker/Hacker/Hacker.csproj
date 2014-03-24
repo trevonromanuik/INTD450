@@ -178,6 +178,7 @@
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\RepeatingSprite.cs" />
     <Compile Include="Components\Shadow.cs" />
+    <Compile Include="Components\Spoofable.cs" />
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Components\TriggerCollision.cs" />
     <Compile Include="Constants.cs" />
