@@ -23,13 +23,14 @@ namespace Hacker.Conversations
         {
             InputMessage message3 = new InputMessage("Did you figure out the five-digit street address?", () => owner.GetBooleanVariable("puzzle_given"));
             Message message31 = new Message("Correct! And here I thought I threw you for a loophole.", () => message3.Output == "24085");
-            Message message311 = new Message("Okay... hold on... alllllmost... not quite... There! You should have a nice little program sitting on your hard drive that will decrypt your files for you. Just double click it!", () =>
+            Message message311 = new Message("Okay... hold on... alllllmost... not quite... There! You should have a nice little program sitting on your hard drive that will decrypt your files for you.", () =>
             {
                 Helpers.FileCopyHelper.copyFile("DecryptionProgram.lnk", "Downloads/");
                 return true;
             });
-            Message message3111 = new Message("Well, it's been a pleasure, but I best grab a new IP and disappear before MI5 comes for me. See you!");
-            Message message31111 = new Message("*poof*", () => true, () =>
+            Message message3111 = new Message("Find it in your 'GlobeComm Deliveries/Downloads' folder on your desktop, and just double click it!");
+            Message message31111 = new Message("Well, it's been a pleasure, but I best grab a new IP and disappear before MI5 comes for me. See you!");
+            Message message311111 = new Message("*poof*", () => true, () =>
             {
                 AnimatedSprite sprite = GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("cipher").GetComponent<AnimatedSprite>();
                 GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("cipher").AddComponent(new Sprite(AssetManager.LoadTexture("invisible")));
@@ -46,6 +47,7 @@ namespace Hacker.Conversations
             message31.Messages.Add(message311);
             message311.Messages.Add(message3111);
             message3111.Messages.Add(message31111);
+            message31111.Messages.Add(message311111);
             Messages.Add(message3);
 
             Message message2 = new Message("Welcome to the Cipher Cave!");

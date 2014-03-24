@@ -585,6 +585,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="MiscFiles\Experimental_Error.pdf">
+      <Name>Experimental_Error</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="MiscFiles\Resources_Request.pdf">
+      <Name>Resources_Request</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="MiscFiles\Tech_Analysis.pdf">
+      <Name>Tech_Analysis</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="MiscFiles\tester.txt">
       <Name>tester</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -750,6 +762,12 @@
     </None>
     <None Include="Levels\club_interior_collision.txt">
       <Name>club_interior_collision</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MiscFiles\How to Read Keylogger Output.txt">
+      <Name>How to Read Keylogger Output</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

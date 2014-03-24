@@ -27,7 +27,7 @@ namespace Hacker.Conversations
             // Post-terminal convo
             Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart);
             Message message21 = new Message("I'll connect you now to the virtual dock that acts as the point of entry to Blackmoore's private publicity event.");
-            Message message211 = new Message("Keep your eye on your inbox. You might find yourself receiving further correspondence from me. Good luck now, friend.", () => true,
+            Message message211 = new Message("Keep an eye on your inbox. You might receive further correspondence from me. Good luck now, friend.", () => true,
                 () => GameScreen.LoadLevel<ClubExteriorLevel>(new FadeTransition(new Vector2(832, 320))));
 
             message21.Messages.Add(message211);
@@ -80,7 +80,7 @@ namespace Hacker.Conversations
 
             // Data bank complete convo (DataBankComplete)
             Message message4 = new Message("You're back! I traced you and saw you download those files. I knew I hired you for the right reasons.", () => Player.Instance.GameCompleteState == GameCompleteState.DataBankComplete);
-            Message message4a = new Message("Looks live you've picked up files called Tech_Analysis, Resources_Request, and Experimental_Error. That's great. Let me just take a look... wait a minute...");
+            Message message4a = new Message("Looks like you've picked up files called Tech_Analysis, Resources_Request, and Experimental_Error. That's great. Let me just take a look... wait a minute...");
             Message message4b = new Message("Motherboards! Those files have been encrypted. I should have expected this. Take a look at them, there's no way to read them. ");
             Message message4c = new Message("Hmmm... decryption programs are illegal, so we'll have to take a dip in the deep web to find someone tech-savvy enough to help us out.");
             Message message4d = new Message("I was hoping to avoid any sketchy servers. It's bad luck to take a wrong turn on the web. But I know of a decryption specialist named Cipher, and I know the server she hangs out on.");
