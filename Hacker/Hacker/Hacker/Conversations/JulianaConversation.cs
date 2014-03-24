@@ -13,6 +13,8 @@ namespace Hacker.Conversations
         public JulianaConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
+            Messages.Add(new Message("Mr. Blackmoore! I wasn't expecting to see you out here. Shouldn't you be inside with the investors?", () => Player.Instance.SpoofId == "blackmoore"));
+
             Message message1 = new Message("Wow! I adore your Jimmy-Choos! They look just like- Wait a minute...", () => Player.Instance.SpoofId == owner.Id);
             Message message11 = new Message("Did you copy my avatar!? I'm quite certain that's against server policy...");
             message1.Messages.Add(message11);

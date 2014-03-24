@@ -30,6 +30,8 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
+            Player.Instance.SpoofReset();
+
             GameCompleteState state = Player.Instance.GameCompleteState;
             if (state == GameCompleteState.GameStart)
             {

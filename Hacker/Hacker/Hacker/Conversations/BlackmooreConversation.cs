@@ -29,6 +29,9 @@ namespace Hacker.Conversations
             message1.Messages.Add(message11);
             Messages.Add(message1);
 
+            // If Spoofing Blackmoore
+            Messages.Add(new Message("I am flattered that you would copy my avatar, but if you do not change it soon I will have you kicked out of my club.", () => Player.Instance.SpoofId == owner.Id));
+
             // If Spoofing Juliana
             Message message2 = new Message("Ah, Juliana! I was hoping you'd turn up. I hope recruitment went swimmingly.", () => Player.Instance.SpoofId == "juliana");
             Message message21 = new Message("There've been rumors that some hactivist cretins are aiming to make another attack on my business. Could you ask the guards at the Data Bank to update my password again?");
