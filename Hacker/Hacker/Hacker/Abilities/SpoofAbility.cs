@@ -38,7 +38,7 @@ namespace Hacker.Abilities
                     var spoofable = npc.GetComponent<Spoofable>();
                     if (spoofable == null)
                     {
-                        return "Unable to spoof IP address: " + args[1];
+                        return "Unable to spoof IP address: " + args[1] + ". This user has spoof counter-measure software enabled.";
                     }
                     else
                     {

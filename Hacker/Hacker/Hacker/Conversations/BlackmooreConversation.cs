@@ -30,7 +30,7 @@ namespace Hacker.Conversations
             Messages.Add(message1);
 
             // If Spoofing Blackmoore
-            Messages.Add(new Message("I am flattered that you would copy my avatar, but if you do not change it soon I will have you kicked out of my club.", () => Player.Instance.SpoofId == owner.Id));
+            Messages.Add(new Message("I am flattered that you would copy my avatar, but I would encourage you to change it when we are amongst professional company.", () => Player.Instance.SpoofId == owner.Id));
 
             // If Spoofing Juliana
             Message message2 = new Message("Ah, Juliana! I was hoping you'd turn up. I hope recruitment went swimmingly.", () => Player.Instance.SpoofId == "juliana");

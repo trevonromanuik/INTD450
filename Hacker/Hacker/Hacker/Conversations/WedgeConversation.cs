@@ -19,10 +19,16 @@ namespace Hacker.Conversations
         public WedgeConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
-            // Club convo
+            // If spoofing Blackmoore in the club
+            Messages.Add(new Message("Oh, Mr. Blackmoore! Cheers to your business, eh? With a fancy show like this, I'll be sure to sign up for that Mindshare volunteer trial program of yours.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart && Player.Instance.SpoofId == "blackmoore"));
+
+            // Default Club convo
             Messages.Add(new Message("Normally I just work guard duty for Blackmoore, but the employee bonus he's offering for Mindshare volunteer participants is looking pretty sweet to me right now.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart));
-            
-            // Data bank convo
+
+            // If spoofing Blackmoore in the Data Bank
+            Messages.Add(new Message("Oh, M-Mr. Blackmoore! You're....you're having a nice day, I suppose? I mean, er, great party you threw! That Mindshare product of yours is sure...something!", () => Player.Instance.SpoofId == "blackmoore"));
+
+            // Data bank default convo
             Messages.Add(new Message("*Sigh*", () => owner.GetIntegerVariable("count") == 0, () => owner.IncrementIntegerVariable("count")));
 
             Messages.Add(new Message("Hitchcock's boot-licking actually worked on Blackmoore. Make's me sick.", () => owner.GetIntegerVariable("count") == 1, () => owner.IncrementIntegerVariable("count")));
