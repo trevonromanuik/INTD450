@@ -17,6 +17,8 @@ namespace Hacker.Levels
         public VaultLevel()
             : base()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
+
             PushLayer(new MapLayer("vault"));
             PushLayer(new CollisionLayer("vault_collision"));
 

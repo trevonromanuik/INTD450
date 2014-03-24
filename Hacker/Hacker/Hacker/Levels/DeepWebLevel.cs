@@ -17,6 +17,8 @@ namespace Hacker.Levels
         public DeepWebLevel()
             : base()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
+
             PushLayer(new MapLayer("deep_web"));
             PushLayer(new CollisionLayer("deep_web_collision"));
 

@@ -17,6 +17,8 @@ namespace Hacker.Levels
         public CipherStoreLevel()
             : base()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
+
             PushLayer(new MapLayer("cipher_store"));
             PushLayer(new CollisionLayer("cipher_store_collision"));
 

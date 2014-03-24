@@ -17,6 +17,8 @@ namespace Hacker.Levels
         public ClubExteriorLevel()
             : base()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.GameStart;
+
             PushLayer(new MapLayer("club_exterior"));
             PushLayer(new CollisionLayer("club_exterior_collision"));
 

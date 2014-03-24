@@ -19,6 +19,8 @@ namespace Hacker.Levels
         public ClubInteriorLevel()
             : base()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.GameStart;
+
             PushLayer(new MapLayer("club_interior"));
             PushLayer(new CollisionLayer("club_interior_collision"));
 

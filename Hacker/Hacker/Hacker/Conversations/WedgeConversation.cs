@@ -22,12 +22,19 @@ namespace Hacker.Conversations
             // If spoofing Blackmoore in the club
             Messages.Add(new Message("Oh, Mr. Blackmoore! Cheers to your business, eh? With a fancy show like this, I'll be sure to sign up for that Mindshare volunteer trial program of yours.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart && Player.Instance.SpoofId == "blackmoore"));
 
+            // If spoofing Juliana in the club
+            Messages.Add(new Message("Hey there, Juliana. This is a pretty nice do you and Mr. Blackmoore organized! You're really going all-out to advertise Mindshare, huh?", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart && Player.Instance.SpoofId == "juliana"));
+
             // Default Club convo
             Messages.Add(new Message("Normally I just work guard duty for Blackmoore, but the employee bonus he's offering for Mindshare volunteer participants is looking pretty sweet to me right now.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart));
 
             // If spoofing Blackmoore in the Data Bank
             Messages.Add(new Message("Oh, M-Mr. Blackmoore! You're....you're having a nice day, I suppose? I mean, er, great party you threw! That Mindshare product of yours is sure...something!", () => Player.Instance.SpoofId == "blackmoore"));
 
+            // If spoofing Juliana in the Data Bank
+            Messages.Add(new Message("Hi Miss Juliana. Was there an inspection scheduled today? I... well, I thought I would have written it down, but...", () => Player.Instance.SpoofId == "juliana"));
+
+            
             // Data bank default convo
             Messages.Add(new Message("*Sigh*", () => owner.GetIntegerVariable("count") == 0, () => owner.IncrementIntegerVariable("count")));
 
