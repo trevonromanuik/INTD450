@@ -37,7 +37,6 @@ namespace Hacker.Levels
             // Anon has different facing direction and position at the very end of the game
             if (Player.Instance.GameCompleteState == GameCompleteState.DeepWebComplete)
             {
-
                 GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("anon").GetComponent<AnimatedSprite>().PlayAnimation("up");
                 GameScreen.Level.GetLayer<ObjectLayer>().GameObjectManager.GetGameObjectById("anon").GetComponent<Position>().Teleport(320, 150);
             }

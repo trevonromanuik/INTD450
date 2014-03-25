@@ -17,8 +17,6 @@ namespace Hacker.Levels
         public DeepWebLevel()
             : base()
         {
-            Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
-
             PushLayer(new MapLayer("deep_web"));
             PushLayer(new CollisionLayer("deep_web_collision"));
 
@@ -56,6 +54,8 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
+
             // Syriana, "Gharib, Eccodek remix"
             SoundManager.PlayMusic("deepweb_foreign");
         }

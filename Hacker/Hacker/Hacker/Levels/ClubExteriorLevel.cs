@@ -17,8 +17,6 @@ namespace Hacker.Levels
         public ClubExteriorLevel()
             : base()
         {
-            Player.Instance.GameCompleteState = GameCompleteState.GameStart;
-
             PushLayer(new MapLayer("club_exterior"));
             PushLayer(new CollisionLayer("club_exterior_collision"));
 
@@ -41,6 +39,7 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.GameStart;
             Player.Instance.SpoofReset();
             SoundManager.PlayMusic("club_outside");
         }

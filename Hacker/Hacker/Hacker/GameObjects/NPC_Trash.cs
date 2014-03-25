@@ -14,7 +14,7 @@ namespace Hacker.GameObjects
     class NPC_Trash : Npc
     {
         public NPC_Trash()
-            : base("Oscar_The_Grouch", string.Empty)
+            : base("BinBro98", string.Empty)
         {
             Id = "trash";
 

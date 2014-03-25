@@ -17,8 +17,6 @@ namespace Hacker.Levels
         public DataBankLevel()
             : base()
         {
-            Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
-
             PushLayer(new MapLayer("data_bank"));
             PushLayer(new CollisionLayer("data_bank_collision"));
 
@@ -72,6 +70,7 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
             SoundManager.PlayMusic("databank");
         }
     }
