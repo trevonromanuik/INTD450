@@ -159,6 +159,7 @@
     <Compile Include="Abilities\KeylogAbility.cs" />
     <Compile Include="Abilities\SpoofAbility.cs" />
     <Compile Include="Actions\Action.cs" />
+    <Compile Include="Actions\ConversationAction.cs" />
     <Compile Include="Actions\MoveToAction.cs" />
     <Compile Include="Components\AnimatedSprite.cs" />
     <Compile Include="Components\Animation.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Conversations\BriggsConversation.cs" />
     <Compile Include="Conversations\CipherConversation.cs" />
     <Compile Include="Conversations\Conversation.cs" />
+    <Compile Include="Conversations\FinalAnonConversation.cs" />
     <Compile Include="Conversations\TrashConversation.cs" />
     <Compile Include="Conversations\HitchcockConversation.cs" />
     <Compile Include="Conversations\HubTerminalConversation.cs" />

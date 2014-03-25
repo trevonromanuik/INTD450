@@ -22,7 +22,7 @@ namespace Hacker.Conversations
             : base(owner, name, ipAddress)
         {
             //hardcode this variable to launch the game at a specific story point
-            //Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
+            Player.Instance.GameCompleteState = GameCompleteState.DeepWebComplete;
 
             // Post-terminal convo
             Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart);
@@ -97,8 +97,30 @@ namespace Hacker.Conversations
             Messages.Add(message4);
 
             // End game convo (DeepWebComplete)
-            Message message5 = new Message("This is the end of the game!",  () => Player.Instance.GameCompleteState == GameCompleteState.DeepWebComplete);
-
+            Message message5 = new Message("You made it back safely! Excellent. You've found a way to decrypt the files as well. You really are a Super User.",  () => Player.Instance.GameCompleteState == GameCompleteState.DeepWebComplete);
+            Message message5a = new Message("You've done me a great service. Thank you. I couldn't have located all those security holes without your help.");
+            Message message5b = new Message("...However, it seems that I won't need those files after all... I've seen them already.");
+            Message message5c = new Message("...I wrote them, actually.", () => true, () =>
+            {
+                // Move Anon down past the player, making it look like the player is pushed out of the way in the process
+                Player.Instance.GetComponent<PlayerInput>().Disabled = true;
+                owner.GetComponent<MovementCollision>().Remove();
+                Position startPos = owner.GetComponent<Position>();
+                float playerPos = Player.Instance.GetComponent<Position>().X;
+                // Move 32 to left if player is more to the right, else 32 to right if player is more to left
+                float moveX = playerPos > startPos.X ? (startPos.X - 32) : (startPos.X + 32);
+                Vector2 posA = new Vector2(startPos.X, startPos.Y),
+                        posB = new Vector2(moveX, startPos.Y),
+                        posC = new Vector2(moveX, 352), 
+                        posD = new Vector2(startPos.X, 352);
+                owner.AddAction(new MoveToAction(posA, posB, 0.25));
+                owner.AddAction(new MoveToAction(posB, posC, 1));
+                owner.AddAction(new MoveToAction(posC, posD, 0.25));
+                owner.AddAction(new ConversationAction(new FinalAnonConversation(owner, "Juliana", string.Empty)));
+            });
+            message5b.Messages.Add(message5c);
+            message5a.Messages.Add(message5b);
+            message5.Messages.Add(message5a);
             Messages.Add(message5);
         }
     }
