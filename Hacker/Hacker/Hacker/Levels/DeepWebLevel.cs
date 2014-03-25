@@ -40,6 +40,7 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new NPC_SailorMoon());
             objectLayer.GameObjectManager.AddGameObject(new NPC_Mantis());
             objectLayer.GameObjectManager.AddGameObject(new NPC_Artist());
+            objectLayer.GameObjectManager.AddGameObject(new NPC_Trash());
 
             InvisibleDoorSprite door1 = new InvisibleDoorSprite(), door2 = new InvisibleDoorSprite(), door3 = new InvisibleDoorSprite();
             objectLayer.GameObjectManager.AddGameObject(door1);
@@ -55,10 +56,8 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
-            // Which one do you like better?
             // Syriana, "Gharib, Eccodek remix"
             SoundManager.PlayMusic("deepweb_foreign");
-            //SoundManager.PlayMusic("deepweb_light");
         }
     }
 }
