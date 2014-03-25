@@ -25,7 +25,6 @@ namespace Hacker.Levels
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
             Player.Instance.GetComponent<Position>().Teleport(224,832);
-            objectLayer.GameObjectManager.AddGameObject(new Exit<CipherStoreLevel>(new Rectangle(640, 164, 64, 64), new Vector2(320,320)));
 
             objectLayer.GameObjectManager.AddGameObject(new Lamp(96, 832));
             objectLayer.GameObjectManager.AddGameObject(new Lamp(352, 832));
@@ -41,6 +40,15 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new NPC_SailorMoon());
             objectLayer.GameObjectManager.AddGameObject(new NPC_Mantis());
             objectLayer.GameObjectManager.AddGameObject(new NPC_Artist());
+
+            InvisibleDoorSprite door1 = new InvisibleDoorSprite(), door2 = new InvisibleDoorSprite(), door3 = new InvisibleDoorSprite();
+            objectLayer.GameObjectManager.AddGameObject(door1);
+            door1.GetComponent<Position>().Teleport(270, 160);
+            objectLayer.GameObjectManager.AddGameObject(door2);
+            door2.GetComponent<Position>().Teleport(416, 160);
+            objectLayer.GameObjectManager.AddGameObject(door3);
+            door3.GetComponent<Position>().Teleport(640, 160);
+
 
             PushLayer(objectLayer);
         }

@@ -192,6 +192,7 @@
     <Compile Include="Conversations\HitchcockConversation.cs" />
     <Compile Include="Conversations\HubTerminalConversation.cs" />
     <Compile Include="Conversations\InputMessage.cs" />
+    <Compile Include="Conversations\InvisibleDoorConversation.cs" />
     <Compile Include="Conversations\JulianaConversation.cs" />
     <Compile Include="Conversations\LoginConversation.cs" />
     <Compile Include="Conversations\MantisConversation.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="GameObjects\GlassScreen.cs" />
     <Compile Include="GameObjects\Briggs.cs" />
     <Compile Include="GameObjects\HubTerminal.cs" />
+    <Compile Include="GameObjects\InvisibleDoorSprite.cs" />
     <Compile Include="GameObjects\Juliana.cs" />
     <Compile Include="GameObjects\Lamp.cs" />
     <Compile Include="GameObjects\NPC_Artist.cs" />
