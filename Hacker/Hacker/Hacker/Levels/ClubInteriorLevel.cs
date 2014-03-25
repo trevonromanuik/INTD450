@@ -52,6 +52,7 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
+            Player.Instance.SpoofReset();
             SoundManager.PlayMusic("club_inside");
         }
     }
