@@ -23,7 +23,6 @@ namespace Hacker.Levels
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            Player.Instance.GetComponent<Position>().Teleport(320, 384);
             objectLayer.GameObjectManager.AddGameObject(new Anon());
        
             PushLayer(objectLayer);
@@ -32,6 +31,8 @@ namespace Hacker.Levels
         public override void OnLoad()
         {
             Player.Instance.SpoofReset();
+            Player.Instance.GetComponent<Position>().Teleport(320, 384);
+            Player.Instance.GetComponent<Position>().Direction = Direction.Up;
             Player.Instance.GetComponent<AnimatedSprite>().PlayAnimation("up");
 
             // Anon has different facing direction and position at the very end of the game

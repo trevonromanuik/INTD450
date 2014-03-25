@@ -22,7 +22,6 @@ namespace Hacker.Levels
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            Player.Instance.GetComponent<Position>().Teleport(224,832);
 
             objectLayer.GameObjectManager.AddGameObject(new Lamp(96, 832));
             objectLayer.GameObjectManager.AddGameObject(new Lamp(352, 832));
@@ -48,6 +47,11 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(door3);
             door3.GetComponent<Position>().Teleport(640, 160);
 
+            var pylons = new GameObject();
+            pylons.AddComponent(new Position(736, 298));
+            pylons.AddComponent(new MovementCollision());
+            pylons.AddComponent(new RepeatingSprite(AssetManager.LoadTexture("pylon"), 1, 6));
+            objectLayer.GameObjectManager.AddGameObject(pylons);
 
             PushLayer(objectLayer);
         }
@@ -55,7 +59,7 @@ namespace Hacker.Levels
         public override void OnLoad()
         {
             Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
-
+            
             // Syriana, "Gharib, Eccodek remix"
             SoundManager.PlayMusic("deepweb_foreign");
         }

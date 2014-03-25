@@ -21,13 +21,14 @@ namespace Hacker.Levels
             PushLayer(new CollisionLayer("vault_collision"));
 
             ObjectLayer objectLayer = new ObjectLayer();
-            objectLayer.GameObjectManager.AddGameObject(new VaultTerminal(320,288));
+            objectLayer.GameObjectManager.AddGameObject(new VaultTerminal(320,224));
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
             PushLayer(objectLayer);
         }
 
         public override void OnLoad()
         {
+            Player.Instance.SpoofReset();
             Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
         }
     }

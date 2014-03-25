@@ -22,13 +22,18 @@ namespace Hacker.Conversations
             : base(owner, name, ipAddress)
         {
             //hardcode this variable to launch the game at a specific story point
-            Player.Instance.GameCompleteState = GameCompleteState.DeepWebComplete;
+            //Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
 
             // Post-terminal convo
             Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart);
             Message message21 = new Message("I'll connect you now to the virtual dock that acts as the point of entry to Blackmoore's private publicity event.");
             Message message211 = new Message("Keep an eye on your inbox. You might receive further correspondence from me. Good luck now, friend.", () => true,
-                () => GameScreen.LoadLevel<ClubExteriorLevel>(new FadeTransition(new Vector2(832, 320))));
+                () => {
+                    var terminal = owner.Manager.GetGameObjectById("hub_terminal");
+                    owner.Manager.GameObjects.Remove(terminal);
+                    GameScreen.Level.PopLayer();
+                    GameScreen.LoadLevel<ClubExteriorLevel>(new FadeTransition(new Vector2(832, 320))); 
+                });
 
             message21.Messages.Add(message211);
             message2.Messages.Add(message21);
@@ -44,7 +49,7 @@ namespace Hacker.Conversations
             Message message1d = new Message("Me? You can call me 'Anon.' It doesn't matter who I am. I've heard you know your way around the internet. You're obscure and unpredictable. I've got a job for you, and if you scratch my back, I'll scratch yours.");
             Message message1e = new Message("But enough talk for now, time for your first exercise. Go up to that terminal north of me and give it a gander.", () => true, () => 
             { 
-                owner.Manager.AddGameObject(new HubTerminal()); 
+                owner.Manager.AddGameObject(new HubTerminal());
                 owner.SetBooleanVariable("done", true); 
             });
 
@@ -67,6 +72,7 @@ namespace Hacker.Conversations
             });
             Message message3f = new Message("We're hazarding security central now, so tread carefully. I'm counting on you.", () => true, () =>
             {
+                GameScreen.Level.PopLayer();
                 GameScreen.LoadLevel<DataBankLevel>(new FadeTransition(new Vector2(512, 1024)));
             });
 
@@ -86,6 +92,7 @@ namespace Hacker.Conversations
             Message message4d = new Message("I was hoping to avoid any sketchy servers. It's bad luck to take a wrong turn on the web. But I know of a decryption specialist named Cipher, and I know the server she hangs out on.");
             Message message4e = new Message("I'll link you to part of the deep web. Find Cipher, and get her help decrypting these files.", () => true, () =>
             {
+                GameScreen.Level.PopLayer();
                 GameScreen.LoadLevel<DeepWebLevel>(new FadeTransition(new Vector2(224, 832)));
             });
 

@@ -24,7 +24,6 @@ namespace Hacker.Levels
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            Player.Instance.GetComponent<Position>().Teleport(448, 1088);
 
             Blackmoore blackmoore = new Blackmoore();
             objectLayer.GameObjectManager.AddGameObject(blackmoore);
@@ -52,6 +51,7 @@ namespace Hacker.Levels
         {
             Player.Instance.GameCompleteState = GameCompleteState.GameStart;
             Player.Instance.SpoofReset();
+            Player.Instance.GetComponent<Position>().Teleport(448, 1024);
             SoundManager.PlayMusic("club_inside");
         }
     }

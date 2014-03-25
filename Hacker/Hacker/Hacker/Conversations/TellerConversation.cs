@@ -19,7 +19,7 @@ namespace Hacker.Conversations
         public TellerConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
-            Message message2 = new Message("Ah, Mr. Blackmoore! Always a pleasure. Here to access your account I presume? Right this way!", () => true /*Player.Instance.SpoofId == "blackmoore"*/, () => { var door = owner.Manager.GetGameObjectById("door"); door.GetComponent<Sprite>().Texture = AssetManager.LoadTexture("door_open"); door.RemoveComponent<MovementCollision>(); door.SetBooleanVariable("open", true); });
+            Message message2 = new Message("Ah, Mr. Blackmoore! Always a pleasure. Here to access your account I presume? Right this way!", () => Player.Instance.SpoofId == "blackmoore", () => { var door = owner.Manager.GetGameObjectById("door"); door.GetComponent<Sprite>().Texture = AssetManager.LoadTexture("door_open"); door.RemoveComponent<MovementCollision>(); door.SetBooleanVariable("open", true); });
             Messages.Add(message2);
 
             // If spoofing Juliana

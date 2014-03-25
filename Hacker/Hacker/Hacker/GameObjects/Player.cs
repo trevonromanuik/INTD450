@@ -112,6 +112,21 @@ namespace Hacker.GameObjects
 
             var _sprite = GetComponent<AnimatedSprite>();
             _sprite.Animations = animations;
+            switch (GetComponent<Position>().Direction)
+            {
+                case Direction.Up:
+                    _sprite.PlayAnimation("up");
+                    break;
+                case Direction.Down:
+                    _sprite.PlayAnimation("down");
+                    break;
+                case Direction.Left:
+                    _sprite.PlayAnimation("left");
+                    break;
+                case Direction.Right:
+                    _sprite.PlayAnimation("right");
+                    break;
+            }
         }
 
         public void Keylog(Npc npc)

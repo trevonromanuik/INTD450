@@ -18,7 +18,7 @@ namespace Hacker.GameObjects
         {
             Id = "juliana";
 
-            AddComponent(new Position(192, 298));
+            AddComponent(new Position(320, 298));
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
 

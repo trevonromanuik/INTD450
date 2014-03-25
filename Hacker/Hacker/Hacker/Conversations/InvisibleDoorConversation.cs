@@ -30,7 +30,8 @@ namespace Hacker.Conversations
             // Rightmost (Cipher) door
             Messages.Add(new Message("The Cipher Cave: Welcome, come on in!", () => true, () =>
                 {
-                    GameScreen.LoadLevel<CipherStoreLevel>(new FadeTransition(new Vector2(320, 320)));
+                    GameScreen.Level.PopLayer();
+                    GameScreen.LoadLevel<CipherStoreLevel>(new FadeTransition(new Vector2(320, 394)));
                 }));
         }
     }

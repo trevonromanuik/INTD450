@@ -38,6 +38,7 @@ namespace Hacker.Conversations
             Message message211 = new Message("I wouldn't want the mindshare files leaked under any circumstances. Remember, the vault number is #3266845875.", ()=> true, () =>
             {
                 Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
+                GameScreen.Level.PopLayer();
                 GameScreen.LoadLevel<HubLevel>(new FadeTransition(new Vector2(320, 384)));
             });
 

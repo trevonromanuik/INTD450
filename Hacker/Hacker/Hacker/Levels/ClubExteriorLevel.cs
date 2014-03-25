@@ -22,12 +22,11 @@ namespace Hacker.Levels
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            Player.Instance.GetComponent<Position>().Teleport(832, 320);
             
             objectLayer.GameObjectManager.AddGameObject(new Juliana());
             objectLayer.GameObjectManager.AddGameObject(new Bouncer());
 
-            objectLayer.GameObjectManager.AddGameObject(new Exit<ClubInteriorLevel>(new Rectangle(512, 128, 128, 100), new Vector2(448, 1088)));
+            objectLayer.GameObjectManager.AddGameObject(new Exit<ClubInteriorLevel>(new Rectangle(512, 128, 128, 100), new Vector2(448, 1024)));
 
             var blackmoore = new Blackmoore();
             blackmoore.RemoveComponent<Collision>();
@@ -41,6 +40,7 @@ namespace Hacker.Levels
         {
             Player.Instance.GameCompleteState = GameCompleteState.GameStart;
             Player.Instance.SpoofReset();
+            Player.Instance.GetComponent<Position>().Teleport(832, 320);
             SoundManager.PlayMusic("club_outside");
         }
     }
