@@ -17,7 +17,7 @@ namespace Hacker.Conversations
         {
             InputMessage message1 = new InputMessage("Please enter your three-part password as one string, each part in order of time signature.");
             Message message11 = new Message("Password Correct. Have a nice day.", () => message1.Output == /*"password"*/ "cheezew1zmnemonicw1nst0n", () => { var vaultDoor = owner.Manager.GetGameObjectById("vault_door"); owner.Manager.GameObjects.Remove(vaultDoor); });
-            Message message12 = new Message("Password Incorrect.");
+            Message message12 = new Message("Incorrect Password. Please ensure that the three-part password is spelled correctly and each part is in order of time signature.");
             message1.Messages.Add(message11);
             message1.Messages.Add(message12);
             Messages.Add(message1);

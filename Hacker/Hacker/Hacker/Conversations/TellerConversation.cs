@@ -25,7 +25,7 @@ namespace Hacker.Conversations
             // If spoofing Juliana
             Messages.Add(new Message("Oh, Miss Juliana. We appreciate the business that your coworker, Mr. Blackmoore, does with us.", () => Player.Instance.SpoofId == "juliana"));
 
-            Message message1 = new Message("Welcome to the data bank. Sorry, but we are not accepting new members at this time.");
+            Message message1 = new Message("Welcome to the data bank. Sorry, but we are not accepting new members at this time. Only members with existing accounts may enter.");
             Messages.Add(message1);
         }
     }

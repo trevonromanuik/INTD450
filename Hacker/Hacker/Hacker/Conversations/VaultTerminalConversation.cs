@@ -19,6 +19,8 @@ namespace Hacker.Conversations
         public VaultTerminalConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
+            Messages.Add(new Message("Please check your 'GlobeComm Deliveries/Downloads' folder on your desktop for downloaded files.", () => Player.Instance.GameCompleteState == GameCompleteState.DataBankComplete));
+
             Message message1 = new Message("Welcome, Mr. Blackmoore.");
             Message message11 = new Message("Download request received. Now downloading files: Experimental_Error, Tech_Analysis, and Resources_Request.", () => true, () =>
             {
@@ -29,8 +31,6 @@ namespace Hacker.Conversations
             Message message111 = new Message("Download complete. Encrypted files now available in your 'GlobeComm Deliveries/Downloads' directory.", () => true, () =>
             {
                 Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
-                GameScreen.Level.PopLayer();
-                GameScreen.LoadLevel<HubLevel>(new FadeTransition(new Vector2(320, 384)));
             });
             message1.Messages.Add(message11);
             message11.Messages.Add(message111);

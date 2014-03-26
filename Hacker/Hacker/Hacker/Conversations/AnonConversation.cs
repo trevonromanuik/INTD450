@@ -22,7 +22,7 @@ namespace Hacker.Conversations
             : base(owner, name, ipAddress)
         {
             //hardcode this variable to launch the game at a specific story point
-            //Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
+            Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
 
             // Post-terminal convo
             Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart);
@@ -73,7 +73,7 @@ namespace Hacker.Conversations
             Message message3f = new Message("We're hazarding security central now, so tread carefully. I'm counting on you.", () => true, () =>
             {
                 GameScreen.Level.PopLayer();
-                GameScreen.LoadLevel<DataBankLevel>(new FadeTransition(new Vector2(512, 1024)));
+                GameScreen.LoadLevel<DataBankLevel>(new FadeTransition(new Vector2(512, 1088)));
             });
 
             message3e.Messages.Add(message3f);

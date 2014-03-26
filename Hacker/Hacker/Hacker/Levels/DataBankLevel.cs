@@ -80,7 +80,6 @@ namespace Hacker.Levels
         public override void OnLoad()
         {
             Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
-            Player.Instance.GetComponent<Position>().Teleport(512, 1088);
             SoundManager.PlayMusic("databank");
         }
     }

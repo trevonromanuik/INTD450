@@ -22,6 +22,9 @@ namespace Hacker.Conversations
             // If spoofing Blackmoore in the Data Bank
             Messages.Add(new Message("Mr. Blackmoore. Come to check on your assets? We're maintaining security protocols as always.", () => Player.Instance.GameCompleteState == GameCompleteState.ClubComplete && Player.Instance.SpoofId == "blackmoore"));
 
+            // If spoofing Juliana in the Data Bank
+            Messages.Add(new Message("Hello Ms. Smith. Doing a check up for Mr. Blackmoore?  We're maintaining security protocols as always.", () => Player.Instance.GameCompleteState == GameCompleteState.ClubComplete && Player.Instance.SpoofId == "juliana"));
+
             // Default data bank convo
             Messages.Add(new Message("Here to cause trouble for the boss man? Don't try anything funny.", () => owner.GetIntegerVariable("count") % 3 == 0, () => owner.IncrementIntegerVariable("count")));
             Messages.Add(new Message("I've got my eyes on you.", () => owner.GetIntegerVariable("count") % 3 == 1, () => owner.IncrementIntegerVariable("count")));

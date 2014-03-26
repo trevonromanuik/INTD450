@@ -15,7 +15,7 @@ namespace Hacker.GameObjects
     class Blackmoore : Npc
     {
         public Blackmoore()
-            : base("Ryan Blackmoore", "1234")
+            : base("Ryan Blackmoore", "173.181.80.234")
         {
             Id = "blackmoore";
 
