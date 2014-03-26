@@ -47,13 +47,10 @@ int _tmain(int argc, _TCHAR* argv[])
 				_bstr_t inPath2 = currPath + "\\Tech_Analysis.pdf";
 				_bstr_t inPath3 = currPath + "\\Resources_request.pdf";
 
-				cout << "Trying to copy " << inPath1;
 				// Get resulting path to files
 				_bstr_t outPath1 = downloadsPath + "\\Experimental_Error.pdf";
 				_bstr_t outPath2 = downloadsPath + "\\Tech_Analysis.pdf";
 				_bstr_t outPath3 = downloadsPath + "\\Resources_Request.pdf";
-				cout << "to " << outPath1;
-
 
 				// Print pretend decryption message
 				cout << "Decrypting\n";
@@ -74,7 +71,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				}
 				else
 				{
-					cout << "Err: failed to copy files." << GetLastError();
+					cout << "Err: failed to copy files.";
 					Sleep(10000);
 				}
 
