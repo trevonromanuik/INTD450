@@ -29,6 +29,7 @@ namespace Hacker.Conversations
             Message message31 = new Message("Correct! And here I thought I threw you for a loophole.", () => message3.Output == "24085");
             Message message311 = new Message("Okay... hold on... alllllmost... not quite... There! You should have a nice little program sitting on your hard drive that will decrypt your files for you.", () =>
             {
+                Helpers.FileCopyHelper.createShortcut("DecryptionProgram", "DecryptionProgram.exe");
                 Helpers.FileCopyHelper.copyFile("DecryptionProgram.lnk", "Downloads/");
                 return true;
             });
