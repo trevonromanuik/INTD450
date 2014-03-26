@@ -27,6 +27,8 @@ namespace Hacker
 
         public Hacker()
         {
+            this.Window.Title = "GlobeComm";
+
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 640;
             graphics.PreferredBackBufferHeight = 512;
