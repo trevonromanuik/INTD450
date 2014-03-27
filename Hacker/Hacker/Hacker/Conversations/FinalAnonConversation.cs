@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Hacker.Actions;
 using Hacker.Components;
 using Hacker.GameObjects;
+using Hacker.Helpers;
 using Hacker.Layers;
 using Hacker.Managers;
 using Hacker.Screens;
@@ -65,7 +66,12 @@ namespace Hacker.Conversations
             Message message1g = new Message("...And I'll start by eliminating Blackmoore himself, with his own device. It shouldn't be difficult, considering how often he jacks into it. Why split the profits for a product that could become my own intellectual property?");
             Message message1h = new Message("Oh, and thank you, dear. I do appreciate your gumption in helping an anonymous hacktivist, but you really should be wary of who you trust on the internet. I'm afraid you've seen too much.");
             Message message1i = new Message("Did I mention that the newest prototype of Mindshare can project a wireless electromagnetic field from any computer connected to GlobeComm? You should have obscured your IP behind a proxy, sweety.");
-            Message messagelj = new Message("Now hold still, this will only take a moment.");
+            Message messagelj = new Message("Now hold still, this will only take a moment.", () => true, () =>
+            {
+                SoundManager.PlayMusic("glitchcrash");
+                EmailHelper.SendMessage("endgame_email");
+                // TODO: Game closes itself
+            });
 
             message1i.Messages.Add(messagelj);
             message1h.Messages.Add(message1i);

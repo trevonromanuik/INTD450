@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="HackerDataTypes.Email">
+	<from>Mindshare@BlackmooreIndustries.com</from>
+    <subject>Thank you for your participation!</subject>
+    <message>
+Dear Participant,
+
+We at Blackmoore Industries would like to thank you for participating in the Mindshare device trial.  You are one of the first to experience this new wave of technology!
+
+The information collected from your trial will be used to create research reports so we can continue to improve and upgrade our technology in the future. Without the help of participants like you, we would never have be able to turn the dream of Mindshare into a reality.
+
+//Side-effects may include hallucinations, black-outs, and confusion about the preceding two hour's events. Do not be alarmed. If the symptoms persist, you are encouraged to schedule a complimentary appointment with one of our trusted Blackmoore Industries neurologists.//
+    </message>
+  </Asset>
+</XnaContent>
