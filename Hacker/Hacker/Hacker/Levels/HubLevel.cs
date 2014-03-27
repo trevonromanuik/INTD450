@@ -24,6 +24,11 @@ namespace Hacker.Levels
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
             objectLayer.GameObjectManager.AddGameObject(new Anon());
+
+            var juliana = new Juliana();
+            juliana.RemoveComponent<Collision>();
+            juliana.GetComponent<Position>().Teleport(1000, 1000);
+            objectLayer.GameObjectManager.AddGameObject(juliana);
        
             PushLayer(objectLayer);
         }

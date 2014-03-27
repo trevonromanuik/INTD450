@@ -162,6 +162,7 @@
     <Compile Include="Actions\Action.cs" />
     <Compile Include="Actions\ConversationAction.cs" />
     <Compile Include="Actions\MoveToAction.cs" />
+    <Compile Include="Actions\TransformAction.cs" />
     <Compile Include="Components\AnimatedSprite.cs" />
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\Boundary.cs" />
