@@ -192,6 +192,7 @@
     <Compile Include="Conversations\BriggsConversation.cs" />
     <Compile Include="Conversations\CipherConversation.cs" />
     <Compile Include="Conversations\Conversation.cs" />
+    <Compile Include="Conversations\DoorConversation.cs" />
     <Compile Include="Conversations\FinalAnonConversation.cs" />
     <Compile Include="Conversations\TrashConversation.cs" />
     <Compile Include="Conversations\HitchcockConversation.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Levels\CipherStoreLevel.cs" />
     <Compile Include="Levels\ClubExteriorLevel.cs" />
     <Compile Include="Levels\ClubInteriorLevel.cs" />
+    <Compile Include="Levels\ClubOfficeLevel.cs" />
     <Compile Include="Levels\DataBankLevel.cs" />
     <Compile Include="Levels\DeepWebLevel.cs" />
     <Compile Include="Levels\HubLevel.cs" />

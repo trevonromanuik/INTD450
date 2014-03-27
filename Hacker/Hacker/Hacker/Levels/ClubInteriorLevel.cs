@@ -41,8 +41,12 @@ namespace Hacker.Levels
 
             var juliana = new Juliana();
             juliana.RemoveComponent<Collision>();
-            juliana.GetComponent<Position>().Teleport(1000, 1000);
+            juliana.GetComponent<Position>().Teleport(2048, 2048);
             objectLayer.GameObjectManager.AddGameObject(juliana);
+
+            var door = new Placeable(1024, 280, AssetManager.LoadTexture("metal_door"));
+            door.AddComponent(new ConversationInteraction(new DoorConversation(door)));
+            objectLayer.GameObjectManager.AddGameObject(door);
 
             PushLayer(objectLayer);
         }
@@ -51,7 +55,6 @@ namespace Hacker.Levels
         {
             Player.Instance.GameCompleteState = GameCompleteState.GameStart;
             Player.Instance.SpoofReset();
-            Player.Instance.GetComponent<Position>().Teleport(448, 1024);
             SoundManager.PlayMusic("club_inside");
         }
     }
