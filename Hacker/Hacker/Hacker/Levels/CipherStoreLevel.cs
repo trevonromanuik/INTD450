@@ -38,6 +38,9 @@ namespace Hacker.Levels
                 }
             }));
 
+            objectLayer.GameObjectManager.AddGameObject(new Placeable(544, 224, AssetManager.LoadTexture("cipher_comp")));
+            objectLayer.GameObjectManager.AddGameObject(new Placeable(480, 128, AssetManager.LoadTexture("cipher_desk")));
+
             PushLayer(objectLayer);
         }
 

@@ -18,7 +18,7 @@ namespace Hacker.GameObjects
         {
             Id = "cipher";
 
-            AddComponent(new Position(256, 192));
+            AddComponent(new Position(480, 192));
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
 
