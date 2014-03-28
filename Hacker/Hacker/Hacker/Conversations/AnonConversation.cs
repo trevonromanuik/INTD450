@@ -22,7 +22,6 @@ namespace Hacker.Conversations
             : base(owner, name, ipAddress)
         {
             //hardcode this variable to launch the game at a specific story point
-            //Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
             //Player.Instance.GameCompleteState = GameCompleteState.DeepWebComplete;
 
             // Post-terminal convo
