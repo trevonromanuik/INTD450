@@ -150,6 +150,11 @@ namespace Hacker.GameObjects
             {
                 return abilities[args[0]].Use(args);
             }
+            else if (args[0] == "logout")
+            {
+                Hacker.HackerExit();
+                return "Goodbye";
+            }
             else
             {
                 return "Unknown command: " + args[0];

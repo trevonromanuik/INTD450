@@ -50,6 +50,10 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Wedge());
             objectLayer.GameObjectManager.AddGameObject(new Hitchcock());
             objectLayer.GameObjectManager.AddGameObject(new Briggs());
+            var blackmoore = new Blackmoore();
+            blackmoore.RemoveComponent<ShadowMovementCollision>();
+            blackmoore.GetComponent<Position>().Teleport(2000, 2000);
+            objectLayer.GameObjectManager.AddGameObject(new Blackmoore());
             
             objectLayer.GameObjectManager.AddGameObject(new Trigger(new Microsoft.Xna.Framework.Rectangle(480, 627, 64, 64), () => {
                 var door = objectLayer.GameObjectManager.GetGameObjectById("door");

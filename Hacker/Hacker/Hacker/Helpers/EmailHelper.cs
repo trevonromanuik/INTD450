@@ -15,10 +15,10 @@ namespace Hacker.Helpers
     public static class EmailHelper
     {
         // If you want to debug with a specific address, just hard-code this variable.
-        private static string playerEmail = "teri@ualberta.ca";
+        private static string playerEmail = null; // "teri@ualberta.ca";
         private static NetworkCredential credentials = new NetworkCredential("azure_07b430384d567c2b53e0bd0226b05bfc@azure.com", "zhzawmoz");
 
-        public static void SendMessage(string name)
+        public static bool SendMessage(string name)
         {
             if (playerEmail == null)
             {
@@ -33,7 +33,29 @@ namespace Hacker.Helpers
             message.Text = email.message;
             var transportRest = Web.GetInstance(credentials);
 
-            transportRest.DeliverAsync(message);
+            if (ConnectionMonitor.checkInterwebs())
+            {
+                transportRest.DeliverAsync(message);
+                SoundManager.PlaySound("notification", false);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

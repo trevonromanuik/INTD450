@@ -25,6 +25,13 @@ namespace Hacker
 
         ScreenManager screenManager;
 
+        public static void HackerExit()
+        {
+            game.Exit();
+        }
+
+        private static Microsoft.Xna.Framework.Game game = null;
+
         public Hacker()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -34,6 +41,8 @@ namespace Hacker
             Content.RootDirectory = "Content";
 
             screenManager = new ScreenManager();
+
+            game = this;
         }
 
         /// <summary>
@@ -82,8 +91,8 @@ namespace Hacker
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();
+            //if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    this.Exit();
 
             // TODO: Add your update logic here
             screenManager.Update(gameTime);

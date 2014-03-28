@@ -28,6 +28,7 @@ namespace Hacker.Screens
             //LoadLevel<VaultLevel>();
             //LoadLevel<ClubExteriorLevel>();
             LoadLevel<HubLevel>();
+            //LoadLevel<ClubInteriorLevel>();
         }
 
         public static void LoadLevel(Level level)
