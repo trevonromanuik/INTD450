@@ -45,6 +45,7 @@ namespace Hacker.Transitions
                 opacity = (float)Math.Min(fadeTimer / fadeTime, 1.0);
                 if (opacity == 1.0)
                 {
+                    Player.Instance.SpoofReset();
                     Player.Instance.GetComponent<Position>().Teleport(_newPlayerPosition.X, _newPlayerPosition.Y);
                     SwitchLevel();
                     fadeOut = false;

@@ -16,7 +16,7 @@ namespace Hacker.Conversations
 {
     class Message
     {
-        protected const double textTime = 0.1;
+        protected const double textTime = 0.05;
         protected const double markerTime = 0.4;
 
         Textbox _textbox;

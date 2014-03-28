@@ -22,9 +22,13 @@ namespace Hacker.Components
 
         private KeyboardState _keyState;
         private KeyboardState _prevKeyState;
+        public bool Disabled { get; set; }
 
         public override void Update(GameTime gameTime)
         {
+            if (Disabled)
+                return;
+
             var position = GetComponent<Position>();
             if (position == null)
                 return;

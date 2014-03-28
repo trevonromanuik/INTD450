@@ -20,13 +20,15 @@ namespace Hacker.Conversations
         public HubTerminalConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
+            Messages.Add(new Message("Message sent - may take a minute to arrive. Please check your email to receive private message.", () => owner.GetBooleanVariable("message_sent")));
+
             var Message1 = new Message("Login of user " + Player.Instance.GetStringVariable("Username") + " confirmed.");
             var Message11 = new Message("Now sending private message to address " + Player.Instance.GetStringVariable("Email") + ".", () => true, () => 
             { 
                 EmailHelper.SendMessage("opening_email"); 
                 owner.Manager.GetGameObjectById("anon").SetBooleanVariable("terminal_done", true); 
             });
-            var Message111 = new Message("Message sent - may take a minute to arrive. Please check your email to receive private message.");
+            var Message111 = new Message("Message sent - may take a minute to arrive. Please check your email to receive private message.", () => true, () => owner.SetBooleanVariable("message_sent", true));
 
             Messages.Add(Message1);
             Message1.Messages.Add(Message11);

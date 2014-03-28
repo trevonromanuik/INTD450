@@ -29,12 +29,16 @@ namespace Hacker.Conversations
             message1.Messages.Add(message11);
             Messages.Add(message1);
 
+            // If Spoofing Blackmoore
+            Messages.Add(new Message("I am flattered that you would copy my avatar, but I would encourage you to change it when we are amongst professional company.", () => Player.Instance.SpoofId == owner.Id));
+
             // If Spoofing Juliana
             Message message2 = new Message("Ah, Juliana! I was hoping you'd turn up. I hope recruitment went swimmingly.", () => Player.Instance.SpoofId == "juliana");
             Message message21 = new Message("There've been rumors that some hactivist cretins are aiming to make another attack on my business. Could you ask the guards at the Data Bank to update my password again?");
             Message message211 = new Message("I wouldn't want the mindshare files leaked under any circumstances. Remember, the vault number is #3266845875.", ()=> true, () =>
             {
                 Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
+                GameScreen.Level.PopLayer();
                 GameScreen.LoadLevel<HubLevel>(new FadeTransition(new Vector2(320, 384)));
             });
 

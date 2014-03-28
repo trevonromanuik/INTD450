@@ -24,7 +24,6 @@ namespace Hacker.Levels
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            Player.Instance.GetComponent<Position>().Teleport(448, 1088);
 
             Blackmoore blackmoore = new Blackmoore();
             objectLayer.GameObjectManager.AddGameObject(blackmoore);
@@ -40,11 +39,22 @@ namespace Hacker.Levels
                     }
                 }));
 
+            var juliana = new Juliana();
+            juliana.RemoveComponent<Collision>();
+            juliana.GetComponent<Position>().Teleport(2048, 2048);
+            objectLayer.GameObjectManager.AddGameObject(juliana);
+
+            var door = new Placeable(1024, 280, AssetManager.LoadTexture("metal_door"));
+            door.AddComponent(new ConversationInteraction(new DoorConversation(door)));
+            objectLayer.GameObjectManager.AddGameObject(door);
+
             PushLayer(objectLayer);
         }
 
         public override void OnLoad()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.GameStart;
+            Player.Instance.SpoofReset();
             SoundManager.PlayMusic("club_inside");
         }
     }

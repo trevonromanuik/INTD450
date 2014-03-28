@@ -23,7 +23,7 @@ namespace Hacker.GameObjects
             AddComponent(new Position(x, y));
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
-            AddComponent(new Sprite(AssetManager.LoadTexture("wall_terminal")));
+            AddComponent(new Sprite(AssetManager.LoadTexture("terminalstand")));
 
             AddComponent(new ConversationInteraction(new VaultTerminalConversation(this, "Terminal", string.Empty)));
         }

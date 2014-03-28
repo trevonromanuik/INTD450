@@ -8,9 +8,6 @@ using Microsoft.Xna.Framework;
 using Hacker.Actions;
 using Hacker.Components;
 using Hacker.GameObjects;
-using Hacker.Layers;
-using Hacker.Managers;
-using Hacker.Screens;
 
 namespace Hacker.Conversations
 {

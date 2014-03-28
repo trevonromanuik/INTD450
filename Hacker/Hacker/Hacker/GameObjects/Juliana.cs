@@ -14,11 +14,11 @@ namespace Hacker.GameObjects
     class Juliana : Npc
     {
         public Juliana()
-            : base("Juliana", "5678")
+            : base("Juliana", "32.14.53.175")
         {
             Id = "juliana";
 
-            AddComponent(new Position(192, 298));
+            AddComponent(new Position(320, 298));
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
 
@@ -30,6 +30,7 @@ namespace Hacker.GameObjects
             sprite.PlayAnimation("right");
             AddComponent(sprite);
 
+            AddComponent(new Spoofable());
             AddComponent(new ConversationInteraction(new JulianaConversation(this, Name, IpAddress)));
         }
     }

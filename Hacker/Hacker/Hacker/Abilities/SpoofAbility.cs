@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Hacker.Components;
 using Hacker.GameObjects;
 
 namespace Hacker.Abilities
@@ -34,8 +35,16 @@ namespace Hacker.Abilities
                 }
                 else
                 {
-                    Player.Instance.Spoof(npc);
-                    return "Spoof successful";
+                    var spoofable = npc.GetComponent<Spoofable>();
+                    if (spoofable == null)
+                    {
+                        return "Unable to spoof IP address: " + args[1] + ". This user has spoof counter-measure software enabled.";
+                    }
+                    else
+                    {
+                        Player.Instance.Spoof(npc);
+                        return "Spoof successful";
+                    }
                 }
             }
         }

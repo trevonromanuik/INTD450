@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Hacker.Abilities;
+using Hacker.Actions;
 using Hacker.Components;
 using Hacker.Managers;
 using Hacker.Helpers;
@@ -103,7 +104,7 @@ namespace Hacker.GameObjects
 
             var sprite = GetComponent<AnimatedSprite>();
             var npcSprite = npc.GetComponent<AnimatedSprite>();
-            sprite.Animations = npcSprite.Animations;
+            this.AddAction(new TransformAction(sprite, npcSprite, this));
         }
 
         public void SpoofReset()
@@ -112,6 +113,21 @@ namespace Hacker.GameObjects
 
             var _sprite = GetComponent<AnimatedSprite>();
             _sprite.Animations = animations;
+            switch (GetComponent<Position>().Direction)
+            {
+                case Direction.Up:
+                    _sprite.PlayAnimation("up");
+                    break;
+                case Direction.Down:
+                    _sprite.PlayAnimation("down");
+                    break;
+                case Direction.Left:
+                    _sprite.PlayAnimation("left");
+                    break;
+                case Direction.Right:
+                    _sprite.PlayAnimation("right");
+                    break;
+            }
         }
 
         public void Keylog(Npc npc)

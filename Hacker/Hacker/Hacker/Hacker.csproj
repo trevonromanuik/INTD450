@@ -73,6 +73,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.165\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
     </Reference>
@@ -159,7 +160,9 @@
     <Compile Include="Abilities\KeylogAbility.cs" />
     <Compile Include="Abilities\SpoofAbility.cs" />
     <Compile Include="Actions\Action.cs" />
+    <Compile Include="Actions\ConversationAction.cs" />
     <Compile Include="Actions\MoveToAction.cs" />
+    <Compile Include="Actions\TransformAction.cs" />
     <Compile Include="Components\AnimatedSprite.cs" />
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\Boundary.cs" />
@@ -178,6 +181,7 @@
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\RepeatingSprite.cs" />
     <Compile Include="Components\Shadow.cs" />
+    <Compile Include="Components\Spoofable.cs" />
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Components\TriggerCollision.cs" />
     <Compile Include="Constants.cs" />
@@ -188,9 +192,13 @@
     <Compile Include="Conversations\BriggsConversation.cs" />
     <Compile Include="Conversations\CipherConversation.cs" />
     <Compile Include="Conversations\Conversation.cs" />
+    <Compile Include="Conversations\DoorConversation.cs" />
+    <Compile Include="Conversations\FinalAnonConversation.cs" />
+    <Compile Include="Conversations\TrashConversation.cs" />
     <Compile Include="Conversations\HitchcockConversation.cs" />
     <Compile Include="Conversations\HubTerminalConversation.cs" />
     <Compile Include="Conversations\InputMessage.cs" />
+    <Compile Include="Conversations\InvisibleDoorConversation.cs" />
     <Compile Include="Conversations\JulianaConversation.cs" />
     <Compile Include="Conversations\LoginConversation.cs" />
     <Compile Include="Conversations\MantisConversation.cs" />
@@ -213,12 +221,14 @@
     <Compile Include="GameObjects\GlassScreen.cs" />
     <Compile Include="GameObjects\Briggs.cs" />
     <Compile Include="GameObjects\HubTerminal.cs" />
+    <Compile Include="GameObjects\InvisibleDoorSprite.cs" />
     <Compile Include="GameObjects\Juliana.cs" />
     <Compile Include="GameObjects\Lamp.cs" />
     <Compile Include="GameObjects\NPC_Artist.cs" />
     <Compile Include="GameObjects\NPC_Cat.cs" />
     <Compile Include="GameObjects\NPC_Mantis.cs" />
     <Compile Include="GameObjects\NPC_SailorMoon.cs" />
+    <Compile Include="GameObjects\NPC_Trash.cs" />
     <Compile Include="GameObjects\Placeable.cs" />
     <Compile Include="GameObjects\Teller.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
@@ -248,6 +258,7 @@
     <Compile Include="Levels\CipherStoreLevel.cs" />
     <Compile Include="Levels\ClubExteriorLevel.cs" />
     <Compile Include="Levels\ClubInteriorLevel.cs" />
+    <Compile Include="Levels\ClubOfficeLevel.cs" />
     <Compile Include="Levels\DataBankLevel.cs" />
     <Compile Include="Levels\DeepWebLevel.cs" />
     <Compile Include="Levels\HubLevel.cs" />
@@ -311,6 +322,17 @@
     <Compile Include="Conversations\CatConversation.cs" />
     <None Include="Hacker_TemporaryKey.pfx" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

@@ -23,12 +23,18 @@ namespace Hacker.Conversations
         {
             //hardcode this variable to launch the game at a specific story point
             //Player.Instance.GameCompleteState = GameCompleteState.DataBankComplete;
+            //Player.Instance.GameCompleteState = GameCompleteState.DeepWebComplete;
 
             // Post-terminal convo
             Message message2 = new Message("You should read the email I've sent you about your project brief.", () => owner.GetBooleanVariable("terminal_done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart);
             Message message21 = new Message("I'll connect you now to the virtual dock that acts as the point of entry to Blackmoore's private publicity event.");
-            Message message211 = new Message("Keep your eye on your inbox. You might find yourself receiving further correspondence from me. Good luck now, friend.", () => true,
-                () => GameScreen.LoadLevel<ClubExteriorLevel>(new FadeTransition(new Vector2(832, 320))));
+            Message message211 = new Message("Keep an eye on your inbox. You might receive further correspondence from me. Good luck now, friend.", () => true,
+                () => {
+                    var terminal = owner.Manager.GetGameObjectById("hub_terminal");
+                    owner.Manager.GameObjects.Remove(terminal);
+                    GameScreen.Level.PopLayer();
+                    GameScreen.LoadLevel<ClubExteriorLevel>(new FadeTransition(new Vector2(832, 320))); 
+                });
 
             message21.Messages.Add(message211);
             message2.Messages.Add(message21);
@@ -44,7 +50,7 @@ namespace Hacker.Conversations
             Message message1d = new Message("Me? You can call me 'Anon.' It doesn't matter who I am. I've heard you know your way around the internet. You're obscure and unpredictable. I've got a job for you, and if you scratch my back, I'll scratch yours.");
             Message message1e = new Message("But enough talk for now, time for your first exercise. Go up to that terminal north of me and give it a gander.", () => true, () => 
             { 
-                owner.Manager.AddGameObject(new HubTerminal()); 
+                owner.Manager.AddGameObject(new HubTerminal());
                 owner.SetBooleanVariable("done", true); 
             });
 
@@ -67,7 +73,8 @@ namespace Hacker.Conversations
             });
             Message message3f = new Message("We're hazarding security central now, so tread carefully. I'm counting on you.", () => true, () =>
             {
-                GameScreen.LoadLevel<DataBankLevel>(new FadeTransition(new Vector2(512, 1024)));
+                GameScreen.Level.PopLayer();
+                GameScreen.LoadLevel<DataBankLevel>(new FadeTransition(new Vector2(512, 1088)));
             });
 
             message3e.Messages.Add(message3f);
@@ -80,12 +87,13 @@ namespace Hacker.Conversations
 
             // Data bank complete convo (DataBankComplete)
             Message message4 = new Message("You're back! I traced you and saw you download those files. I knew I hired you for the right reasons.", () => Player.Instance.GameCompleteState == GameCompleteState.DataBankComplete);
-            Message message4a = new Message("Looks live you've picked up files called Tech_Analysis, Resources_Request, and Experimental_Error. That's great. Let me just take a look... wait a minute...");
+            Message message4a = new Message("Looks like you've picked up files called Tech_Analysis, Resources_Request, and Experimental_Error. That's great. Let me just take a look... wait a minute...");
             Message message4b = new Message("Motherboards! Those files have been encrypted. I should have expected this. Take a look at them, there's no way to read them. ");
             Message message4c = new Message("Hmmm... decryption programs are illegal, so we'll have to take a dip in the deep web to find someone tech-savvy enough to help us out.");
             Message message4d = new Message("I was hoping to avoid any sketchy servers. It's bad luck to take a wrong turn on the web. But I know of a decryption specialist named Cipher, and I know the server she hangs out on.");
             Message message4e = new Message("I'll link you to part of the deep web. Find Cipher, and get her help decrypting these files.", () => true, () =>
             {
+                GameScreen.Level.PopLayer();
                 GameScreen.LoadLevel<DeepWebLevel>(new FadeTransition(new Vector2(224, 832)));
             });
 
@@ -97,8 +105,30 @@ namespace Hacker.Conversations
             Messages.Add(message4);
 
             // End game convo (DeepWebComplete)
-            Message message5 = new Message("This is the end of the game!",  () => Player.Instance.GameCompleteState == GameCompleteState.DeepWebComplete);
-
+            Message message5 = new Message("You made it back safely! Excellent. You've found a way to decrypt the files as well. You really are a Super User.",  () => Player.Instance.GameCompleteState == GameCompleteState.DeepWebComplete);
+            Message message5a = new Message("You've done me a great service. Thank you. I couldn't have located all those security holes without your help.");
+            Message message5b = new Message("...However, it seems that I won't need those files after all... I've seen them already.");
+            Message message5c = new Message("...I wrote them, actually.", () => true, () =>
+            {
+                // Move Anon down past the player, making it look like the player is pushed out of the way in the process
+                Player.Instance.GetComponent<PlayerInput>().Disabled = true;
+                owner.GetComponent<MovementCollision>().Remove();
+                Position startPos = owner.GetComponent<Position>();
+                float playerPos = Player.Instance.GetComponent<Position>().X;
+                // Move 32 to left if player is more to the right, else 32 to right if player is more to left
+                float moveX = playerPos > startPos.X ? (startPos.X - 32) : (startPos.X + 32);
+                Vector2 posA = new Vector2(startPos.X, startPos.Y),
+                        posB = new Vector2(moveX, startPos.Y),
+                        posC = new Vector2(moveX, 352), 
+                        posD = new Vector2(startPos.X, 352);
+                owner.AddAction(new MoveToAction(posA, posB, 0.25));
+                owner.AddAction(new MoveToAction(posB, posC, 1));
+                owner.AddAction(new MoveToAction(posC, posD, 0.25));
+                owner.AddAction(new ConversationAction(new FinalAnonConversation(owner, "Juliana", string.Empty)));
+            });
+            message5b.Messages.Add(message5c);
+            message5a.Messages.Add(message5b);
+            message5.Messages.Add(message5a);
             Messages.Add(message5);
         }
     }

@@ -24,12 +24,12 @@ namespace Hacker.Conversations
                 owner.IncrementIntegerVariable("count");
             }));
 
-            Messages.Add(new Message("yeah i knew youd be into it, check out my online shop @ http://goo.gl/zBkmsH", () => owner.GetIntegerVariable("count") % 3 == 1, () =>
+            Messages.Add(new Message("yeah i knew youd be into it, check out my online shop @ http://goo.gl/zBkmsH. srsly, go take a look!", () => owner.GetIntegerVariable("count") % 3 == 1, () =>
             {
                 owner.IncrementIntegerVariable("count");
             }));
 
-            Messages.Add(new Message("srsly, with a deal like this, you're gonna feel so LUCKYYYYYY", () => owner.GetIntegerVariable("count") % 3 == 2, () =>
+            Messages.Add(new Message("with a deal like this, you're gonna feel so LUCKYYYYYY", () => owner.GetIntegerVariable("count") % 3 == 2, () =>
             {
                 owner.IncrementIntegerVariable("count");
             }));

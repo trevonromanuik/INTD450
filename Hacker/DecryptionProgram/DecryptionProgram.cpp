@@ -15,6 +15,7 @@
 #include <winerror.h>
 
 #pragma comment(lib, "comsuppw")
+#pragma comment(lib, "Shlwapi.lib")
 #pragma warning(disable: 4996)
 
 using namespace std;
@@ -32,16 +33,16 @@ int _tmain(int argc, _TCHAR* argv[])
 		_bstr_t bstrPath(desktopPath);
 		_bstr_t globecommPath = bstrPath + "\\GlobeComm Deliveries";
 		_bstr_t downloadsPath = globecommPath + "\\Downloads";
-		if (CreateDirectory(globecommPath, NULL) ||	ERROR_ALREADY_EXISTS == GetLastError())
+		if (CreateDirectory(globecommPath, NULL) || ERROR_ALREADY_EXISTS == GetLastError())
 		{
 			if (CreateDirectory(downloadsPath, NULL) || ERROR_ALREADY_EXISTS == GetLastError())
 			{
-				// Get current path to files
-				char buffer[MAX_PATH];
-				_getcwd(buffer, MAX_PATH);
-				string strPath(buffer);
+				HMODULE hModule = GetModuleHandleW(NULL);
+				WCHAR path[MAX_PATH];
+				GetModuleFileNameW(hModule, path, MAX_PATH);
+				PathRemoveFileSpec(path);
+				_bstr_t currPath(path);
 
-				_bstr_t currPath = strPath.c_str();
 				_bstr_t inPath1 = currPath + "\\Experimental_Error.pdf";
 				_bstr_t inPath2 = currPath + "\\Tech_Analysis.pdf";
 				_bstr_t inPath3 = currPath + "\\Resources_request.pdf";
@@ -55,15 +56,15 @@ int _tmain(int argc, _TCHAR* argv[])
 				cout << "Decrypting\n";
 				for (int i = 0; i < 50; i++)
 				{
-				cout << ".";
-				Sleep(100);
+					cout << ".";
+					Sleep(100);
 				}
 				cout << "\n";
 
 				// Copy files
-				if (	CopyFile(inPath1, outPath1, false)
-					&&	CopyFile(inPath2, outPath2, false)
-					&&	CopyFile(inPath3, outPath3, false))
+				if (CopyFile(inPath1, outPath1, false)
+					&& CopyFile(inPath2, outPath2, false)
+					&& CopyFile(inPath3, outPath3, false))
 				{
 					cout << "Decryption Successful\n";
 					Sleep(2000);

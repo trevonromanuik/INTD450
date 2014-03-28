@@ -21,7 +21,7 @@ namespace Hacker.GameObjects
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
 
-            Sprite sprite = new Sprite(AssetManager.LoadTexture("terminal"));
+            Sprite sprite = new Sprite(AssetManager.LoadTexture("terminalstand"));
             AddComponent(sprite);
 
             AddComponent(new ConversationInteraction(new HubTerminalConversation(this, "Terminal", string.Empty)));

@@ -22,8 +22,7 @@ namespace Hacker.Levels
 
             ObjectLayer objectLayer = new ObjectLayer();
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
-            Player.Instance.GetComponent<Position>().Teleport(512, 1024);
-            objectLayer.GameObjectManager.AddGameObject(new Exit<VaultLevel>(new Rectangle(128, 64, 384, 300), new Vector2(320, 448)));
+            objectLayer.GameObjectManager.AddGameObject(new Exit<VaultLevel>(new Rectangle(128, 64, 384, 300), new Vector2(320, 400)));
 
             objectLayer.GameObjectManager.AddGameObject(new Counter(64, 576, 8));
             objectLayer.GameObjectManager.AddGameObject(new Counter(704, 576, 4));
@@ -50,11 +49,17 @@ namespace Hacker.Levels
             objectLayer.GameObjectManager.AddGameObject(new Wedge());
             objectLayer.GameObjectManager.AddGameObject(new Hitchcock());
             objectLayer.GameObjectManager.AddGameObject(new Briggs());
+
             var blackmoore = new Blackmoore();
-            blackmoore.RemoveComponent<ShadowMovementCollision>();
-            blackmoore.GetComponent<Position>().Teleport(2000, 2000);
-            objectLayer.GameObjectManager.AddGameObject(new Blackmoore());
-            
+            blackmoore.RemoveComponent<Collision>();
+            blackmoore.GetComponent<Position>().Teleport(2048, 2048);
+            objectLayer.GameObjectManager.AddGameObject(blackmoore);
+
+            var juliana = new Juliana();
+            juliana.RemoveComponent<Collision>();
+            juliana.GetComponent<Position>().Teleport(2048, 2048);
+            objectLayer.GameObjectManager.AddGameObject(juliana);
+
             objectLayer.GameObjectManager.AddGameObject(new Trigger(new Microsoft.Xna.Framework.Rectangle(480, 627, 64, 64), () => {
                 var door = objectLayer.GameObjectManager.GetGameObjectById("door");
                 if (door.GetBooleanVariable("open"))
@@ -74,6 +79,7 @@ namespace Hacker.Levels
 
         public override void OnLoad()
         {
+            Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
             SoundManager.PlayMusic("databank");
         }
     }
