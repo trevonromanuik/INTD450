@@ -13,16 +13,16 @@ using Hacker.Managers;
 
 namespace Hacker.GameObjects
 {
-    class VaultTerminal : GameObject
+    class OfficeTerminal : GameObject
     {
-        public VaultTerminal(int x, int y)
+        public OfficeTerminal(int x, int y)
         {
             AddComponent(new Position(x, y));
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
             AddComponent(new Sprite(AssetManager.LoadTexture("terminalstand")));
 
-            AddComponent(new ConversationInteraction(new VaultTerminalConversation(this, "Terminal", string.Empty)));
+            AddComponent(new ConversationInteraction(new OfficeTerminalConversation(this, "Terminal", string.Empty)));
         }
     }
 }

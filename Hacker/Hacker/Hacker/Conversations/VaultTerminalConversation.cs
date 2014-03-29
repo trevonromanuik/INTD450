@@ -10,7 +10,6 @@ using Hacker.GameObjects;
 using Hacker.Layers;
 using Hacker.Levels;
 using Hacker.Screens;
-using Hacker.Transitions;
 
 namespace Hacker.Conversations
 {

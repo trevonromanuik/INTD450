@@ -194,6 +194,7 @@
     <Compile Include="Conversations\Conversation.cs" />
     <Compile Include="Conversations\DoorConversation.cs" />
     <Compile Include="Conversations\FinalAnonConversation.cs" />
+    <Compile Include="Conversations\OfficeTerminalConversation.cs" />
     <Compile Include="Conversations\TrashConversation.cs" />
     <Compile Include="Conversations\HitchcockConversation.cs" />
     <Compile Include="Conversations\HubTerminalConversation.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="GameObjects\NPC_Mantis.cs" />
     <Compile Include="GameObjects\NPC_SailorMoon.cs" />
     <Compile Include="GameObjects\NPC_Trash.cs" />
+    <Compile Include="GameObjects\OfficeTerminal.cs" />
     <Compile Include="GameObjects\Placeable.cs" />
     <Compile Include="GameObjects\Teller.cs" />
     <Compile Include="GameObjects\Terminal.cs" />

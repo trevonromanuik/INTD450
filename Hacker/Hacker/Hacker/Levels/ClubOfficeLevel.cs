@@ -23,7 +23,7 @@ namespace Hacker.Levels
             PushLayer(new CollisionLayer("office_collision"));
 
             ObjectLayer objectLayer = new ObjectLayer();
-            //objectLayer.GameObjectManager.AddGameObject(new OfficeTerminal(320, 224));
+            objectLayer.GameObjectManager.AddGameObject(new OfficeTerminal(320, 224));
             objectLayer.GameObjectManager.AddGameObject(Player.Instance);
 
             objectLayer.GameObjectManager.AddGameObject(new Trigger(new Rectangle(256, 480, 128, 64), () =>

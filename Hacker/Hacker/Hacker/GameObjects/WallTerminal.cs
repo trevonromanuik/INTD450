@@ -8,10 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Hacker.Conversations;
 using Hacker.Components;
-using Hacker.Extensions;
 using Hacker.GameObjects;
-using Hacker.Layers;
-using Hacker.Levels;
 using Hacker.Managers;
 
 namespace Hacker.GameObjects

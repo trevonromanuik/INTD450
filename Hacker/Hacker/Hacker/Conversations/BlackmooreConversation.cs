@@ -35,11 +35,11 @@ namespace Hacker.Conversations
             // If Spoofing Juliana
             Message message2 = new Message("Ah, Juliana! I was hoping you'd turn up. I hope recruitment went swimmingly.", () => Player.Instance.SpoofId == "juliana");
             Message message21 = new Message("There've been rumors that some hactivist cretins are aiming to make another attack on my business. Could you ask the guards at the Data Bank to update my password again?");
-            Message message211 = new Message("I wouldn't want the mindshare files leaked under any circumstances. Remember, the vault number is #3266845875.", ()=> true, () =>
+            Message message211 = new Message("Ah, what was the number of my account again? I can't remember. Remind me to look it up on my office terminal.", () => true, () => //#3266845875.
             {
-                Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
-                GameScreen.Level.PopLayer();
-                GameScreen.LoadLevel<HubLevel>(new FadeTransition(new Vector2(320, 384)));
+                //Player.Instance.GameCompleteState = GameCompleteState.ClubComplete;
+                //GameScreen.Level.PopLayer();
+                //GameScreen.LoadLevel<HubLevel>(new FadeTransition(new Vector2(320, 384)));
             });
 
             message21.Messages.Add(message211);
