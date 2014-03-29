@@ -22,9 +22,9 @@ namespace Hacker.Conversations
             : base(owner, "Door", string.Empty)
         {
             Message message1 = new Message("Welcome back, Mr. Blackmoore. Please verify your identity by answering your three security questions.", () => Player.Instance.SpoofId == "blackmoore");
-            InputMessage message11111 = new InputMessage("First question: What is your favorite food?");
-            InputMessage message111111 = new InputMessage("Correct. Second question: What is your first dog's name?", () => message11111.Output == "caviar");
-            InputMessage message1111111 = new InputMessage("Correct. Final question: What is your mother's maiden name?", () => message111111.Output == "winston");
+            InputMessage message11111 = new InputMessage("1: What is your favorite food?");
+            InputMessage message111111 = new InputMessage("Correct. 2: What is your first dog's name?", () => message11111.Output == "caviar");
+            InputMessage message1111111 = new InputMessage("Correct. 3: What is your mother's maiden name?", () => message111111.Output == "winston");
             Message message11111111 = new Message("Correct. Door unlocked.", () => message1111111.Output == "rockefeller", () =>
             {
                 owner.GetComponent<Sprite>().Texture = AssetManager.LoadTexture("metal_door_open");
