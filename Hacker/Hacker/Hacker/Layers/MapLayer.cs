@@ -25,7 +25,7 @@ namespace Hacker.Layers
             loadLevelFile(inputFile);
         }
 
-        private void loadLevelFile(string filename)
+        protected void loadLevelFile(string filename)
         {
             string textureFile;
             string line;

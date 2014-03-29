@@ -251,6 +251,7 @@
     <Compile Include="GameObjects\Npc.cs" />
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\Spoofie.cs" />
+    <Compile Include="Layers\AnimatedMapLayer.cs" />
     <Compile Include="Layers\CollisionLayer.cs" />
     <Compile Include="Layers\ConsoleLayer.cs" />
     <Compile Include="Layers\ConversationLayer.cs" />

@@ -19,7 +19,7 @@ namespace Hacker.Levels
         public ClubInteriorLevel()
             : base()
         {
-            PushLayer(new MapLayer("club_interior"));
+            PushLayer(new AnimatedMapLayer(new string[5]{"club_interior_1","club_interior_2","club_interior_3","club_interior_4","club_interior_5"}, 2));
             PushLayer(new CollisionLayer("club_interior_collision"));
 
             ObjectLayer objectLayer = new ObjectLayer();
