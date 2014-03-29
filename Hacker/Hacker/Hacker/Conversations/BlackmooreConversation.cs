@@ -22,7 +22,7 @@ namespace Hacker.Conversations
         {
             // Trigger conversation
             Message message1 = new Message("Good evening my fellow envisioneers! I want to start by thanking you for honouring Blackmoore Industries with your time.", () => !owner.GetBooleanVariable("triggered"));
-            Message message11 = new Message("It is an exciting passage in history for us as we are finally preparing to actualize our latest bleeding-edge technology... The mindshare device!");
+            Message message11 = new Message("It is an exciting passage in history for us as we are finally preparing to actualize our latest bleeding-edge technology... The Mindshare device!");
             Message message111 = new Message("It is our most sincere hope that you will be interested in jumping aboard our innovative project. If you have any questions, I'm yours for the evening.", () => true, () => owner.SetBooleanVariable("triggered", true));
 
             message11.Messages.Add(message111);
@@ -47,7 +47,7 @@ namespace Hacker.Conversations
             Messages.Add(message2);
 
             // If just talking to him
-            Messages.Add(new Message("The mindshare operation is tried, tested, and true. I haven't suffered a single negative side effect and I've undergone the operation myself.", () => owner.GetIntegerVariable("count") % 3 == 0, () => owner.IncrementIntegerVariable("count")));
+            Messages.Add(new Message("The Mindshare operation is tried, tested, and true. I haven't suffered a single negative side effect and I've undergone the operation myself.", () => owner.GetIntegerVariable("count") % 3 == 0, () => owner.IncrementIntegerVariable("count")));
             Messages.Add(new Message("In just three years, our company took the lead in advanced neurosurgery. Of course, even though it's a very exciting moment in history, there will always be dissidents.", () => owner.GetIntegerVariable("count") % 3 == 1, () => owner.IncrementIntegerVariable("count")));
             Messages.Add(new Message("Over time, Blackmoore Industries will prove its technology reliable. Interested in making a contribution? I'll need a ball-park figure for the news reporters and press releases.", () => owner.GetIntegerVariable("count") % 3 == 2, () => owner.IncrementIntegerVariable("count")));
         }

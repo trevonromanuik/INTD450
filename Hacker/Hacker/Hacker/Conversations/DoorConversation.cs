@@ -21,10 +21,10 @@ namespace Hacker.Conversations
         public DoorConversation(GameObject owner)
             : base(owner, "Door", string.Empty)
         {
-            Message message1 = new Message("Hello Mr. Blackmoore. Please answer the security questions to open the door.", () => Player.Instance.SpoofId == "blackmoore");
-            InputMessage message11111 = new InputMessage("First question: what is your favorite food?");
-            InputMessage message111111 = new InputMessage("Correct. Second question: what is your first dog's name?", () => message11111.Output == "caviar");
-            InputMessage message1111111 = new InputMessage("Correct. Final question: what is your mother's maiden name?", () => message111111.Output == "winston");
+            Message message1 = new Message("Welcome back, Mr. Blackmoore. Please verify your identity by answering your three security questions.", () => Player.Instance.SpoofId == "blackmoore");
+            InputMessage message11111 = new InputMessage("First question: What is your favorite food?");
+            InputMessage message111111 = new InputMessage("Correct. Second question: What is your first dog's name?", () => message11111.Output == "caviar");
+            InputMessage message1111111 = new InputMessage("Correct. Final question: What is your mother's maiden name?", () => message111111.Output == "winston");
             Message message11111111 = new Message("Correct. Door unlocked.", () => message1111111.Output == "rockefeller", () =>
             {
                 owner.GetComponent<Sprite>().Texture = AssetManager.LoadTexture("metal_door_open");
@@ -33,7 +33,7 @@ namespace Hacker.Conversations
                 owner.AddComponent(new LevelSwitchCollision<ClubOfficeLevel>(new Vector2(320, 400)));
             });
 
-            Message message111112 = new Message("Incorrect. Please try again.");
+            Message message111112 = new Message("Incorrect. Identity could not be verified.");
 
             message1111111.Messages.Add(message11111111);
             message1111111.Messages.Add(message111112);
@@ -44,7 +44,7 @@ namespace Hacker.Conversations
             message1.Messages.Add(message11111);
             Messages.Add(message1);
 
-            Messages.Add(new Message("Door locked. Only Blackmoore may unlock it."));
+            Messages.Add(new Message("Security System engaged. Only Mr. Blackmoore is authorized to enter Mr. Blackmoore's office."));
         }
     }
 }
