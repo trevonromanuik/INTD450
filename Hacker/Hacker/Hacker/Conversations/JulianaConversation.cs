@@ -5,6 +5,7 @@ using System.Text;
 
 using Hacker.GameObjects;
 using Hacker.Components;
+using Hacker.Helpers;
 
 namespace Hacker.Conversations
 {
@@ -27,12 +28,15 @@ namespace Hacker.Conversations
             Message message211 = new Message("But here at Blackmoore Industries, we aim to make use of every wasted talent using the revolutionary mindshare device!");
             Message message2111 = new Message("The process is simple and painless. Both client and artist connect to the GlobeComm transferal center using the appropriate headgear.");
             Message message21111 = new Message("Then one of our operators will initiate the transfer process!");
-            Message message211111 = new Message("Within seconds that talent will transfer from artist to client while the payment will transfer from the client's bank account to the artist's.");
-            Message message2111111 = new Message("Looking to get in touch with Blackmoore himself, are you? Here, I'll download one of our brochures to your machine. Check your desktop for a file in a 'GlobeComm Deliveries' folder!", () => true, () => 
+            Message message211111 = new Message("Within seconds that talent will transfer from artist to client while the payment will transfer from the client's bank account to the artist's. Amazing, isn't it?");
+            Message message2111111 = new Message("It's a shame you can't enjoy this event, sweety. It's only open to investors and employees. I should be heading in shortly, myself.", () => true, () =>
+            {
+                if (owner.GetBooleanVariable("sentmsg") == false)
                 {
-                    owner.IncrementIntegerVariable("count");
-                    Helpers.FileCopyHelper.copyFile("tester.txt");
-                });
+                    EmailHelper.SendMessage("readme_email");
+                    owner.SetBooleanVariable("sentmsg", true);
+                }
+            });
 
             message211111.Messages.Add(message2111111);
             message21111.Messages.Add(message211111);
