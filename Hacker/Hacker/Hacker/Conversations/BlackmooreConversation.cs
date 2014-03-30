@@ -24,7 +24,7 @@ namespace Hacker.Conversations
             Message message1 = new Message("Good evening my fellow envisioneers! I want to start by thanking you for honouring Blackmoore Industries with your time.", () => !owner.GetBooleanVariable("triggered"));
             Message message11 = new Message("It is an exciting passage in history for us as we are finally preparing to actualize our latest bleeding-edge technology... The Mindshare device!");
             Message message111 = new Message("It is our most sincere hope that you will be interested in jumping aboard our innovative project. If you have any questions, I'm yours for the evening.", () => true, () => owner.SetBooleanVariable("triggered", true));
-            Message message1111 = new Message("In the mean time, I invite you all to take a look at our brochure, which I've downloaded to your 'GlobeComm Deliveries/Downloads' folder. Feel free to connect with me on facebook as well! ", () => true, () =>
+            Message message1111 = new Message("In the mean time, I invite you all to take a look at our brochure, which I've downloaded to your 'GlobeComm Deliveries' folder on your desktop. Feel free to connect with me on facebook as well! ", () => true, () =>
             {
                 Helpers.FileCopyHelper.copyFile("Mindshare device.pdf");
             });

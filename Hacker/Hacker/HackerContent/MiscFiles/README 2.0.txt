@@ -33,6 +33,7 @@
  [2] Command list
      (a) ARP - Get to know your neighbours
      (b) Spoof - Copy cat your neighbours
+     (c) Keylog - Snoop on your neighbours
  [3] Play safe, use protection
 
 ===============================================================================
@@ -64,6 +65,15 @@
       Bitchin', right?
 	  
 	  If you want to be your old self again, just type "spoof reset".
+	  
+	*****************************************************************************
+    (c)  Keylog => you type "keylog <IP>"
+    *****************************************************************************
+      A cool thing about GlobeComm - and also its weakness - is that people like to use it while they also do other things. Email their bosses, Skype with their grandma, check their bank account... If you can see what someone's typing, you can learn a lot about a person.
+	  
+	  Once you've got someone's IP address with ARP, you can stick a keylogger on 'em. After a moment, look on your desktop for 'GlobeComm Deliveries/keylogs', and whatever that person was typing will show up there!
+    
+      Now if that ain't illegal, I don't know what is.
 
 ===============================================================================
 [3]  Play safe, use protection

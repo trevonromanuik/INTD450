@@ -3,8 +3,7 @@
   <Asset Type="HackerDataTypes.Email">
 	<from>Mindshare@BlackmooreIndustries.com</from>
     <subject>Thank you for your participation!</subject>
-    <message>
-Dear Participant,
+    <message>Dear Participant,
 
 We at Blackmoore Industries would like to thank you for participating in the Mindshare device trial.  You are one of the first to experience this new wave of technology!
 

@@ -15,7 +15,7 @@ namespace Hacker.Helpers
     public static class EmailHelper
     {
         // If you want to debug with a specific address, just hard-code this variable.
-        private static string playerEmail = null; // "teri@ualberta.ca";
+        private static string playerEmail = "t@t.ca";
         private static NetworkCredential credentials = new NetworkCredential("azure_07b430384d567c2b53e0bd0226b05bfc@azure.com", "zhzawmoz");
 
         public static bool SendMessage(string name)

@@ -34,6 +34,7 @@ namespace Hacker.Helpers
                 var fileLabel = dir + "/GlobeComm Deliveries/" + subDir + message.file_name;
                 string[] split = message.body_text.Split('\n');
                 File.WriteAllLines(fileLabel, split);
+                SoundManager.PlaySound("download", false);
             }
         }
     }

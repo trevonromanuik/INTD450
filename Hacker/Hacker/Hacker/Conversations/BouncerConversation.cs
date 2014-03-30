@@ -27,11 +27,14 @@ namespace Hacker.Conversations
                 owner.AddAction(new MoveToAction(new Vector2(640, 244), 0.5));
             }));
 
-            Messages.Add(new Message("You're interested in the mindshare device, I assume? Mr. Blackmoore invited a few investors to discuss stocks and shares, but if  you don't have an invitation then you're not getting inside.", () => owner.GetIntegerVariable("count") % 3 == 0, () =>
+            Messages.Add(new Message("You're interested in the mindshare device, I assume? Mr. Blackmoore invited a few investors to discuss stocks and shares, but if you don't have an invitation then you're not getting inside.", () => owner.GetIntegerVariable("count") % 3 == 0, () =>
                 {
                     owner.IncrementIntegerVariable("count");
-                    EmailHelper.SendMessage("readme_email");
-                    Helpers.FileCopyHelper.copyFile("README.txt");
+                    if (owner.GetBooleanVariable("sentmsg") == false)
+                    {
+                        Helpers.FileCopyHelper.copyFile("README.txt");
+                        owner.SetBooleanVariable("sentmsg", true);
+                    }
                 }));
             Messages.Add(new Message("Investors and employees only.", () => owner.GetIntegerVariable("count") % 3 == 1, () => owner.IncrementIntegerVariable("count")));
             Messages.Add(new Message("You'd better extract yourself before I activate the security system.", () => owner.GetIntegerVariable("count") % 3 == 2, () => owner.IncrementIntegerVariable("count")));

@@ -3,12 +3,11 @@
   <Asset Type="HackerDataTypes.Email">
     <from>ANON@47DA7A8BC5B743FAB7AD6FF54C87F790.com</from>
     <subject>Stealing Blackmoore's data...</subject>
-    <message>
-It's been smooth sailing through the circuitry so far, but we still need hard-evidence of Blackmoore's Mindshare device malfunctioning. He'll be trying to hide this information in a vault in a data bank.
+    <message>It's been smooth sailing through the circuitry so far, but we still need hard evidence of Blackmoore's Mindshare device malfunctioning. He'll be trying to hide this information in a vault in a data bank.
 
 Data banks are tight on security, and Blackmoore's vault is near impenetrable. His password is held in three separate pieces by his three trusted guards. The guards change the passwords regularly for safety reasons.
 
-Look at that README file I sent you. Use the tools you have at your disposal to figure out the password to that vault. Nobody's going to give it to you straight to your face. 
+I've sent you an updated version of the GlobeHack README. Take a look, and use the tools you have at your disposal to figure out the password to that vault. Nobody's going to give it to you straight to your face. 
     </message>
   </Asset>
 </XnaContent>

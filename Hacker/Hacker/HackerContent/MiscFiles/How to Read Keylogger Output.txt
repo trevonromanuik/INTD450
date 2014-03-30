@@ -40,15 +40,15 @@ Each line of a keylog looks something like this:
 
 - 2014-04-10/13:21/GoogleSearch: dinosaurs [KeyName: Enter]
 [date/time of typing][program typed into][text that was typed]
-In this case, at 13:21 on 2014-04-10, the person typed "dinosuars" into google search and hit enter to search.
+In this case, at 13:21 on 2014-04-10, the person typed "dinosaurs" into Google search and hit enter to search.
 
 - 2014-04-10/13:26/SkypeMessenger: LOL yeah, you said it! [KeyName: Enter]
 [date/time of typing][program typed into][text that was typed]
-In this case, at 13:26 on 2014-04-10, the person typed "LOL yeah, you said it!" into skype, and then hit "enter" to send.
+In this case, at 13:26 on 2014-04-10, the person typed "LOL yeah, you said it!" into Skype, and then hit "enter" to send.
 
 - 2014-04-10/13:28/SkypeMessenger: i love you(←BS)(←BS)(←BS) hanging out with you [KeyName: Enter]
 [date/time of typing][program typed into][text that was typed]
-The symbol (←BS) means backspace key was pressed. In this case, this person was going to type "i love you" into skype, but reconsidered, backed up, and instead typed "i love hanging out with you". Aw!
+The symbol (←BS) means backspace key was pressed. In this case, this person was going to type "i love you" into Skype, but reconsidered, backed up, and instead typed "i love hanging out with you". Aw!
 
 Special keys are represented as following:
 (←BS) backspace key was pressed

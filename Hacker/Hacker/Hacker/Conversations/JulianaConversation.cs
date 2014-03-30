@@ -31,6 +31,7 @@ namespace Hacker.Conversations
             Message message211111 = new Message("Within seconds that talent will transfer from artist to client while the payment will transfer from the client's bank account to the artist's. Amazing, isn't it?");
             Message message2111111 = new Message("It's a shame you can't enjoy this event, sweety. It's only open to investors and employees. I should be heading in shortly, myself.", () => true, () =>
             {
+                owner.SetIntegerVariable("count", 1);
                 if (owner.GetBooleanVariable("sentmsg") == false)
                 {
                     EmailHelper.SendMessage("readme_email");

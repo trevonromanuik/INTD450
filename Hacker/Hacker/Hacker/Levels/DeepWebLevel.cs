@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 using Hacker.Components;
+using Hacker.Conversations;
 using Hacker.GameObjects;
 using Hacker.Layers;
 using Hacker.Managers;

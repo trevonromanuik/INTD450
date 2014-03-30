@@ -38,7 +38,7 @@ namespace Hacker.Conversations
             // Data bank default convo
             Messages.Add(new Message("*Sigh*", () => owner.GetIntegerVariable("count") == 0, () => owner.IncrementIntegerVariable("count")));
 
-            Messages.Add(new Message("Hitchcock's boot-licking actually worked on Blackmoore. Make's me sick.", () => owner.GetIntegerVariable("count") == 1, () => owner.IncrementIntegerVariable("count")));
+            Messages.Add(new Message("Hitchcock's boot-licking actually worked on Blackmoore. Makes me sick.", () => owner.GetIntegerVariable("count") == 1, () => owner.IncrementIntegerVariable("count")));
 
             Messages.Add(new Message("Hey Briggs. Wait... you're not Briggs... What's wrong with me? Gonna lose my job at this rate...", () => owner.GetIntegerVariable("count")== 2, () => owner.IncrementIntegerVariable("count")));
 
@@ -54,7 +54,7 @@ namespace Hacker.Conversations
             message111.Messages.Add(message1111);
             message1111.Messages.Add(message11111);
 
-            Messages.Add(new Message("Hey Briggs. Wait... you're not Briggs... What's wrong with me? Gonna lost my job at this rate...", () => owner.GetIntegerVariable("count") == 4));
+            Messages.Add(new Message("Hey Briggs. Wait... you're not Briggs... What's wrong with me? Gonna lose my job at this rate...", () => owner.GetIntegerVariable("count") == 4));
         }
     }
 }

@@ -23,6 +23,7 @@ namespace Hacker.Helpers
                 Directory.CreateDirectory(dir + "/GlobeComm Deliveries/" + subDir);
 
             System.IO.File.Copy(sourceFilePath, destFilePath, true);
+            SoundManager.PlaySound("download", false);
         }
 
         public static void createShortcut(string shortcutName, string fileName)
@@ -40,6 +41,7 @@ namespace Hacker.Helpers
             //shortcut.IconLocation = @"c:\myicon.ico";           // The icon of the shortcut
             shortcut.TargetPath = targetFileLocation;           // The path of the file that will launch when the shortcut is run
             shortcut.Save();                                    // Save the shortcut
+            SoundManager.PlaySound("download", false);
         }
     }
 }
