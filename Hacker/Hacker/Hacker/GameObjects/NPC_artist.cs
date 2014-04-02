@@ -18,7 +18,16 @@ namespace Hacker.GameObjects
         {
             Id = "artist";
 
-            AddComponent(new Position(96, 224));
+            // Artist is in the club and deep web and should stand in different places
+            if (Player.Instance.GameCompleteState == GameCompleteState.DataBankComplete)
+            {
+                AddComponent(new Position(96, 224));
+            }
+            else
+            {
+                AddComponent(new Position(864, 672));
+            }
+
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
 
@@ -31,7 +40,6 @@ namespace Hacker.GameObjects
             AddComponent(sprite);
 
             AddComponent(new ConversationInteraction(new ArtistConversation(this, this.Name, this.IpAddress)));
-            AddComponent(new Keyloggable("artist"));
         }
     }
 }

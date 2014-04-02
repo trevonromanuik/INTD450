@@ -31,7 +31,6 @@ namespace Hacker.GameObjects
             AddComponent(sprite);
 
             AddComponent(new ConversationInteraction(new CatConversation(this, this.Name, this.IpAddress)));
-            AddComponent(new Keyloggable("cat"));
         }
     }
 }

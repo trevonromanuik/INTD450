@@ -31,7 +31,6 @@ namespace Hacker.GameObjects
             AddComponent(sprite);
 
             AddComponent(new ConversationInteraction(new MantisConversation(this, this.Name, this.IpAddress)));
-            AddComponent(new Keyloggable("manty"));
         }
     }
 }

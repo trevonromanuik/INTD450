@@ -228,6 +228,8 @@
     <Compile Include="GameObjects\NPC_Artist.cs" />
     <Compile Include="GameObjects\NPC_Cat.cs" />
     <Compile Include="GameObjects\NPC_Mantis.cs" />
+    <Compile Include="GameObjects\NPC_Parti1.cs" />
+    <Compile Include="GameObjects\NPC_Parti2.cs" />
     <Compile Include="GameObjects\NPC_SailorMoon.cs" />
     <Compile Include="GameObjects\NPC_Trash.cs" />
     <Compile Include="GameObjects\OfficeTerminal.cs" />

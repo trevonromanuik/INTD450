@@ -27,8 +27,6 @@ namespace Hacker.Levels
 
             Blackmoore blackmoore = new Blackmoore();
             objectLayer.GameObjectManager.AddGameObject(blackmoore);
-            objectLayer.GameObjectManager.AddGameObject(new Wedge());
-
             bool triggered = false;
             objectLayer.GameObjectManager.AddGameObject(new Trigger(new Rectangle(320,448,384,192),() =>
                 {
@@ -43,6 +41,11 @@ namespace Hacker.Levels
             juliana.RemoveComponent<Collision>();
             juliana.GetComponent<Position>().Teleport(2048, 2048);
             objectLayer.GameObjectManager.AddGameObject(juliana);
+
+            objectLayer.GameObjectManager.AddGameObject(new Wedge());
+            objectLayer.GameObjectManager.AddGameObject(new NPC_Parti1());
+            objectLayer.GameObjectManager.AddGameObject(new NPC_Parti2());
+            objectLayer.GameObjectManager.AddGameObject(new NPC_Artist());
 
             var door = new Placeable(1024, 280, AssetManager.LoadTexture("metal_door"));
             door.AddComponent(new ConversationInteraction(new DoorConversation(door)));
