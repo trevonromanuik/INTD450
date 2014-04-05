@@ -22,10 +22,15 @@ namespace Hacker.GameObjects
             AddComponent(new Shadow());
             AddComponent(new ShadowMovementCollision());
 
-            Sprite sprite = new Sprite(AssetManager.LoadTexture("bouncer"));
+            AnimatedSprite sprite = new AnimatedSprite();
+            sprite.AddAnimation("up", new Animation(    AssetManager.LoadTexture("bouncer_red"), 102, 90, 0.3f, true));
+            sprite.AddAnimation("down", new Animation(  AssetManager.LoadTexture("bouncer_red"), 102, 90, 0.3f, true));
+            sprite.AddAnimation("left", new Animation(  AssetManager.LoadTexture("bouncer_red"), 102, 90, 0.3f, true));
+            sprite.AddAnimation("right", new Animation( AssetManager.LoadTexture("bouncer_red"), 102, 90, 0.3f, true));
+            sprite.PlayAnimation("down");
             AddComponent(sprite);
 
-            AddComponent(new ConversationInteraction(new BouncerConversation(this, "Bouncer", string.Empty)));
+            AddComponent(new ConversationInteraction(new BouncerConversation(this, "Bouncer Protocol", string.Empty)));
         }
     }
 }
