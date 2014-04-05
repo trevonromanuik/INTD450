@@ -18,7 +18,7 @@ namespace Hacker.Conversations
         public OfficeTerminalConversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
-            Messages.Add(new Message("Please check your 'GlobeComm Deliveries/Downloads' folder on your desktop for downloaded files.", () => Player.Instance.GameCompleteState == GameCompleteState.ClubComplete));
+            Messages.Add(new Message("Your confidential files are stored in Data Bank vault #3266845875.", () => Player.Instance.GameCompleteState == GameCompleteState.ClubComplete));
 
             Message message1 = new Message("Welcome, Mr. Blackmoore.");
             Message message11 = new Message("Your upcoming itinerary for the day includes:\n"+

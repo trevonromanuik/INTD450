@@ -17,6 +17,9 @@ namespace Hacker.Conversations
         public Parti2Conversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
+            Messages.Add(new Message("You're quite the cyber fashionista, Miss Juliana. Did you have your avatar's shoes custom designed?", () => Player.Instance.SpoofId == "juliana"));
+            Messages.Add(new Message("Hello again, Mr. Blackmoore. My husband and I will certainly be investing in your new technology.", () => Player.Instance.SpoofId == "blackmoore"));
+
             Messages.Add(new Message("I adore the color of your avatar! Jaune is so in style this cyber season. I see you think like I do; an avatar with a hidden face is very incognito-chique! ", () => owner.GetIntegerVariable("count") % 3 == 0, () =>
             {
                 owner.IncrementIntegerVariable("count");

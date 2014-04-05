@@ -42,6 +42,9 @@ namespace Hacker.Conversations
             }
             else
             {
+                Messages.Add(new Message("Hi again, Miss Juliana. Thanks for inviting me. I'm glad that Mr. Blackmoore's Mindshare device could help you make use of my talents.", () => Player.Instance.SpoofId == "juliana"));
+                Messages.Add(new Message("Hi, Mr. Blackmoore. Your event is impressive as always. Now if only I could recall where I'm scheduled to be afterwards...", () => Player.Instance.SpoofId == "blackmoore"));
+
                 Messages.Add(new Message("Did you speak to Miss Juliana outside? She's always been lovely to me. Very enamoured with my artwork. She convinced me to try the Mindshare device in the first place!", () => owner.GetIntegerVariable("count") % 3 == 0, () =>
                 {
                     owner.IncrementIntegerVariable("count");

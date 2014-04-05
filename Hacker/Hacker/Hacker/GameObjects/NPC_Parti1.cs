@@ -17,6 +17,10 @@ namespace Hacker.Conversations
         public Parti1Conversation(GameObject owner, string name, string ipAddress)
             : base(owner, name, ipAddress)
         {
+
+            Messages.Add(new Message("Oh hello there, dear. What a lovely party your employer has thrown.", () => Player.Instance.SpoofId == "juliana"));
+            Messages.Add(new Message("Lovely to see you again, Mr. Blackmoore. Each of your events is more impressive than the last.", () => Player.Instance.SpoofId == "blackmoore"));
+
             Messages.Add(new Message("Blackmoore Industries always hosts the most elaborate events on GlobeComm. For investors like us around the globe, it's an excellent opportunity to gather and discuss new technologies!", () => owner.GetIntegerVariable("count") % 3 == 0, () =>
             {
                 owner.IncrementIntegerVariable("count");
