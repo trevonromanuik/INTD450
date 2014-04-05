@@ -71,8 +71,6 @@ namespace Hacker
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            //screenManager.LoadNewScreen(new LoginScreen(screenManager));
             screenManager.LoadNewScreen(new GameScreen(screenManager));
         }
 
