@@ -23,12 +23,13 @@ namespace Hacker.Screens
         public GameScreen(ScreenManager screenManager)
             : base(screenManager)
         {
+            LoadLevel<SplashScreenLevel>();
             //LoadLevel<CipherStoreLevel>();
             //LoadLevel<DeepWebLevel>();
             //LoadLevel<DataBankLevel>();
             //LoadLevel<VaultLevel>();
             //LoadLevel<ClubExteriorLevel>();
-            LoadLevel<ClubInteriorLevel>();
+            //LoadLevel<ClubInteriorLevel>();
             //LoadLevel<HubLevel>();
             //LoadLevel<ClubInteriorLevel>();
         }

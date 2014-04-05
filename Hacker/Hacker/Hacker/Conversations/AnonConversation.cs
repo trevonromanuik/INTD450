@@ -42,7 +42,7 @@ namespace Hacker.Conversations
             Messages.Add(new Message("Don't forget to check your e-mail.", () => owner.GetBooleanVariable("done") && Player.Instance.GameCompleteState == GameCompleteState.GameStart));
 
             // Game intro convo (GameStart)
-            Message message1 = new Message("Ahh, the illustrious 'hacker' finally arrives. Welcome to GlobeComm, " + Player.Instance.GetStringVariable("Username") + ". 'Where virtual communication's gone global!' ...Heh, or so the fancy logo says.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart);
+            Message message1 = new Message("Ahh, the illustrious 'hacker' finally arrives. Welcome to GlobeComm, " + Player.Instance.GetStringVariable("Username") + ". Where 'Global Communication's at your Fingertips!' ...Heh, or so the fancy logo says.", () => Player.Instance.GameCompleteState == GameCompleteState.GameStart);
             Message message1a = new Message("Normally when you join this service you'd get dropped into a public park, or a place where you could chat with your friends, but I intercepted your connection and brought you here.");
             Message message1b = new Message("Since this software's so new I'll give you a quick 411. Elite capitalists and tech tychoons are all over this social networking service. Using it to impress investors, share data, or store money...");
             Message message1c = new Message("Regular joes hang out here too of course, only they're not so much allowed in the elites' locales. You can buy most anything from the criminals and weirdos who hang out in the underbellies of some servers.");

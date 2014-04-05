@@ -234,6 +234,7 @@
     <Compile Include="GameObjects\NPC_Trash.cs" />
     <Compile Include="GameObjects\OfficeTerminal.cs" />
     <Compile Include="GameObjects\Placeable.cs" />
+    <Compile Include="GameObjects\SplashScreen.cs" />
     <Compile Include="GameObjects\Teller.cs" />
     <Compile Include="GameObjects\Terminal.cs" />
     <Compile Include="GameObjects\Trigger.cs" />
@@ -270,6 +271,7 @@
     <Compile Include="Levels\InsideLevel.cs" />
     <Compile Include="Levels\Level.cs" />
     <Compile Include="Levels\OutsideLevel.cs" />
+    <Compile Include="Levels\SplashScreenLevel.cs" />
     <Compile Include="Levels\VaultLevel.cs" />
     <Compile Include="Managers\AssetManager.cs" />
     <Compile Include="Managers\CameraManager.cs" />
@@ -281,7 +283,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Hacker.cs" />
     <Compile Include="Screens\GameScreen.cs" />
-    <Compile Include="Screens\LoginScreen.cs" />
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Transitions\FadeTransition.cs" />
     <Compile Include="Transitions\Transition.cs" />
