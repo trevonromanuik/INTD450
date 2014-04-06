@@ -84,6 +84,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="MiscFiles\DecryptionProgram.lnk">
+      <Name>DecryptionProgram</Name>
+    </None>
     <Compile Include="player_down.png">
       <Name>player_down</Name>
       <Importer>TextureImporter</Importer>
@@ -594,6 +597,9 @@
       <Name>Experimental_Error</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="MiscFiles\Mindshare device.pdf">
+      <Name>Mindshare device</Name>
+    </None>
     <None Include="MiscFiles\Resources_Request.pdf">
       <Name>Resources_Request</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -964,6 +970,14 @@
       <Processor>TextureProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MiscFiles\DecryptionProgram.exe">
+      <Name>DecryptionProgram</Name>
+    </None>
+    <None Include="MiscFiles\DecryptionProgram.pdb">
+      <Name>DecryptionProgram</Name>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
