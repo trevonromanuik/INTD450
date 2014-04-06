@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 using Microsoft.Xna.Framework;
 
@@ -69,6 +70,7 @@ namespace Hacker.Conversations
             {
                 EmailHelper.SendMessage("endgame_email");
                 SoundManager.PlaySound("glitchcrash", true);
+                System.Windows.Forms.MessageBox.Show("You have been disconnected from GlobeComm.");
                 Hacker.HackerExit();
             });
 
