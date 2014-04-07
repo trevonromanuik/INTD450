@@ -26,7 +26,7 @@ namespace Hacker.Conversations
             Message message111 = new Message("It is our most sincere hope that you will be interested in jumping aboard our innovative project. If you have any questions, I'm yours for the evening.", () => true, () => owner.SetBooleanVariable("triggered", true));
             Message message1111 = new Message("In the mean time, I invite you all to take a look at our brochure, which I've downloaded to your 'GlobeComm Deliveries' folder on your desktop. Feel free to connect with me on facebook as well! ", () => true, () =>
             {
-                Helpers.FileCopyHelper.copyFile("Mindshare device.pdf");
+                Helpers.FileCopyHelper.copyFile("MindshareDevice.pdf");
             });
 
             message111.Messages.Add(message1111);

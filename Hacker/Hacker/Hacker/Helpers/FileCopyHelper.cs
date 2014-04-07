@@ -4,6 +4,9 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using Microsoft.Xna.Framework.Content;
+
 using Hacker.Managers;
 using HackerDataTypes;
 
@@ -16,9 +19,10 @@ namespace Hacker.Helpers
 
         public static void copyFile(string fileName, string subDir = "")
         {
-            string sourceFilePath = Path.Combine(parentDir, @"HackerContent\MiscFiles\", fileName);
-            var destFilePath = dir + "/GlobeComm Deliveries/" + subDir + fileName;
 
+            var destFilePath = dir + "/GlobeComm Deliveries/" + subDir + fileName;
+            string sourceFilePath = Path.Combine(@"Content\MiscFiles\" + fileName);
+            
             if (!Directory.Exists(dir + "/GlobeComm Deliveries/" + subDir))
                 Directory.CreateDirectory(dir + "/GlobeComm Deliveries/" + subDir);
 
@@ -28,7 +32,7 @@ namespace Hacker.Helpers
 
         public static void createShortcut(string shortcutName, string fileName)
         {
-            string destPath = System.IO.Path.Combine(parentDir, "HackerContent", "MiscFiles");
+            string destPath = Path.Combine(@"Content", "MiscFiles");
             if (!Directory.Exists(destPath))
                 Directory.CreateDirectory(destPath);
 
@@ -37,11 +41,8 @@ namespace Hacker.Helpers
             WshShell shell = new WshShell();
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
 
-            //shortcut.Description = "My shortcut description";   // The description of the shortcut
-            //shortcut.IconLocation = @"c:\myicon.ico";           // The icon of the shortcut
-            shortcut.TargetPath = targetFileLocation;           // The path of the file that will launch when the shortcut is run
-            shortcut.Save();                                    // Save the shortcut
-            SoundManager.PlaySound("download", false);
+            shortcut.TargetPath = System.IO.Path.GetFullPath(targetFileLocation); // The path of the file that will launch when the shortcut is run
+            shortcut.Save();
         }
     }
 }

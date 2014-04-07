@@ -11,6 +11,7 @@
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
     <ContentRootDirectory>Content</ContentRootDirectory>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -597,8 +597,9 @@
       <Name>Experimental_Error</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="MiscFiles\Mindshare device.pdf">
-      <Name>Mindshare device</Name>
+    <None Include="MiscFiles\MindshareDevice.pdf">
+      <Name>MindshareDevice</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="MiscFiles\Resources_Request.pdf">
       <Name>Resources_Request</Name>
@@ -974,6 +975,7 @@
   <ItemGroup>
     <None Include="MiscFiles\DecryptionProgram.exe">
       <Name>DecryptionProgram</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="MiscFiles\DecryptionProgram.pdb">
       <Name>DecryptionProgram</Name>
